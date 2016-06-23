@@ -6,4 +6,4 @@ Save to the Wayback Machine is a browser extension for Google Chrome that lets y
 
 ## Disclaimer
 
-This is a unofficial extension and is not sponsored, owned, or endorsed by the [Internet Archive](archive.org).
+This is a unofficial extension and is not sponsored, owned, or endorsed by the [Internet Archive](https://archive.org).
