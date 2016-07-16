@@ -6,6 +6,7 @@ A browser extension for Google Chrome that lets you quickly save web pages to th
 
 ## License
 
+Code in this repository is licensed under the GNU General Public License Version 3. Details can be found in the [LICENSE](LICENSE) file. 
 
 ## Disclaimer
 
