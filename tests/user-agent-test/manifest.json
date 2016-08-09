@@ -1,0 +1,17 @@
+{
+	"name": "Chrome XMLHttpRequestc user agent test",
+	"description": "Testing google chrome's XMLHttpRequest when setting user agent header",
+	"version": "0.0.0",
+	"manifest_version": 2,
+	"icons": {
+		"19": "images/19.png"
+	},
+	"permissions": [
+		"https://archive.org/wayback/available?url=*"
+	],
+	"browser_action": {
+		"default_icon": "images/19.png",
+		"default_popup": "popup.html",
+		"default_title": "open to test"
+	}
+}
