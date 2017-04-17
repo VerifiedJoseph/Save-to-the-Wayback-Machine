@@ -1,0 +1,217 @@
+4.4.0 -- 17/03/17
+	Additions:
+		none
+	Changes:
+		Improved HTTP status code handling in background.js
+		Removed Today and Yesterday stats from popup.html, popup.js and background.js
+		Removed experimental robots.txt scanning feature from background.js and options.js
+		Removed updateStats() function from background.js
+		
+	Fixes:
+		Fixed 'Try agian' Typo in popup.html. Reported by GitHub user hugovk 
+			https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/issues/1
+
+4.3.1 -- 27/09/16
+	Additions:
+		Added image file 64.png
+		Added HTTP status codes regex to options var in background.js
+		Added displayData() function to popup.js
+		Added wasRest() function to popup.js
+	Changes:
+		Updated user agent regex to work with user agents that contain spaces (background.js)
+		Moved resetNumber() function to background.js and renamed it to resetStats()
+	Fixes:
+		Fixed bug with 'archive this page' right click option not opening the right URL (background.js) 
+
+
+4.3.0 -- 01/09/16
+	Additions:
+		Added new IPv4 regex to background.js
+		Added requestedBy string 'Save to the Wayback Machine (https://verifiedjoseph.com/wayback)' to options object in background.js
+		Added setRequestHeader() line to functions scanRobotsFile() and saveByAjax() in background.js and function fetchData() in popup.js
+		Added function status() to options.js 
+		Added function updateStats() to background.js
+		Added confirm div and yes and no buttons to popup.html
+		Added CSS for confirm div and extra small buttons to popup.css
+		Added event listener for yes and no buttons to popup.js
+		Added image files checkbox.png, select.png and select-disabled.png
+		Added image file 40-page-icon.png
+		Added folders html and icons
+		Added archive.org_bot user agent check to scanRobotsFile() function in background.js
+	 	Added function Eventlistener() to popup.js
+		Added path regex to options var in background.js
+		Added user options 'DisplayFullDate' and 'displayTimeSince' to background.js 
+		Added timeSince() function to background.js
+		Added radio boxes for FullDate and TimeSince options to options.html
+		
+	Changes:
+		Changes to options var in background.js
+		Changes to url regex in background.js to escape forward slashes 
+		Minor changes to formatTimeDate() function in popup.js
+		Updated options page css in options.css to work with checkbox.png
+		Updated options page css in options.css to work with select.png and select-disabled.png
+		Removed javascript confirm() function from popup.js
+		Removed image files checked.png, checked-disabled.png and not-checked.png
+		Removed image file drop_down_arrow.png
+		Removed file background.js from main folder
+		Removed file loading.css from css folder
+		Removed file download.png from images folder
+		Removed file options.html from main folder (chrome inline options view)
+		Moved files popup.html and options_tab.html to the html folder
+		Renamed options_tab.html to options.html
+		Moved image files 16.png and 128.png to icons folder
+		Removed 'Archive pages without open a new tab' option as this is now default behavior (options.js)
+		Log number option can now be enabled/disabled by the user in options.html
+		Renamed folder js to javascript
+	Fixes:
+		Fixed bug in formatTimeDate() function that forced time stamps to always display in the 12-hour clock (popup.js)
+		Fixed bug in function saveByAjax() in background.js, that stopped a error message from being displyed when the Wayback Machine API return a 502 error code.
+
+4.2.0 -- 20/06/16
+	Additions:
+		Added IPv4 regular expression to the vaildateUrl() function in background.js
+
+		Added check for 'Disallow:' (visit all files) to scanRobotsFile() function in background.js
+		Added function consoleLog() to background.js and popup.js
+		Added debug section to options_tab.html
+		Added default user options `consoleLog`, `archiveAnyway`, `archivedDate`, `archivedToday`, `archivedYesterday`, `tabFreeSaving`, `dateFormat`, `timeFormat`, `timeZoneConvert` and `numberFormat` to background.js
+		Added Archive Anyway button to popup.html and related CSS to popup.css
+		Added today and yesterday numbers to logNumber() function in background.js and to fetchNumber() function in popup.js
+		Added today and yesterday number reset to resetNumber() in popup.js
+		Added saveByAjax() function to background.js
+		Added wasSaved() function to popup.js
+		Added updateHTML() function to popup.js
+		Added numberFormat() fuction to popup.js
+		Added checkbox css to options.css
+		Added Date and time section to options_tab.html
+		Added number format select box to options_tab.html
+	Changes:
+		Updated formatTimeDate() function in popup.js to include formats that can be set by the user
+		Removed old code from functions in background.js and popup.js
+		Removed default user option `contextMenuCreated` from background.js
+		Renamed style.css to popup.css
+		Improved code comments in background.js, popup.js and options.js
+		Replaced each document.getElementById(element).innerHTML line with the function updateHTML() in popup.js
+	Fixes:
+		none
+
+4.1.0 -- 18/05/16
+	Additions:
+		none
+	Changes:
+		Removed incognito "not_allowed" line from manifest.json after a request from a user.
+	Fixes:
+		none
+
+4.0.1 -- 16/05/16
+	Additions:
+		none
+	Changes:
+		Removed line `chrome.browserAction.setBadgeText({text:"DR"});` from popup.js
+	Fixes:
+		none
+
+4.0.0 -- 16/05/16
+	Additions:
+		Added incognito "not_allowed" to manifest.json
+
+		Added Notifications section to options.html
+		Added Experimental Features section to options.html
+
+		Added function contextMenus() to background.js
+		Added isValid(), background() and start() functions to popup.js
+		Added previewSound() function to options.js
+		Added notifyUserSound() function to background.js
+		Added defaultUserOptions `ScanRobotsFile` to background.js
+		Added function scanRobotsFile() to background.js
+		Added defaultUserOptions `contextMenuCreated` to background.js
+		Added function fetchUserOptions() to background.js
+	Changes:
+		Changed padding on confirm Dialog box in options.html
+		Changed section title font size and padding in options.html
+		Removed function passOptions() from background.js
+		Removed functions createMenu() and removeMenu() from background.js
+		Renamed option 'expression' to 'regex' in backgroun.js
+		Removed default user option 'noteAutoClose' from background.js and options.js
+	Fixes:
+		none
+
+3.5.0 -- 15/04/16
+	Additions:
+		Added version_name to manifest.json
+		Added function display() to popup.js
+		Added function resetOptions() to options.js
+		Added event listeners for html elements #reset, #yes and #no to options.js
+	Changes:
+		Renamed function restoreOptions() to displayOptions() in options.js
+		Improved code comments in popup.js and background.js
+	Fixes:
+		Fixed bug with URL regular expression in background.js that stopped websites with the new gTLDs like .photography or .ninja from being archived.
+
+3.0.0 -- 09/04/16
+	Additions:
+		none
+	Changes:
+		Removed jQuery library dependency from popup.js.
+	Fixes:
+		none
+
+2.3.0 -- 06/04/16
+	Additions:
+		Added permission 'https://archive.org/wayback/available?url=*' to manifest.json for API calls
+		Added event listener for context_menu options checkbox to options.js
+	Changes:
+		Replaced permission 'tabs' with 'activeTab' in manifest.json
+		Removed permissions 'https://*' and 'http://*' from manifest.json
+		Improved code comments in background.js, popup.js and options.js
+	Fixes:
+		none
+
+2.2.0 -- 25/03/16
+	Additions:
+		Added pages archived number reset button to popup.html and code to popup.js
+	Changes:
+		none
+	Fixes:
+		none
+
+2.1.1 -- 23/03/16
+	Additions:
+		none
+	Changes:
+		none
+	Fixes:
+		Save URL bug fixed in popup.js
+
+2.1.0 -- 23/03/16
+	Additions:
+		Added stats view to popup.html and code to popup.js
+	Changes:
+		Minor changes to background.js and popup.js
+	Fixes:
+		none
+
+2.0.0 -- 23/03/16
+	Additions:
+		Added background script
+		Added options page
+		Added contextMenu link
+		Added notifications
+	Changes:
+		none
+	Fixes:
+		none
+
+1.3.0 -- 22/03/16
+	Additions:
+		none
+	Changes:
+		Minor change popup css paddding.
+	Fixes:
+		none
+
+1.2.0 -- 21/03/16
+	??
+
+1.0.0 -- 18/03/16
+	Initial release
