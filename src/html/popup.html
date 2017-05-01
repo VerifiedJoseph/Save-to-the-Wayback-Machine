@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Popup</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../css/popup.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="archiving" class="error">
+				<p id="error">Archiving Page...</p>
+				<div id="archive-version-saved" class="button av-e">
+					<span>View archived</span>
+				</div>
+				<p id="error-reason"></p>
+				<div id="loading-animation" class='loading' style='transform:scale(0.25);'>
+					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(120deg) translate(0,-60px);transform:rotate(120deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(150deg) translate(0,-60px);transform:rotate(150deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(210deg) translate(0,-60px);transform:rotate(210deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(240deg) translate(0,-60px);transform:rotate(240deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+				</div>
+			</div>
+			
+			<div id="confirm" class="view confirm">
+				<p id="reason">Are you sure?</p>
+				<div id="yes" class="left button x-small one">
+					<span>Yes</span>
+				</div>
+				<div id="no" class="left button x-small two">
+					<span>No</span>
+				</div>
+			</div>
+			
+			<div id="stats-view" class="view stats">
+				Pages Archived :
+				<div class="number">
+					<span title="Total number of page archived since extension was installed" id="total-number">0</span>
+				</div>
+				<div class="stats-options">
+					<div id="back" class="left button small one">
+						<span>Back</span>
+					</div>
+					<!--<div id="reset-number" class="right button small two">
+						<span title="Reset all numbers to zero">Reset</span>
+					</div>-->
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<div id="archive-now" class="button">
+				<span>Archive this page</span>
+			</div>
+			<div class="archive-last">
+				<strong>Page last archived :</strong> 
+			</div>
+			<div id="details">
+				<div class="notes">
+					<p id="loading">Loading...</p>
+					<p id="api-error-one">Page has not been archived.</p>
+					<p id="api-error-two">Unable to fetch data from Wayback Machine API</p>
+				</div>
+				<div id="time-date">
+					<p><span id="date"></span></p>
+					<p>at <span id="time"></span></p>
+				</div>
+				<div id="time-since">
+					<p id="since"></p>
+				</div>
+			</div>
+			<div id="archive-version" class="button">
+				<span>View archived version</span>
+			</div>
+			<div id="archive-history" class="button">
+				<span>Page archive history</span>
+			</div>
+			
+			<div id="options-box">	
+				<div id="options" class="left button small one">
+					<span>Options</span>
+				</div>
+				<div id="stats" class="left button small two">
+					<span>Statistics</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<script src="../javascript/global.js"></script>
+		<script src="../javascript/ui.js"></script>
+		<script src="../javascript/sendMessage.js"></script>
+		<script src="../javascript/request.js"></script>
+		<script src="../javascript/dataFormat.js"></script>
+		<script src="../javascript/pages/popup.js"></script>
+	</body>
+</html>

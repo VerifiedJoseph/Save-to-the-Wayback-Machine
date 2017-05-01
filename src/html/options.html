@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Options</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/options.css">
+</head>
+
+<body>
+	<div class="header-container">
+		<div class="header">
+			<div class="left image">
+				<img src="../images/icons/40-page-icon.png"/>
+			</div>
+			<div class="left title">
+				<h3>Options</h3>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<div class="options-container">
+		<h3>General</h3>
+		<div class="section">
+			<div class="option">
+				<label>
+					<span id="">Number format :</span>
+					<div class="select"> <!-- https://en.wikipedia.org/wiki/Decimal_mark#Examples_of_use -->
+						<select class="number" id="number_format">
+							<option value="1,000">1,000</option>
+							<option value="1 000">1 000</option>
+							<option value="1.000">1.000</option>
+							<option value="1'000">1'000</option>
+						</select>
+					</div>
+				</label>
+			</div>
+			<div class="option bottom">
+				<label class="checkbox">
+  				<input type="checkbox" id="log_number"/>
+  				<span></span>
+					<p class="text">Log number of pages archived</p>
+				</label>
+			</div>
+		</div>
+		
+		<h3>Date &#38; Time</h3>
+		<div class="section">			
+			<div class="option">
+				<label class="radio">
+  				<input type="radio" id="full_date_time" name="date_display" value="1"/>
+  				<span></span>
+					<p class="text">Display full date and time.</p>
+				</label>
+			</div>
+			
+			<div class="option child">
+				<label>
+					<span id="note-date">Date format :</span>
+					<div class="select">
+						<select class="date" id="date_format">
+							<option value="F j, Y">April 24, 2017</option>
+							<option title="Year/Month/Day" value="Y/m/d">2017/04/24</option>
+							<option title="Day/Month/Year" value="d/m/Y">24/04/2017</option>
+							<option title="Month/Day/Year" value="m/d/Y">04/24/2017</option>
+						</select>
+					</div>
+				</label>
+			</div>
+			<div class="option child">
+				<label>
+					<span id="note-time">Time format :</span>
+					<div class="select">
+						<select class="date" id="time_format">
+							<option title="12 hour clock" value="g:i A">02:50 PM</option>
+							<option title="12 hour clock with seconds" value="g:i:s A">02:50:48 PM</option>
+							<option title="24 hour clock" value="H:i">14:50</option>
+							<option title="24 hour clock with seconds" value="H:i:s">14:50:48</option>
+						</select>
+					</div>
+				</label>
+			</div>
+			
+			<div class="option">
+				<label class="radio">
+  				<input type="radio" id="time_since_archive" name="date_display" value="1"/>
+  				<span></span>
+					<p class="text">Display time since last archive. e.g: "1 hour ago"</p>
+				</label>
+			</div>
+			
+			
+			<div class="option bottom">
+				<label class="checkbox">
+  				<input type="checkbox" id="time_zone_convert"/>
+  				<span></span>
+					<p class="text">Convert date and time from Coordinated Universal Time (UTC) to local time zone.</p>
+				</label>
+			</div>
+		</div>
+		
+		<h3>Right Click Menu</h3>
+		<div class="section">
+			<div class="option">
+				<label class="checkbox">
+  				<input type="checkbox" id="context_menu"/>
+  				<span></span>
+					<p class="text">Show 'Archive this page' option in right click menu.</p>
+				</label>
+			</div>
+			<div class="option child bottom">
+				<label class="checkbox">
+  				<input type="checkbox" id="context_note"/>
+  				<span></span>
+					<p class="text">Show a notification if a page cannot be archived.</p>
+				</label>
+			</div>
+		</div>
+		
+		<h3>Notifications</h3>
+		<div class="section">
+			<div class="option">
+				<label class="checkbox">
+  				<input type="checkbox" id="note_sound"/>
+  				<span></span>
+					<p class="text">Play alert sound when a notification is displayed.</p>
+				</label>
+			</div>
+			<div class="option child-text bottom">
+				<label>
+					<span id="note-sound">Sound :</span>
+					<div class="select">
+						<select class="sound" id="note_sound_list">
+							<option value="0">Beep 1</option>
+							<option value="1">Beep 2</option>
+						</select>
+					</div>
+				</label>
+				<span>
+					<button id="preview_sound">Preview</button>
+				</span>
+			</div>
+		</div>
+	
+		<!--<h3>Debug</h3>
+		<div class="section">
+			<div class="option">				
+				<label class="checkbox">
+  				<input type="checkbox" id="console_log"/>
+  				<span></span>
+					<p class="text">Log error and action messages in the developer console.</p>
+				</label>
+			</div>
+		</div>-->
+		
+		<div class="section">
+			<div class="left">
+				<button id="save">Save</button>
+			</div>
+			<div class="left">
+				<div id="status"></div>
+			</div>
+			<div class="right">
+				<button id="reset">Reset options</button>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<p>
+			<a target="_blank" href="https://verifiedjoseph.com/extension-privacy-policy">Privacy Policy</a>
+		</p>
+		<div id="confirm">
+			<div class="confirm-center">
+				<h3>Are you sure you want to reset the options?</h3>
+				<div class="section">
+					<button id="yes">Yes</button>
+					<button id="no">No</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script src="../javascript/global.js"></script>
+	<script src="../javascript/sendMessage.js"></script>
+	<script src="../javascript/ui.js"></script>
+	<script src="../javascript/pages/options.js"></script>
+</body>
+</html>

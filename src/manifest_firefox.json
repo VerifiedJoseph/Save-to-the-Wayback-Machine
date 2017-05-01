@@ -1,0 +1,51 @@
+{
+	"applications": {
+		"gecko": {
+			"id": "wayback-firefox@verifiedjoseph.com",
+			"strict_min_version": "53.0"
+		}
+	},
+	"name": "Save To The Wayback Machine",
+	"description": "Quickly save web pages to the Internet Archive's Wayback Machine.",
+	"author": "VerifiedJoseph",
+	"version": "1.0.0",
+	"version_name": "1.0.0 (Released 01/05/17)",
+	"manifest_version": 2,
+	"icons": {
+		"16": "images/icons/16.png",
+		"19": "images/icons/19.png",
+		"32": "images/icons/32.png",
+		"48": "images/icons/48.png",
+		"64": "images/icons/64.png",
+		"96": "images/icons/96.png",
+		"128": "images/icons/128.png"
+	},
+	"permissions": [
+		"notifications",
+		"storage",
+		"contextMenus",
+		"activeTab",
+		"https://archive.org/wayback/available?url=*",
+		"https://web.archive.org/*"
+	],
+	"browser_action": {
+		"default_icon": {
+			"16": "images/icons/16.png",
+			"19": "images/icons/19.png",
+			"32": "images/icons/32.png",
+			"64": "images/icons/64.png"
+		},
+		"default_popup": "html/popup.html",
+		"default_title": "Save To The Wayback Machine"
+	},
+	"background": {
+		"persistent": true,
+		"page": "html/background.html"
+	},
+	"options_page": "html/options.html",
+	"options_ui": {
+		"page": "html/options.html",
+		"open_in_tab": true,
+		"chrome_style": false
+	}
+}

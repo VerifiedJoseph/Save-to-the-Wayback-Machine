@@ -1,0 +1,264 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	box-sizing: border-box;
+	background-color: #FFF;
+}
+body {
+	font-family: arial,sans-serif;
+	font-size: 14px;
+	margin: 0;
+	line-height: 1.428571429;
+}
+
+h3 {
+	font-weight: 100;
+	/*margin: 10px 0px;*/
+	font-size: 16px;
+	margin: 0px;
+}
+
+
+.header-container {
+	padding: 5px 55px;
+	border-bottom: solid lightgray 1px;
+}
+
+.header {
+	height: 40px;
+}
+
+
+.header > .title {
+	height: 16px;
+	padding: 10px;
+}
+
+.header > .image {
+	height: 40px;
+}
+
+.header > .image > img {
+	width: 40px;
+	height: 40px;
+}
+
+.left {float:left;}
+.right {float:right;}
+.clear {clear:both; padding:0px;}
+#status {padding: 2px 8px; font-size: 13px;}
+
+#confirm {
+	display: none;
+	position: absolute;
+	top: 0px;
+	background-color: rgba(255, 255, 255, 0.95);
+	width: 650px;
+	text-align: center;
+	height: 100%;
+	padding:0px;
+}
+
+.confirm-center {
+	margin-top: 40%;
+	padding:0px;
+}
+
+.options-container {
+	padding: 15px 0px 0px 100px;
+	max-width: 650px;
+	position: relative;
+}
+
+.section {
+    margin: 10px 0px;
+}
+
+#note-date {
+	padding-right: 2px;
+}
+
+.option {
+	padding-left: 6px;
+	padding-bottom:5px;
+	font-size: 13px;
+	min-height:20px;
+}
+
+.option.child {
+	padding-left: 32px;
+}
+
+.option.child-text {
+	padding-left: 32px;
+}
+
+.option.bottom {
+	padding-bottom:0px;
+}
+
+.note {position: relative; top: -20px;}
+.note-button {display: block; position: relative; top: 20px;}
+
+span.checkbox {
+	height: 17px;
+	padding-top: 2px;
+	padding-left: 10px;
+	display: inline-block;
+}
+
+button:disabled {
+  color: rgb(153, 153, 153);
+	cursor: default;
+}
+
+input:disabled + div {
+  color: rgb(153, 153, 153);
+}
+
+button {	
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	padding: 3px;
+	padding-bottom: 3px;
+	min-width: 70px;
+	font-size: 13px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+label > button:disabled  ~ div, .disabled  {
+  color: rgb(153, 153, 153);
+	cursor: not-allowed;
+}
+
+.select {
+	display: inline-block;
+}
+
+select.sound, select.number {
+	width: 65px;
+}
+
+select.date, select.time {
+	width: 110px;
+}
+
+select {
+	padding-left: 5px;
+	width: 65px;
+	height: 23px; 
+	background: url(../images/select.png) no-repeat right white;
+	border: 0;
+	border-radius: 0;
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance:none;
+	border: 1px solid #ccc;
+ }
+
+select:disabled {
+	background: url(../images/select-disabled.png) no-repeat right white;
+	cursor: not-allowed;
+ }
+ 
+input:focus, select:focus, textarea:focus, button:focus {outline: none;}
+
+/* Checkbox and radio buttons */
+label.checkbox input[type="checkbox"], label.radio input[type="radio"] {
+	display:none;
+}
+
+label.checkbox span, label.radio span {
+  display:inline-block;
+	width:20px; 
+	height:20px;
+  vertical-align:middle;
+	position: relative;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+label.checkbox span {
+	background: url(../images/checkbox.png) no-repeat white;
+	background-position: 0 0px;
+}
+
+label.radio span {
+	background: url(../images/radio.png) no-repeat white;
+	background-position: 0 0px;
+}
+
+/* Checkbox checked */
+label.checkbox :checked + span {
+	background-position: 0 -38px;
+}
+
+/* Checkbox disabled */
+label.checkbox :disabled + span {
+	cursor: not-allowed;
+	background-position: 0 0px;
+}
+
+/* Checkbox disabled and checked */
+label.checkbox :disabled:checked + span {
+	cursor: not-allowed;
+	background-position: 0 -19px;
+}
+
+/* Radio checked */
+label.radio :checked + span {
+	background-position: 0 -38px;
+}
+
+label.checkbox > .text, label.radio > .text {	
+	padding-top: 1px;
+	padding-left: 5px;
+	display: inline-block;
+	margin-top: 1px;
+	position: absolute;	
+}
+
+label.checkbox :disabled ~ .text {	
+	color: rgb(153, 153, 153);
+	cursor: not-allowed;
+}
