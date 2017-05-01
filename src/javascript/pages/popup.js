@@ -161,7 +161,7 @@
 				
 				// Fetch and display stats
 				sendMessage('stats', null, function (stats) {
-					ui.content('total-number', formatNumber(stats.pagesArchived));
+					ui.content('total-number', formatNumber(stats.pagesArchived, settings.numberFormat));
 				});
 			});
 		
