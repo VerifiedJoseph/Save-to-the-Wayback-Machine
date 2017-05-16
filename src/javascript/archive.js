@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, console, Request */
+/*global chrome, browser, console, HttpRequest */
 
 "use strict";
 
@@ -11,7 +11,7 @@
 */
 function archive(url, callback) {
 	
-	var request = new Request();
+	var request = new HttpRequest();
 	request.open('GET', global.urls.save + url, function (response) {
 		//console.log(response.headers);
 		
