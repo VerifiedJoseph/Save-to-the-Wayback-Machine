@@ -2,8 +2,8 @@
 	"name": "Save To The Wayback Machine",
 	"description": "Quickly save web pages to the Internet Archive's Wayback Machine.",
 	"author": "VerifiedJoseph",
-	"version": "5.0.3",
-	"version_name": "5.0.3 (Released 15/05/17)",
+	"version": "5.0.4",
+	"version_name": "5.0.4 (Released 25/05/17)",
 	"manifest_version": 2,
 	"icons": {
 		"16": "images/icons/16.png",

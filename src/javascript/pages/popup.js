@@ -35,7 +35,7 @@
 				if (settings.displayFullDate === true) { // Display Full date and time 
 					
 					ui.content('date', formatTimeStamp('date', timeStamp, settings.timeZoneConvert, settings.dateFormat));
-					ui.content('time', formatTimeStamp('time', timeStamp, false, settings.timeFormat));
+					ui.content('time', formatTimeStamp('time', timeStamp, settings.timeZoneConvert, settings.timeFormat));
 					ui.visibility('time-date', 'show');
 					
 				} else {  // Display time since (e.g: "1 hour ago")
