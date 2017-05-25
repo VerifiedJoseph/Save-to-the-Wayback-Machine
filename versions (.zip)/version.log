@@ -6,6 +6,7 @@
 		none
 		
 	Fixes:
+		Fixed a bug that stopped UTC time stamps from being converted to the user's local timezone.
 
 5.0.3 -- (1.0.3 Firefox) -- 15/05/16
 	Additions:
