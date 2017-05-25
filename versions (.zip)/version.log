@@ -6,7 +6,6 @@
 		none
 		
 	Fixes:
-		Fixed bug that stop UTC timestramps from being convert to the user's local time zone in popup.js
 
 5.0.3 -- (1.0.3 Firefox) -- 15/05/16
 	Additions:
