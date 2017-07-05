@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, console, httpRequest, HttpRequest */
+/*global chrome, browser, console, HttpRequest */
 
 "use strict";
 
@@ -11,9 +11,10 @@
 */
 function archive(url, callback) {
 	
-	var httpRequest = new HttpRequest();
-	httpRequest.open('GET', global.urls.save + url, function (response) {
-
+	var request = new HttpRequest();
+	request.open('GET', global.urls.save + url, function (response) {
+		//console.log(response.headers);
+		
 		var headers = response.headers,
 			statusCode = response.status.toString(),
 			runtimeError,
@@ -40,10 +41,14 @@ function archive(url, callback) {
 			
 		} else if (statusCode.match(global.regex.httpCodes)) { // Check HTTP status codes
 			
-			if (headers['Content-Location'] !== null) {
-				archiveStatus.saved = true;
-				archiveStatus.error = null;
+			archiveStatus.saved = true;
+			archiveStatus.error = null;
+			
+			if (headers.hasOwnProperty('Content-Location')) {
 				archiveStatus.pageLocation = headers['Content-Location'];
+			
+			} else { // No Content-Location header, use page URL from current tab
+				archiveStatus.pageLocation = '/' + url;
 			}
 			
 		}

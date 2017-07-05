@@ -11,7 +11,7 @@
 	@return {string} number
 */
 function formatNumber(number, format) {
-
+	
 	var regex = /(\d+)(\d{3})/,
 		separator;
 
