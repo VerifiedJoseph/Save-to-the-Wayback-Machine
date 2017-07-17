@@ -7,13 +7,15 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div id="archiving" class="error">
-				<p id="error">Archiving Page...</p>
-				<div id="archive-version-saved" class="button av-e">
-					<span>View archived</span>
+			<div id="overlay">
+				<div class="title">
+					<p id="overlay-title">Archiving Page...</p>
 				</div>
-				<p id="error-reason"></p>
-				<div id="loading-animation" class='loading' style='transform:scale(0.25);'>
+				<div id="overlay-button" class="button view-page">
+					<span>View page</span>
+				</div>
+				<p id="overlay-reason"></p>
+				<div id="loading-animation" class='loading'>
 					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 					<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
@@ -35,7 +37,7 @@
 			<div id="stats-view" class="view stats">
 				Pages Archived :
 				<div class="number">
-					<span title="Total number of page archived since extension was installed" id="total-number">0</span>
+					<span title="Total number of pages archived since the extension was installed" id="total-number">0</span>
 				</div>
 				<div class="stats-options">
 					<div id="back" class="left button small one">
@@ -51,14 +53,12 @@
 			<div id="archive-now" class="button">
 				<span>Archive this page</span>
 			</div>
-			<div class="archive-last">
-				<strong>Page last archived :</strong> 
+			<div class="details-title">
+				<strong>Page last archived:</strong> 
 			</div>
 			<div id="details">
-				<div class="notes">
-					<p id="loading">Loading...</p>
-					<p id="api-error-one">Page has not been archived.</p>
-					<p id="api-error-two">Unable to fetch data from Wayback Machine API</p>
+				<div>
+					<p id="message">Loading...</p>
 				</div>
 				<div id="time-date">
 					<p><span id="date"></span></p>
@@ -72,7 +72,7 @@
 				<span>View archived version</span>
 			</div>
 			<div id="archive-history" class="button">
-				<span>Page archive history</span>
+				<span>View page history</span>
 			</div>
 			
 			<div id="options-box">	
@@ -86,10 +86,14 @@
 			</div>
 		</div>
 		<script src="../javascript/global.js"></script>
+		<script src="../javascript/settings.js"></script>
+		<script src="../javascript/debug.js"></script>
+		<script src="../javascript/stats.js"></script>
+		<script src="../javascript/validate.js"></script>
+		<script src="../javascript/archive.js"></script>
 		<script src="../javascript/ui.js"></script>
-		<script src="../javascript/sendMessage.js"></script>
 		<script src="../javascript/request.js"></script>
-		<script src="../javascript/dataFormat.js"></script>
+		<script src="../javascript/format.js"></script>
 		<script src="../javascript/pages/popup.js"></script>
 	</body>
 </html>

@@ -5,8 +5,6 @@
 
 /*
 	User Settings
-
-	@type {class}
 */
 function Settings() {
 	var loaded = false,
@@ -32,51 +30,51 @@ function Settings() {
 
 			// Notifications
 			notePlayAlert: false, // Play alert sound when a notification is displayed.
-			noteAlertSound: 0 // Default Alert sound.
+			noteAlertSound: 0, // Default Alert sound.
+			
+			// Tab & Link Behavior
+			openInCurrent: false, // Open archive.org links in the current tab
+			
+			// Debug
+			logDebugInfo: false // Log debug messages in the developer console
+			
 		};
 
-	/*
-		Have the settings been loaded?
-		
-		@type {function}
-		@returns {boolean} - true/false
-	*/
+	/**
+	 * Have the settings been loaded?
+	 * @returns {boolean}
+	 */
 	this.isLoaded = function isLoaded() {
 		
 		return self.loaded;
 		
 	};
 		
-	/*
-		Load settings from storage
-  	
-		@param {callable} callback
-  */
+	/**
+	 * Load user settings from storage
+	 * @param {callable} callback
+	 */
 	this.load = function load(callback) {
 		
 		browser.storage.sync.get(defaults, function (data) {
 			
 			self.loaded = true;
 			self.items = data;
-			//console.log(self.items);
-			
+
 			callback();
 			
 		});
 		
 	};
 	
-	/*
-		Save updated settings item to storage
-  	
-		@param {object} updatedItems 
-		@param {callback} callback
-		@callback {bool} status
-  */
+	/**
+	 * Save updated user settings to storage
+	 * @param {object} updatedItems
+	 * @param {callback} callback
+	 * @callback {boolean} status
+	 */
 	this.update = function update(updatedItems, callback) {
 		var status = true;
-		
-		//console.log(updatedItems);
 		
 		if (typeof updatedItems !== 'undefined') {
 			
@@ -86,6 +84,7 @@ function Settings() {
 				if (browser.runtime.lastError) {
 					status = false;
 				}
+			
 			});
 			
 		}
@@ -94,12 +93,11 @@ function Settings() {
 		
 	};
 	
-	/*
-		Get a setting from the items object 
-	
-		@param {string} name 
-		@return {string} setting/ false
-	*/
+	/**
+	 * Get a setting from the items object 
+	 * @param {string} name - Name of the setting
+	 * @return {*}
+	 */
 	this.get = function get(name) {
 		
 		// If item exists in object
@@ -115,11 +113,10 @@ function Settings() {
 		
 	};
 	
-	/*
-		Return all settings (user and defaults)
-	
-		@return {object} settings
-	*/
+	/**
+	 * Return all settings (user settings and defaults)
+	 * @return {object} all
+	 */
 	this.getAll = function getAll() {
 		
 		var all = {

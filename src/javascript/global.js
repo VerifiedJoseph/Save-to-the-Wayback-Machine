@@ -4,8 +4,6 @@
 
 /*
 	Global options
-
-	@type {object}
 */
 var global = {
 	urls: {
@@ -15,7 +13,7 @@ var global = {
 	},
 	regex: {
 		// URL validation
-		url: /^https?:\/\/[a-zA-Z0-9-.]{2,256}\.[a-z]{2,20}\/[a-zA-Z0-9@:%_\+.~#?&\/\/=\-]*/i,
+		url: /^https?:\/\/[a-zA-Z0-9-.]{2,256}\.[a-z]{2,20}(\:[0-9]{2,4})?\/[a-zA-Z0-9@:%_\+.~#?&\/\/=\-]*/i,
 		// Returns the file path from a URL
 		path: /^https?:\/\/[a-zA-Z0-9-.]{2,256}\.[a-z]{2,20}(\/[a-zA-Z0-9@:%_\+.~#?!&\/\/=\-]*)/i,
 		// IPv4 validation
@@ -49,8 +47,4 @@ if (typeof chrome !== 'undefined' && typeof browser === 'undefined') {
 	
 	var browser = chrome;
 	
-} /* else if (typeof browser !== 'undefined') {
-	
-	//browser = browser;
-	
-} */
+}

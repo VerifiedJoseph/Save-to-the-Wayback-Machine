@@ -1,3 +1,40 @@
+5.1.0 -- (1.1.0 Firefox) -- 17/07/16
+	Additions:
+		Added file debug.js to javascript folder
+	
+		Added title() function to ui.js
+		Added tab() function to popup.js
+
+		Added user settings 'openInCurrent' and 'logDebugInfo'
+		Added functions enabled() and log() to debug.js
+		Added timeStampToDate() function to format.js
+
+		Added version 5.1 screenshots for firefox and Opera
+
+	Changes:
+		Removed getTime() function from background.js
+		Removed onInstalled listener from background.js
+		Removed start() function from background.js
+		Removed onMessage listener from background.js
+		Removed file sendMessage.js
+		Removed var noteInfo from notifyUser() function in background.js
+		Removed method parameter from open() function in request.js
+		Removed method check from open() function in request.js
+		
+		Renamed dataFormat.js to format.js
+		Renamed vaildate.js to validate.js
+		Renamed HttpRequest() function to Request() in request.js
+		
+		Updated URL regex in global.js to work with URLs that have a port number.
+		
+		Moved background.js file to javascript pages folder
+		Improved code comments in all javascript files.
+		
+		Corrected spelling of valid and validate in popup.js, background.js and validate.js
+		
+	Fixes:
+		none
+
 5.0.4 -- (1.0.4 Firefox) -- 25/05/16
 	Additions:
 		none
@@ -17,7 +54,7 @@
 		
 	Fixes:
 		Fixed incorrect function name in archive.js, that stopped the script from working.
-
+		
 5.0.2 -- (1.0.2 Firefox) -- 15/05/16
 	Additions:
 		none

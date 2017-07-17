@@ -1,24 +1,24 @@
 /*jslint node: true */
-/*global browser, Audio, sendMessage, UI */
-'use strict';
+/*global browser, Audio, Settings, UI, Format, Debug */
+"use strict";
 
-var defaultOptions = {};
-var options = {};
-
-var ui = new UI();
-
-/*
-	Display user settings
+var settings = new Settings(),
+	ui = new UI(),
+	debug = new Debug(),
+	format = new Format(),
+	options = {},
+	defaults = {},
+	body;
 	
-	@type {function}
-	@param {bool} showDefaults
+/**
+ * Display the settings
+ * @param {boolean} showDefaults
 */
 function displaySettings(showDefaults) {
 	var list = options;
-	//console.log(list);
 	
-	if (showDefaults === true) { // Show default user options
-		list = defaultOptions;
+	if (showDefaults === true) { // Show default user settings
+		list = defaults;
 	}
 	
 	// Log numbers
@@ -54,58 +54,100 @@ function displaySettings(showDefaults) {
 	// Notification alert sound file
 	document.getElementById('note_sound_list').value = list.noteAlertSound;
 
-	if (list.contextMenu === false) { // Disable context Menu note option, if contextMenu is false. 
-		document.getElementById('context_note').disabled = true;
+	// Open archive links in the active tab
+	document.getElementById('archive_links').checked = list.openInCurrent;
+	
+	// Open archive links in the active tab
+	document.getElementById('debug_log').checked = list.logDebugInfo;
+		
+	// Disable the context nenu notification option if 'contextMenu' is false. 
+	if (list.contextMenu === false) {
+		
+		ui.disableInput('context_note', true);
+		
 	}
+	
+	// Disable the sounds list and preview button if 'notePlayAlert' is false.
+	if (list.notePlayAlert === false) {
+		
+		// Grey out the option text
+		ui.className('note-sound', 'disabled');
+		
+		// Disable the sound select dropdown and preview button
+		ui.disableInput('note_sound_list', true);
+		ui.disableInput('preview_sound', true);
+		
+	}
+	
+	 // Disable the date and time options if 'full_date_time' is false. 
+	if (list.displayFullDate === false) {
+		
+		// Grey out the option text
+		ui.className('note-date', 'disabled');
+		ui.className('note-time', 'disabled');
 
-	if (list.notePlayAlert === false) { // Disable Sounds list and preview, if notePlayAlert is false.
-		document.getElementById('note_sound_list').disabled = true;
-		document.getElementById('preview_sound').disabled = true;
-		document.getElementById('note-sound').className = 'disabled';
+		// Disable the select dropdowns
+		ui.disableInput('date_format', true);
+		ui.disableInput('time_format', true);
+		
 	}
 	
 }
 
 /*
-	Handle user settings
-
-	@type {function}
-	@param {object} response
+ * Format and display current date and time as date/time select options.
+ */
+function displayDateTime() {
+	
+	//var myStr = '20060101064348';
+	
+	/*var date = new Date(myStr.replace(
+    /^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
+    '$4:$5:$6 $2/$3/$1'
+	));
 */
-function settings(response) {
-	options = response.options;
-	defaultOptions = response.defaultOptions;
+
+	var date = new Date(),
+		dateSelect = document.getElementById('date_format'),
+		timeSelect = document.getElementById('time_format');
 	
-	displaySettings(false);
+	// Date formats
+	dateSelect.options[0].textContent = format.timeStamp('date', date, false, 'F j, Y');
+	dateSelect.options[1].textContent = format.timeStamp('date', date, false, 'Y/m/d');
+	dateSelect.options[2].textContent = format.timeStamp('date', date, false, 'd/m/Y');
+	dateSelect.options[3].textContent = format.timeStamp('date', date, false, 'm/d/Y');
+	
+	// Time formats
+	timeSelect.options[0].textContent = format.timeStamp('time', date, false, 'g:i A');
+	timeSelect.options[1].textContent = format.timeStamp('time', date, false, 'g:i:s A');
+	timeSelect.options[2].textContent = format.timeStamp('time', date, false, 'H:i');
+	timeSelect.options[3].textContent = format.timeStamp('time', date, false, 'H:i:s');
+
 	
 }
 
-/*
-	Settings status text
-	
-	@type {function}
-	@param {string} text
+/**
+ * Show settings status
+ * @param {string} text
 */
 function status(text) {
-	//var div = document.getElementById('status');
 	
 	ui.content('status', text);
-	
-	//div.textContent = text;
 
-	setTimeout(function () {
+	setTimeout(function () { // Set Timeout
+	
 		ui.content('status', '');
-		//div.textContent = '';
+
 	}, 1750);
 	
 }
 
+
+
 /*
-	Save updated settings to storage
-	
-	@type {function}
+	Save updated user settings
 */
-function saveSettings() { // Saves user options to chrome storage
+function saveSettings() {
 
 	var settingsToSave = {
 		logNumberArchived: document.getElementById('log_number').checked,
@@ -118,55 +160,63 @@ function saveSettings() { // Saves user options to chrome storage
 		
 		displayFullDate: document.getElementById('full_date_time').checked,
 		displayTimeSince: document.getElementById('time_since_archive').checked,
-			
+	
 		contextMenu: document.getElementById('context_menu').checked,
 		contextMenuNote: document.getElementById('context_note').checked,
 
 		notePlayAlert: document.getElementById('note_sound').checked,
-		noteAlertSound: document.getElementById('note_sound_list').value
+		noteAlertSound: document.getElementById('note_sound_list').value,
+	
+		openInCurrent: document.getElementById('archive_links').checked,
+		
+		logDebugInfo: document.getElementById('debug_log').checked
 	};
 		
-	sendMessage('updateSettings', settingsToSave, function (updated) {
-		
+	settings.update(settingsToSave, function (updated) {
+
 		if (updated === true) {
+			
 			status('Options saved');
+			
 		} else {
+
 			status('An error occurred, Try again');
+			
 		}
-		
+
 	});
 
 }
 
 /*
-	Reset settings to the defaults
-	
-	@type {function}
+	Reset user settings to defaults
 */
 function resetSettings() {
 
-	sendMessage('updateSettings', defaultOptions, function (reset) {
-		
-		ui.visibility('confirm', 'hide');  // Hide confirm div 
-		
+	// Hide reset confirm div 
+	ui.visibility('confirm', 'hide');
+
+	settings.update(defaults, function (reset) {
+
 		if (reset === true) {
+			
 			status('Options reset');
 			
-			 // Display default user options
+			// Display default user options
 			displaySettings(true);
-			
+
 		} else {
-			status('An error occurred, try again.');
+
+			status('An error occurred, try again');
+			
 		}
-		
+	
 	});
 
 }
 
 /*
-	Preview selected notification alert sound 
-	
-	@type {function}
+	Preview selected alert sound
 */
 function previewSound() {
 	
@@ -181,80 +231,111 @@ function previewSound() {
 		
 	}
 }
+	
+/*
+	Load settings and display them
+*/
+settings.load(function () {
 
+	if (settings.isLoaded() === true) {
 
-document.addEventListener('DOMContentLoaded', function () { // Event listener for DOMContentLoaded
-	
-	// Fetch options (all) from the background.js and user options with callback
-	sendMessage('settings', false, settings);
-	
-	// Event listener for input box clicks (buttons, checkbox etc..)		
-	var body = document.querySelector("body");
-	
-	body.addEventListener('click', function (event) {
-		var input = event.target;
-
-		// Check Boxes
-		if (input.id === 'context_menu') { // Right Click Menus
-
-			if (input.checked) {
-				ui.disableInput('context_note', false);
-
-			} else {
-				ui.disableInput('context_note', true);
-			}
-	
-		} else if (input.id === 'note_sound') { // Notifications (Sound)
-	
-			if (input.checked) {
-				ui.disableInput('note_sound_list', false);
-				ui.disableInput('preview_sound', false);
-
-				ui.className('note-sound', '');
-				
-			} else {
-				ui.disableInput('note_sound_list', true);
-				ui.disableInput('preview_sound', true);
-				
-				ui.className('note-sound', 'disabled');
-			}
-				
-		} else if (input.id === 'full_date_time') { // Display full date and time
-			
-			if (input.checked) {
-				ui.className('note-date', '');
-				
-				ui.disableInput('date_format', false);
-				ui.disableInput('time_format', false);
-			}
-
-		} else if (input.id === 'time_since_archive') { // Display time since last archive
-			
-			if (input.checked) {
-				ui.className('note-date', 'disabled');
-				ui.className('note-time', 'disabled');
-				
-				ui.disableInput('date_format', true);
-				ui.disableInput('time_format', true);
-			}
-	
-		// Buttons
-		} else if (input.id === 'preview_sound') { // Preview notification sound 
-			previewSound();
-	
-		} else if (input.id === 'save') { // Save user options
-			saveSettings();
-			
-		} else if (input.id === 'reset') { // Reset user options			
-			ui.visibility('confirm', 'show'); // Show confirm div
-	
-		} else if (input.id === 'no') { // No, Hide confirm div	
-			ui.visibility('confirm', 'hide');
-	
-		} else if (input.id === 'yes') { // Yes, Reset user options confirmed
-			resetSettings();
-	
-		}
+		// Start Debug logging (if enabled by user)
+		debug.enable(settings.get('logDebugInfo'));
+		debug.log('Settings loaded');
 		
-	});
+		var all = settings.getAll();
+		options = all.options;
+		defaults = all.defaultOptions;
+	
+		displaySettings(false);
+	
+		displayDateTime();
+		
+	}
+
+});
+
+
+/*
+	Event listeners for buttons, checkboxes and select menus (user inputs)
+*/
+body = document.querySelector("body");
+body.addEventListener('click', function (event) {
+	var input = event.target;
+
+	// Check Boxes
+	if (input.id === 'context_menu') { // Right Click Menus
+
+		if (input.checked) {
+			
+			ui.disableInput('context_note', false);
+
+		} else {
+			
+			ui.disableInput('context_note', true);
+		
+		}
+	
+	} else if (input.id === 'note_sound') { // Notifications (Sound)
+	
+		if (input.checked) {
+			
+			ui.disableInput('note_sound_list', false);
+			ui.disableInput('preview_sound', false);
+			ui.className('note-sound', '');
+
+		} else {
+			
+			ui.disableInput('note_sound_list', true);
+			ui.disableInput('preview_sound', true);
+			ui.className('note-sound', 'disabled');
+			
+		}
+
+	} else if (input.id === 'full_date_time') { // Display full date and time
+	
+		if (input.checked) {
+	
+			ui.disableInput('date_format', false);
+			ui.disableInput('time_format', false);
+			ui.className('note-date', '');
+			ui.className('note-time', '');
+			
+		}
+
+	} else if (input.id === 'time_since_archive') { // Display time since last archive
+
+		if (input.checked) {
+
+			ui.className('note-date', 'disabled');
+			ui.className('note-time', 'disabled');
+
+			ui.disableInput('date_format', true);
+			ui.disableInput('time_format', true);
+			
+		}
+	
+	// Buttons
+	} else if (input.id === 'preview_sound') { // Preview notification sound 
+		
+		previewSound();
+	
+	} else if (input.id === 'save') { // Save user options
+		
+		saveSettings();
+
+	} else if (input.id === 'reset') { // Reset user options			
+		
+		ui.visibility('confirm', 'show'); // Show confirm div
+	
+	} else if (input.id === 'no') { // No, hide rest confirm div	
+		
+		ui.visibility('confirm', 'hide');
+	
+	} else if (input.id === 'yes') { // Yes, reset user options confirmed
+		
+		resetSettings();
+	
+	}
+	
 });

@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, console */
+/*global chrome, browser, debug */
 
 "use strict";
 
@@ -9,37 +9,42 @@ function Stats() {
 		defaults = {pagesArchived: 0},
 		stats = {};
 		
-	/*
-		Load stats from storage
-  	
-		@param {bool} statsEnabled
-  */
+	/**
+	 * Load stats from storage
+	 * @param {bool} statsEnabled
+	 */
 	this.load = function load(statsEnabled) {
 		self.statsEnabled = statsEnabled;
 		
+		// Load stats if they are enabled
 		if (self.statsEnabled === true) {
+			
 			browser.storage.sync.get(defaults, function (data) {
 				self.loaded = true;
 				self.stats = data;
 				
-				console.log('stats loaded');
+				debug.log('stats loaded');
 			});
+		
 		}
 	
 	};
 	
-	/*
-		Return stats 
-	
-		@return {object} stats
-	*/
+	/**
+	 * Return stats 
+	 * @return {object} stats
+	 */
 	this.get = function get() {
 		
+		// Return stats if they are enabled
 		if (self.statsEnabled === true) {
-			return self.stats;
+			
+			return self.stats.pagesArchived;
 			
 		} else {
-			return defaults;
+			
+			return defaults.pagesArchived;
+		
 		}
 		
 	};
@@ -48,16 +53,16 @@ function Stats() {
 		Update stats 
 	*/
 	this.update = function update() {
-		//console.log(self.stats.pagesArchived);
 		
+		// Update stats if they are enabled
 		if (self.statsEnabled === true) {
 			self.stats.pagesArchived += 1;
 
-			chrome.storage.sync.set({
+			browser.storage.sync.set({
 				'pagesArchived': self.stats.pagesArchived
 			}, function () {
 			
-				console.log('Number updated');
+				debug.log('stats updated');
 			
 			});
 			

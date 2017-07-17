@@ -1,3 +1,4 @@
+/* Reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}strong,b{font-weight:bold}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}html{box-sizing:border-box}html,html a{-webkit-font-smoothing:antialiased;text-shadow:1px 1px 1px rgba(0,0,0,0.004)}*,*:before,*:after{box-sizing:inherit}
 
 body {
@@ -9,9 +10,21 @@ body {
 	height: 164px;
 }
 
-a:link { color:#202020; white-space: nowrap; text-decoration: none;}
-a:visited { text-decoration: none; color:black; }
-a:hover { text-decoration: underline; color:black; }
+a:link {
+	color:#202020;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none; 
+	color:black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color:black;
+}
 
 .left {float:left;}
 .right {float:right;}
@@ -25,8 +38,8 @@ a:hover { text-decoration: underline; color:black; }
   position: relative;
 }
 
-/* Details and error notes */
-.archive-last {
+/* Details */
+.details-title {
 	width:100%;
 	text-align: center;
 	margin-top: 7px;
@@ -36,17 +49,16 @@ a:hover { text-decoration: underline; color:black; }
 #details {
 	width:100%;
   height: 41px;
-  /*margin-left: 20px;*/
 	text-align: center;
 	padding-top: 2px;
 }
 
-
-#time-date, #time-since, #api-error-one, #api-error-two {
+/* Time Date */
+#time-date, #time-since, #archive-version, #archive-history {
 	display:none;
 }
 
-#time-date > p, #status-title, #status, #loading, #api-error-one, #api-error-two {
+#time-date > p, #message {
 	padding:2px;
 }
 
@@ -56,14 +68,7 @@ a:hover { text-decoration: underline; color:black; }
   padding-right: 2px;
 }
 
-#loading {display:block;}
-
-#not-found,#not-found-2 {
-	display:none;
-	text-align: center;
-	padding-top: 2px;
-}
-
+/* View (Page) */
 .view {
 	display:none;
   position: absolute;
@@ -73,6 +78,7 @@ a:hover { text-decoration: underline; color:black; }
  	padding: 10px;
 }
 
+/*  Stats reset div  */
 .view.confirm {
 	padding: 12px;
 	padding-top: 25%;
@@ -83,7 +89,19 @@ a:hover { text-decoration: underline; color:black; }
 	text-align: center;
 }
 
-.error {
+#reason {
+	padding-top: 15px;
+}
+
+.number {
+	padding: 5px;
+	font-size: 19px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* Overlay */
+#overlay {
 	display:none;
   position: absolute;
   width: 100%;
@@ -95,21 +113,19 @@ a:hover { text-decoration: underline; color:black; }
   padding: 12px;
 }
 
-#reason, #error-reason {
-	padding-top: 15px;
+#overlay > .title {
+	height: 14px;
 }
 
-#reason, #error-reason, #title, #error {
+#overlay-title, #overlay-reason {
 	text-shadow: 1px 1px 1px rgb(33, 33, 33);
 }
 
-.number {
-	padding: 5px;
-	font-size: 19px;
-	font-size: 15px;
-	font-weight: bold;
+#overlay-reason {
+	padding-top: 20px;
 }
 
+/* Options */
 #options-box, .stats-options {
 	position: absolute;
 	bottom:4px;
@@ -117,10 +133,6 @@ a:hover { text-decoration: underline; color:black; }
 }
 
 /* Buttons */
-#archive-anyway, #archive-version-e {
-	display:none;
-}
-
 .button {
 	width:100%;
 	text-align: center;
@@ -128,13 +140,9 @@ a:hover { text-decoration: underline; color:black; }
 	padding-bottom: 0px;		
 }
 
-.button.small.disabled > span {
+.button.disabled > span {
   color: rgb(153, 153, 153);
   cursor: default;	
-}
-
-.button.try {
-  padding-bottom: 1px;
 }
 
 .button > span, .button.small > span {
@@ -150,8 +158,13 @@ a:hover { text-decoration: underline; color:black; }
 	width:79px;
 }
 
-.button.small.one {padding-right:2px;}
-.button.small.two {padding-left:2px;}
+.button.small.one {
+	padding-right:2px;
+}
+
+.button.small.two {
+	padding-left:2px;
+}
 
 .button.x-small {
 	width: 67px;	
@@ -167,35 +180,19 @@ a:hover { text-decoration: underline; color:black; }
 	padding-right:2px;
 }
 
-.error-button.one {padding-right: 5px;}
-.error-button.two {padding-left: 0px;}
-
-.error-button > span , .stats-button > span {
-	background-color: #f5f5f5;
-  border: 1px solid #ccc;
-	padding:2px;
-  width: 73px;
-  display: inline-block;
-	cursor: pointer;
-  color: black;
-  font-weight: normal;
-}
-
-.stats-button > span {
-	color:black;
-}
-
-.button.av-e {
+.button.view-page {
 	color: black;
   font-weight: normal;
 	padding-top: 20px;
 	display: none;
 }
 
-.button.av-e > span {width: 120px;}
+.button.view-page > span {
+	width: 120px;
+}
 
 
-/* Loading  */
+/* Loading animation */
 @-webkit-keyframes loading-anim {
 	0% {
   	opacity: 1
@@ -219,7 +216,9 @@ a:hover { text-decoration: underline; color:black; }
   background: none;
   width: 110px;
   height: 0px;
-	padding-top: 20px;
+	padding-top: 10px;
+	
+	transform:scale(0.25);
 }
 
 .loading > div:nth-of-type(1) {
