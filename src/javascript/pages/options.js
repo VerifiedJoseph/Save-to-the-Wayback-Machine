@@ -99,30 +99,21 @@ function displaySettings(showDefaults) {
  */
 function displayDateTime() {
 	
-	//var myStr = '20060101064348';
-	
-	/*var date = new Date(myStr.replace(
-    /^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
-    '$4:$5:$6 $2/$3/$1'
-	));
-*/
-
 	var date = new Date(),
 		dateSelect = document.getElementById('date_format'),
 		timeSelect = document.getElementById('time_format');
 	
 	// Date formats
-	dateSelect.options[0].textContent = format.timeStamp('date', date, false, 'F j, Y');
-	dateSelect.options[1].textContent = format.timeStamp('date', date, false, 'Y/m/d');
-	dateSelect.options[2].textContent = format.timeStamp('date', date, false, 'd/m/Y');
-	dateSelect.options[3].textContent = format.timeStamp('date', date, false, 'm/d/Y');
+	dateSelect.options[0].textContent = format.timeStamp('date', date, true, 'F j, Y');
+	dateSelect.options[1].textContent = format.timeStamp('date', date, true, 'Y/m/d');
+	dateSelect.options[2].textContent = format.timeStamp('date', date, true, 'd/m/Y');
+	dateSelect.options[3].textContent = format.timeStamp('date', date, true, 'm/d/Y');
 	
 	// Time formats
-	timeSelect.options[0].textContent = format.timeStamp('time', date, false, 'g:i A');
-	timeSelect.options[1].textContent = format.timeStamp('time', date, false, 'g:i:s A');
-	timeSelect.options[2].textContent = format.timeStamp('time', date, false, 'H:i');
-	timeSelect.options[3].textContent = format.timeStamp('time', date, false, 'H:i:s');
-
+	timeSelect.options[0].textContent = format.timeStamp('time', date, true, 'g:i A');
+	timeSelect.options[1].textContent = format.timeStamp('time', date, true, 'g:i:s A');
+	timeSelect.options[2].textContent = format.timeStamp('time', date, true, 'H:i');
+	timeSelect.options[3].textContent = format.timeStamp('time', date, true, 'H:i:s');
 	
 }
 

@@ -1,3 +1,15 @@
+5.1.1 -- (1.1.1 Firefox) -- 17/07/16
+	Additions:
+		none
+
+	Changes:
+		none
+		
+	Fixes:
+		Fixed broken code comment in ui.js
+		Fixed incorrectly name variable in format.js.
+		Fixed incorrect time displaying on the options page.
+
 5.1.0 -- (1.1.0 Firefox) -- 17/07/16
 	Additions:
 		Added file debug.js to javascript folder

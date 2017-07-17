@@ -30,9 +30,9 @@ function Format() {
 			separator = '\x27';
 		}
 
-		if (number >= 1000) {
+		if (n >= 1000) {
 			n = n.toString();
-
+			
 			while (regex.test(n)) {
 				n = n.replace(regex, '$1' + separator + '$2');
 			}
@@ -81,7 +81,7 @@ function Format() {
 		if (typeof dateString !== 'undefined' || dateString !== null) {
 		
 			date = new Date(dateString);
-		
+			
 			if (convertTimeZone === true) { // Convert to local timezone
 
 				monthWord = months[date.getMonth()];
