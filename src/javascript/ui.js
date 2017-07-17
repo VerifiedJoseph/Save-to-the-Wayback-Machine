@@ -10,7 +10,6 @@ function UI() {
 	var self = this,
 		domElement = null;
 
-		@return {boolean}
 	/**
 	 * Does the element exist in the DOM
 	 * @param {string} element - element id
