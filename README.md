@@ -15,4 +15,4 @@ Code in this repository is licensed under the GNU General Public License Version
 
 ## Disclaimer
 
-This is a unofficial extension and is not sponsored, owned, or endorsed by the [Internet Archive](https://archive.org).
+This is an unofficial extension and is not sponsored, owned, or endorsed by the [Internet Archive](https://archive.org).
