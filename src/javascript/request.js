@@ -1,111 +1,90 @@
 /*jslint node: true */
-/*global chrome, browser, console */
+/*global chrome, browser, debug */
 
 "use strict";
 
-/*
-	Send HTTP requests with XMLHttpRequest
-		
-	@type {function}
-*/
-function HttpRequest() {
-	/*
-		Set request settings
-		
-		@type {object}
-	*/
-	var settings = {
-		header: true // Set x-requested-by header
-	},
+function Request() {
 	
 	/*
-		Response data
-		
-		@type {object}
+		Request response data
 	*/
-		response = {
-			headers: {},
-			status: null,
-			data: null,
-			method: null,
-			url : null
-		};
+	var response = {
+		headers: {},
+		status: null,
+		data: null,
+		method: null,
+		url : null
+	};
 
-	/*
-		Make a HTTP request with XMLHttpRequest()
-		
-		@type {function}
-		@param {string} method - HTTP request method
-		@param {string} url
-		@param {callback}
-	*/
-	this.open = function open(method, url, callback) {
-		
-		// Check HTTP request method
-		if (method === 'GET' || method === 'POST') {
+	/**
+	 * Make a HTTP request with XMLHttpRequest()
+	 * @param {string} url
+	 * @param {callback}
+	 */
+	this.open = function open(url, callback) {
 
-			var request = new XMLHttpRequest();
+		var request = new XMLHttpRequest();
 
-			request.open(method, url, true);
-			//request.open(method, 'https://http418.verifiedjoseph.com/200', true); // test
-			request.setRequestHeader('x-requested-by', global.requestedBy);
+		request.open('GET', url, true);
+		request.setRequestHeader('x-requested-by', global.requestedBy);
 		
-			console.info(method + ' Request : ' + url);
+		debug.log('GET Request: ' + url);
 		
-			request.onload = function () { // On request load
-				console.info('Request loaded');
+		request.onload = function () { // On request load
 			
-				response.status = request.status;
-				response.data = request.response;
-				response.method = method;
-				response.url = url;
+			response.status = request.status;
+			response.data = request.response;
+			response.method = 'GET';
+			response.url = url;
 			
-				// Parses response headers
-				var headers = request.getAllResponseHeaders().split('\u000d\u000a'),
-					headerPair,
-					key,
-					val,
-					index,
-					i = 0;
+			// Parses response headers
+			var headers = {},
+				header,
+				key,
+				val,
+				index,
+				i = 0;
 			
-				// Loop headers and create a array
-				for (i = 0; i < headers.length;  i += 1) {
-					headerPair = headers[i];
+			// Split string at newlines.
+			headers = request.getAllResponseHeaders().split('\u000d\u000a');
 				
-					// if the header value has the string ": " in it.		
-					index = headerPair.indexOf(':');
-				
-					if (index > 0) {
-						key = headerPair.substring(0, index);
-						val = headerPair.substring(index + 2);
-						response.headers[key] = val;
-					}
+			// Loop response headers and add them to the response object
+			for (i = 0; i < headers.length;  i += 1) {
+				header = headers[i];
+					
+				// Find the first colon in the header and get its location.
+				index = header.indexOf(':');
+					
+				if (index > 0) {
+						
+					// Header Name (object key)
+					key = header.substring(0, index);
+						
+					// Header Value
+					val = header.substring(index + 2);
+						
+					// Add header to response object
+					response.headers[key] = val;
 				}
+			}
 
-				callback(response);
-			};
+			debug.log(response);
 	
-			request.onerror = function () { // On connection error
-				console.error('Request failed (connection error)');
+			callback(response);
+		};
+	
+		request.onerror = function () { // On connection error
+			debug.log('Request failed (connection error)');
 			
-				response.status = request.status;
-				response.data = request.response;
-				response.method = method;
-				response.url = url;
+			response.status = request.status;
+			response.data = request.response;
+			response.method = 'GET';
+			response.url = url;
 
-				callback(response);
-			};
+			callback(response);
+		};
 	
-			request.send(); // Send the request
-				
-		} else { // Invaild request method
-
-			console.info('Invaild request method, use GET or POST.');
-	
-			return false;
-			
-		}
-		
+		request.send(); // Send the request
 	};
 	
 }

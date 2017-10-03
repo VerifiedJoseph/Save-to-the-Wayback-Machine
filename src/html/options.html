@@ -59,10 +59,10 @@
 					<span id="note-date">Date format :</span>
 					<div class="select">
 						<select class="date" id="date_format">
-							<option value="F j, Y">April 24, 2017</option>
-							<option title="Year/Month/Day" value="Y/m/d">2017/04/24</option>
-							<option title="Day/Month/Year" value="d/m/Y">24/04/2017</option>
-							<option title="Month/Day/Year" value="m/d/Y">04/24/2017</option>
+							<option value="F j, Y"></option>
+							<option title="Year/Month/Day" value="Y/m/d"></option>
+							<option title="Day/Month/Year" value="d/m/Y"></option>
+							<option title="Month/Day/Year" value="m/d/Y"></option>
 						</select>
 					</div>
 				</label>
@@ -123,7 +123,7 @@
 				<label class="checkbox">
   				<input type="checkbox" id="note_sound"/>
   				<span></span>
-					<p class="text">Play alert sound when a notification is displayed.</p>
+					<p class="text">Play an alert sound when a notification is displayed.</p>
 				</label>
 			</div>
 			<div class="option child-text bottom">
@@ -141,17 +141,28 @@
 				</span>
 			</div>
 		</div>
-	
-		<!--<h3>Debug</h3>
+		
+		<h3>Tab Behavior</h3>
 		<div class="section">
-			<div class="option">				
+			<div class="option">
 				<label class="checkbox">
-  				<input type="checkbox" id="console_log"/>
+  				<input type="checkbox" id="archive_links"/>
   				<span></span>
-					<p class="text">Log error and action messages in the developer console.</p>
+					<p class="text">Open archive.org links in the active tab instead of in a new tab.</p>
+				</label>
+			</div>	
+		</div>
+		
+		<h3>Debug</h3>
+		<div class="section">
+			<div class="option">
+				<label class="checkbox">
+  				<input type="checkbox" id="debug_log"/>
+  				<span></span>
+					<p class="text">Log debug messages in the browser's developer console.</p>
 				</label>
 			</div>
-		</div>-->
+		</div>
 		
 		<div class="section">
 			<div class="left">
@@ -180,7 +191,9 @@
 		
 	</div>
 	<script src="../javascript/global.js"></script>
-	<script src="../javascript/sendMessage.js"></script>
+	<script src="../javascript/debug.js"></script>
+	<script src="../javascript/settings.js"></script>
+	<script src="../javascript/format.js"></script>
 	<script src="../javascript/ui.js"></script>
 	<script src="../javascript/pages/options.js"></script>
 </body>
