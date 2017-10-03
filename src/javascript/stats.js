@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, debug */
+/*global browser, debug */
 
 "use strict";
 

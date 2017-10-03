@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global browser, debug, Request */
+/*global debug, global, Request */
 
 "use strict";
 
@@ -7,13 +7,13 @@
  * Save a page to the Wayback Machine
  * @param {string} url - URL of the page to archive
  * @param {callback} callback
-*/
+ */
 function archive(url, callback) {
-	
+
 	var request = new Request();
 	request.open(global.urls.save + url, function (response) {
 		debug.log(response.headers);
-		
+
 		var headers = response.headers,
 			statusCode = response.status.toString(),
 			runtimeError,
@@ -26,9 +26,9 @@ function archive(url, callback) {
 			};
 
 		// Check for Wayback Runtime Error header
-		if (headers.hasOwnProperty('X-Archive-Wayback-Runtime-Error')) {
-			runtimeError = headers['X-Archive-Wayback-Runtime-Error'].split(':');
-			
+		if (headers.hasOwnProperty('x-archive-wayback-runtime-error')) {
+			runtimeError = headers['x-archive-wayback-runtime-error'].split(':');
+
 			if (runtimeError[0] === 'AdministrativeAccessControlException') { // website or URL is excluded from Wayback Machine.
 				status.error = 'This website is excluded from the Wayback Machine.';
 
@@ -38,30 +38,30 @@ function archive(url, callback) {
 			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException') { // Wayback Machine faild to fetch page.
 				status.error = 'Unable to archive page. \r\n Try again later.';
 			}
-			
+
 			status.code = statusCode;
-			
+
 		} else if (statusCode.match(global.regex.httpCodes)) { // Check HTTP status codes
-			
+
 			status.archived = true;
 			status.code = statusCode;
 			status.error = null;
-			
-			if (headers.hasOwnProperty('Content-Location')) {
-				status.captureUrl = headers['Content-Location'];
-			
+
+			if (headers.hasOwnProperty('content-location')) {
+				status.captureUrl = headers['content-location'];
+
 			} else { // No Content-Location header, use page URL.
 				status.captureUrl = '/' + url;
 			}
-			
+
 		}
-		
+
 		/**
 		 * @callback archive~callback
 		 * @param {object} status - Details about the archived page.
 		 */
 		callback(status);
-		
+
 	});
-	
+
 }

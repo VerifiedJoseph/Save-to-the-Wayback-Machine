@@ -179,7 +179,7 @@ select.sound, select.number {
 }
 
 select.date, select.time {
-	width: 110px;
+	width: 130px;
 }
 
 select {

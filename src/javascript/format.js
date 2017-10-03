@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, console */
+/*global console */
 
 "use strict";
 
@@ -225,9 +225,19 @@ function Format() {
 	 */
 	this.timeSince = function timeSince(dateString, convertTimeZone) {
 		
-		var date = new Date(dateString + ' UTC'),
+		var date,
 			seconds,
 			interval;
+		
+		if (convertTimeZone === true) { // Convert to local timezone
+
+			date = new Date(dateString + ' UTC');
+	
+		} else {
+		
+			date = new Date(dateString);
+			
+		}
 		
 		seconds = Math.floor((new Date() - date) / 1000);
 		interval = Math.floor(seconds / 31536000);

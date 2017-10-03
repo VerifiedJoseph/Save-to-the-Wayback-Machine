@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global chrome, browser, debug, settings, httpRequest */
+/*global debug, global */
 
 "use strict";
 
@@ -25,7 +25,7 @@ function validate(url, callback) {
 			if (URLParts.hostname === host) { // Protocol match
 				
 				status = false;
-				debug.log('URL has a black listed host name : ' + URLParts.hostname);
+				debug.log('URL has a black listed host name: ' + URLParts.hostname);
 			
 			}
 			

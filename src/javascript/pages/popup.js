@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global browser, UI, Request, Settings, Stats, archive, validate, Format, Debug */
+/*global browser, UI, Request, Settings, Stats, Debug, global, archive, validate, Format, document, window */
 "use strict";
 
 var ui = new UI(),
@@ -269,5 +269,8 @@ browser.tabs.query({currentWindow: true, active: true}, function (tabs) {
 document.getElementById('options').addEventListener('click', function () {
 	
 	browser.tabs.create({url: browser.runtime.getURL('html/options.html')});
+	
+	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
+	window.close();
 
 });

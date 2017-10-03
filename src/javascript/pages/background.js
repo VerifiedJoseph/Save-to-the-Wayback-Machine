@@ -1,11 +1,10 @@
 /*jslint node: true */
-/*global Stats, Settings, validate, Request, archive, browser, Audio, Debug */
+/*global Stats, Settings, validate, global, archive, browser, Audio, Debug */
 "use strict";
 
 var settings = new Settings(),
 	debug = new Debug(),
 	stats = new Stats(),
-	request = new Request(),
 	contextMenuSet = false;
 	
 /*
