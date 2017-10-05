@@ -1,3 +1,15 @@
+5.1.2 -- (1.1.2 Firefox) -- 03/10/16
+	Additions:
+		none
+
+	Changes:
+	
+		Minor code changes.
+		Updated code in archive.js and request.js to work with changes to http headers in http/2 and in chrome 60
+		
+	Fixes:
+		Fixed timeSince() function not converting datetime to local time zone in format.js
+
 5.1.1 -- (1.1.1 Firefox) -- 17/07/16
 	Additions:
 		none
