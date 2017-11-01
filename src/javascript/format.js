@@ -4,8 +4,7 @@
 "use strict";
 
 function Format() {
-	var self = this;
-	
+
 	/**
 	 * Format numbers using the user selected format
 	 * @param {int} n
@@ -32,7 +31,7 @@ function Format() {
 
 		if (n >= 1000) {
 			n = n.toString();
-			
+
 			while (regex.test(n)) {
 				n = n.replace(regex, '$1' + separator + '$2');
 			}
@@ -48,12 +47,12 @@ function Format() {
 	 * @return {string}
 	 */
 	this.timeStampToDate = function timeStampToDate(timeStamp) {
-		
+
 		return timeStamp.replace(
 			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
 			'$2/$3/$1 $4:$5:$6'
 		);
-		
+	
 	};
 	
 	/**
@@ -80,7 +79,7 @@ function Format() {
 
 		if (typeof dateString !== 'undefined' || dateString !== null) {
 		
-			date = new Date(dateString);
+			date = new Date(dateString + ' UTC');
 			
 			if (convertTimeZone === true) { // Convert to local timezone
 
