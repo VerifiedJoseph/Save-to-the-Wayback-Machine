@@ -19,18 +19,23 @@ var ui = new UI(),
 function tab(pageUrl) {
 
 	if (settings.get('openInCurrent') === true) { // Open the URL in the current tab.
-	
-		browser.tabs.update({url: pageUrl, active: true});
-	
+
+		browser.tabs.update({
+			url: pageUrl,
+			active: true
+		});
+
 	} else { // Open the URL in a new tab.
-	
-		browser.tabs.create({url: pageUrl});
+
+		browser.tabs.create({
+			url: pageUrl
+		});
 
 	}
-	
+
 	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
 	window.close();
-	
+
 }
 
 /**
@@ -49,13 +54,13 @@ function apiData(response) {
 			ui.visibility('message', 'hide');
 			ui.visibility('archive-version', 'show');
 			ui.visibility('archive-history', 'show');
-			
+
 			archivedVersion = data.archived_snapshots.closest.url;
 			//timeStamp = data.archived_snapshots.closest.timestamp;
-			
+
 			// Change timeStamp in to a format that is supported by Date.
 			timeStamp = format.timeStampToDate(data.archived_snapshots.closest.timestamp);
-			
+
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
 				ui.content('date', format.timeStamp('date', timeStamp, settings.get('timeZoneConvert'), settings.get('dateFormat')));
@@ -63,12 +68,12 @@ function apiData(response) {
 				ui.visibility('time-date', 'show');
 
 			} else { // Display time since (e.g: "1 hour ago")
-	
+
 				ui.content('since', format.timeSince(timeStamp, settings.get('timeZoneConvert')));
 				ui.visibility('time-since', 'show');
-	
+
 			}
-	
+
 			// Event listener for archive history button
 			document.getElementById('archive-history').addEventListener('click', function () {
 
@@ -86,13 +91,13 @@ function apiData(response) {
 		} else { // A snapshot was not returned
 
 			debug.log('No snapshot returned for ' + url);
-			
+
 			ui.content('message', 'Page has not been archived.');
 			ui.visibility('archive-version', 'hide');
 			ui.visibility('archive-history', 'hide');
 
 		}
-	
+
 	} else { // Error fetching data
 
 		debug.log('API Data not fetched for ' + url);
@@ -100,9 +105,9 @@ function apiData(response) {
 		ui.content('message', 'Unable to fetch data from the Wayback Machine');
 		ui.visibility('archive-version', 'hide');
 		ui.visibility('archive-history', 'hide');
-	
+
 	}
-	
+
 }
 
 /**
@@ -110,23 +115,23 @@ function apiData(response) {
  * @param {object} response
  */
 function wasArchived(response) {
-	
+
 	// Hide loading animation
 	ui.visibility('loading-animation', 'hide');
 
 	if (response.archived === false) { // Page was not archived
-		
+
 		// Log details 
 		debug.log('Page Not Archived \n URL :' + response.url + '\n Status code: ' + response.code + '\n Reason: ' + response.error);
-		
+
 		// Overlay Title
 		ui.content('overlay-title', 'Page Not Archived');
-		
+
 		// Overlay Error/Note
 		ui.content('overlay-reason', response.error);
 
 	} else { // Page saved
-	
+
 		// Update Stats 
 		stats.update();
 
@@ -135,21 +140,21 @@ function wasArchived(response) {
 
 		// Title
 		ui.content('overlay-title', 'Page Archived');
-	
+
 		// Add event listener for view button.
 		document.getElementById('overlay-button').addEventListener('click', function () {
 
 			tab('https://web.archive.org' + response.captureUrl); // Create tab
-	
+
 		});
 
 		// Show view button.
 		ui.visibility('overlay-button', 'show');
-		
+
 	}
-	
+
 }
-	
+
 
 /**
  * Is the URL valid?
@@ -164,35 +169,35 @@ function isValid(status) {
 
 			ui.visibility('overlay', 'show');
 			ui.visibility('loading-animation', 'show');
-	
+
 			// Save to page to the archive
 			archive(url, wasArchived);
 
 		});
-			
+
 		// Fetch Wayback API data
 		var request = new Request();
 		request.open(global.urls.api + url, apiData);
 
 	} else { // URL is not valid.			
-		
+
 		ui.content('overlay-title', '');
 		ui.content('overlay-reason', 'This page can not be archived!');
 
 		ui.visibility('overlay', 'show');
 
 	}
-	
+
 }
 
 /*
 	Event listeners
 */
 function eventListeners() {
-	
+
 	// Event listener for opening/closing the stats view, if logNumberArchived option in enabled
 	if (settings.get('logNumberArchived') === true) {
-	
+
 		// Opening stats view
 		document.getElementById('stats').addEventListener('click', function () {
 
@@ -203,25 +208,25 @@ function eventListeners() {
 			ui.content('total-number', format.number(stats.get(), settings.get('numberFormat')));
 
 		});
-		
+
 		// Closing stats view (back)
 		document.getElementById('back').addEventListener('click', function () {
 
 			ui.visibility('stats-view', 'hide');
 			ui.visibility('options-box', 'show');
-			
+
 		});
-		
+
 	} else { // Stats disabled. Disable the button.
 
 		// Update the button's CSS classes 
 		ui.className('stats', 'left button small two disabled');
-		
+
 		// Add title attribute
 		ui.title('options-box', 'Statistics are disabled');
-		
+
 	}
-	
+
 }
 
 /*
@@ -237,39 +242,44 @@ function start() {
 
 		// Load Stats
 		stats.load(settings.get('logNumberArchived'));
-	
+
 		// Set event listeners
 		eventListeners();
 
 		// Validate the current page URL
 		validate(url, isValid);
-	
+
 	} else {
 		console.log('Failed to load settings!');
 	}
-	
+
 }
-	
+
 /*
 	Get current tab URL (load settings and vaildate URL)
 */
-browser.tabs.query({currentWindow: true, active: true}, function (tabs) {
-	
+browser.tabs.query({
+	currentWindow: true,
+	active: true
+}, function (tabs) {
+
 	// Set URL
 	url = tabs[0].url;
-	
+
 	// Load setting and run the start function
 	settings.load(start);
 
 });
-	
+
 /*
 	Event listener for opening options page
 */
 document.getElementById('options').addEventListener('click', function () {
-	
-	browser.tabs.create({url: browser.runtime.getURL('html/options.html')});
-	
+
+	browser.tabs.create({
+		url: browser.runtime.getURL('html/options.html')
+	});
+
 	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
 	window.close();
 

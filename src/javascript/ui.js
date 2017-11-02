@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global debug */
+/*global debug, document */
 
 "use strict";
 

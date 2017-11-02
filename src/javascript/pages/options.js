@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Audio, Settings, UI, Format, Debug, global, document */
+/*global Audio, Settings, UI, Format, Debug, global, document, setTimeout */
 "use strict";
 
 var settings = new Settings(),

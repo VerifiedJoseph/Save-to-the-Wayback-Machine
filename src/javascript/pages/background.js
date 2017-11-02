@@ -6,12 +6,12 @@ var settings = new Settings(),
 	debug = new Debug(),
 	stats = new Stats(),
 	contextMenuSet = false;
-	
-/*
-	Create or remove the 'archive this page' context menu option
-*/
+
+/**
+ *	Create or remove 'archive this page' context menu option
+ **/
 function contextMenus() {
-	
+
 	// Create option
 	if (contextMenuSet === false && settings.get('contextMenu') === true) {
 
@@ -20,29 +20,29 @@ function contextMenus() {
 			"contexts": ["page"],
 			"id": "archivePage"
 		}, function () {
-	
+
 			contextMenuSet = true;
 
 			if (browser.extension.lastError) {
 				console.log("Error: " + browser.extension.lastError.message);
 			}
-			
+
 		});
 
-	// Remove option
+		// Remove option
 	} else if (contextMenuSet === true && settings.get('contextMenu') === false) {
-	
+
 		browser.contextMenus.removeAll(function () {
 			contextMenuSet = false;
-	
+
 			if (browser.extension.lastError) {
 				console.log("Error: " + browser.extension.lastError.message);
 			}
 
 		});
-	
+
 	}
-	
+
 }
 
 /**
@@ -69,8 +69,8 @@ function notifyUser(url, title, message) {
 }
 
 /*
-	Play alert sound along with the notification (if enabled by user)
-*/
+ * Play alert sound along with the notification (if enabled by user)
+ */
 function notifyUserSound() {
 
 	if (settings.get('notePlayAlert') === true) { // Enabled
@@ -100,7 +100,7 @@ function wasArchived(response) {
 
 		// Log Details
 		debug.log('Page Not Archived \n URL :' + response.url + '\n Status code: ' + response.code + '\n Reason: ' + response.error);
-		
+
 		notifyUser(response.url, 'Page Not Archived, Sorry!', response.error);
 		notifyUserSound();
 
@@ -110,18 +110,20 @@ function wasArchived(response) {
 		stats.update();
 
 		// Create tab with save page
-		browser.tabs.create({url: 'https://web.archive.org' + response.captureUrl});
-		
+		browser.tabs.create({
+			url: 'https://web.archive.org' + response.captureUrl
+		});
+
 	}
 
 }
 
-	
+
 // Load settings on start.
 settings.load(function () {
 
 	if (settings.isLoaded() === true) {
-		
+
 		// Start Debug logging (if enabled by user)
 		debug.enable(settings.get('logDebugInfo'));
 		debug.log('Settings loaded');
@@ -130,11 +132,11 @@ settings.load(function () {
 		stats.load(settings.get('logNumberArchived'));
 
 		contextMenus();
-	
+
 	} else {
-	
+
 		console.log('Failed to load settings, extension not started!');
-	
+
 	}
 
 });
@@ -145,7 +147,7 @@ browser.storage.onChanged.addListener(function () {
 	settings.load(function () {
 
 		if (settings.isLoaded() === true) {
-	
+
 			// Start Debug logging (if enabled by user)
 			debug.enable(settings.get('logDebugInfo'));
 			debug.log('settings updated and loaded');
@@ -161,16 +163,16 @@ browser.storage.onChanged.addListener(function () {
 browser.contextMenus.onClicked.addListener(function (info, tab) {
 
 	validate(tab.url, function (status) {
-		
+
 		if (status === true) {
-			
+
 			archive(tab.url, wasArchived); // Save the page
-			
+
 		} else { // Failed, show notification
-			
+
 			notifyUser(tab.url, 'This page can not be archived, Sorry!', 'The Wayback Machine can not archive local files or pages from web.archive.org.');
 			notifyUserSound();
-		
+
 		}
 
 	});

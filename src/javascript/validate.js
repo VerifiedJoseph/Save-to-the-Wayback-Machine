@@ -10,10 +10,10 @@
  * @param {callable} callback
  */
 function validate(url, callback) {
-	
+
 	var status = true,
 		URLParts = document.createElement('a');
-	
+
 	URLParts.href = url;
 
 	// Vaildate URL or a IPv4 address using regular expressions
@@ -23,25 +23,25 @@ function validate(url, callback) {
 		global.hostNameBlackList.forEach(function (host) {
 
 			if (URLParts.hostname === host) { // Protocol match
-				
+
 				status = false;
 				debug.log('URL has a black listed host name: ' + URLParts.hostname);
-			
+
 			}
-			
+
 		});
 
 		if (status === true) {
-			
+
 			debug.log('URL format is valid: ' + url);
 
 		}
-		
+
 	} else {
-		
+
 		status = false;
 		debug.log('URL format is not valid: ' + url);
-	
+
 	}
 
 	/**
@@ -49,5 +49,5 @@ function validate(url, callback) {
 	 * @param {boolean} status.
 	 */
 	callback(status);
-	
+
 }

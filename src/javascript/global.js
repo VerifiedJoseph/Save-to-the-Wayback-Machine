@@ -19,7 +19,7 @@ var global = {
 		// IPv4 validation
 		ipv4: /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/g,
 		// HTTP status codes
-		httpCodes : /^(200|201|202|203|301|302|303|307|308|400|401|403|404|405|406|408|409|411|412|413|414|415|418|429|431|451)$/
+		httpCodes: /^(200|201|202|203|301|302|303|307|308|400|401|403|404|405|406|408|409|411|412|413|414|415|418|429|431|451)$/
 	},
 	protocolBlackList: [
 		'chrome:',
@@ -44,7 +44,7 @@ var global = {
 	Check api type (chrome (based. e.g: opera), Firefox or MS Edge)
 */
 if (typeof chrome !== 'undefined' && typeof browser === 'undefined') {
-	
+
 	var browser = chrome;
-	
+
 }
