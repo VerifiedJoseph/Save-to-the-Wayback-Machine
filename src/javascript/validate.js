@@ -12,28 +12,34 @@
 function validate(url, callback) {
 
 	var status = true,
-		URLParts = document.createElement('a');
+		hostname,
+		urlRegex = new RegExp(global.regex.urlAndIpv4);
+		/*var urlRegex = new RegExp(global.regex.url);
+		var ipv4Regex = new RegExp(global.regex.ipv4);*/
+	
+	debug.log('Vaildating URL: ' + url);
+	
+	// Vaildate URL or IPv4 address using regular expression
+	if (urlRegex.test(url)) {
 
-	URLParts.href = url;
-
-	// Vaildate URL or a IPv4 address using regular expressions
-	if (url.match(global.regex.url) || url.match(global.regex.ipv4)) {
-
-		// Loop through host name black list and check for match
-		global.hostNameBlackList.forEach(function (host) {
-
-			if (URLParts.hostname === host) { // Protocol match
-
+		// Get hostname from URL with regex 
+		hostname = url.match(urlRegex);
+		
+		// Check for hostname in hostname black list
+		global.hostNameBlackList.find(function (host) {
+			
+			if (hostname[1] === host) {
+				
 				status = false;
-				debug.log('URL has a black listed host name: ' + URLParts.hostname);
-
+				debug.log('URL has a black listed host name: ' + host);
+				
 			}
 
 		});
 
 		if (status === true) {
 
-			debug.log('URL format is valid: ' + url);
+			debug.log('URL is valid: ' + url);
 
 		}
 
