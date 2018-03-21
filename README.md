@@ -6,7 +6,7 @@ A browser extension that lets you quickly save web pages to the Internet Archive
 
 ## Install 
 [![Download from the Google Chrome Web Store](https://verifiedjoseph.com/images/install/153px/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
-[![Download from Opera add-ons](https://verifiedjoseph.com/verifiedjoseph/install/153px/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
+[![Download from Opera add-ons](https://verifiedjoseph.com/images/install/153px/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
 [![Download from Firefox add-ons](https://verifiedjoseph.com/images/install/153px/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
 
 ## License
