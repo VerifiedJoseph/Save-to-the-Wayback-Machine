@@ -139,7 +139,7 @@ function UI() {
 	};
 
 	/**
-	 * Remove an attribute from an element  
+	 * Remove a attribute from an element  
 	 * @param {string} element - element id
 	 * @param {string} attr - attribute name
 	 */
