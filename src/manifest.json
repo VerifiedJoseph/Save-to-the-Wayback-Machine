@@ -1,7 +1,8 @@
 {
-	"name": "Save To The Wayback Machine",
-	"description": "Quickly save web pages to the Internet Archive's Wayback Machine.",
+	"name": "__MSG_extensionName__",
+	"description": "__MSG_extensionDescription__",
 	"author": "VerifiedJoseph",
+	"default_locale": "en",
 	"version": "5.1.3",
 	"version_name": "5.1.3 (Released 02/11/17)",
 	"manifest_version": 2,
@@ -30,7 +31,7 @@
 			"64": "images/icons/64.png"
 		},
 		"default_popup": "html/popup.html",
-		"default_title": "Save To The Wayback Machine"
+		"default_title": "__MSG_extensionName__"
 	},
 	"background": {
 		"persistent": false,
