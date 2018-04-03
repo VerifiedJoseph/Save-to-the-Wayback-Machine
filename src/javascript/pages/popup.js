@@ -7,25 +7,24 @@ var ui = new UI(),
 	debug = new Debug(),
 	stats = new Stats(),
 	format = new Format(),
-	archivedVersion, // URL from the Wayback availability API.
-	archivedLocation, // Location of page saved by user.
-	timeStamp, // Time stamp from Wayback availability API.
+	archivedVersion, // Capture URL from the Wayback availability API.
+	timeStamp, // Time stamp from the Wayback availability API.
 	url; // URL of the current tab.
 
 /**
- * Create a new tab or update the current.
+ * Create a new tab or update current.
  * @param {string} pageUrl
  */
 function tab(pageUrl) {
 
-	if (settings.get('openInCurrent') === true) { // Open the URL in the current tab.
+	if (settings.get('openInCurrent') === true) { // Open URL in the current tab.
 
 		browser.tabs.update({
 			url: pageUrl,
 			active: true
 		});
 
-	} else { // Open the URL in a new tab.
+	} else { // Open URL in a new tab.
 
 		browser.tabs.create({
 			url: pageUrl
@@ -39,32 +38,30 @@ function tab(pageUrl) {
 }
 
 /**
- * Format and display data returned by the wayback API
+ * Format and display data returned by the wayback availability API
  * @param {object} response
  */
 function apiData(response) {
 
-	if (response.status === 200) { // 
+	if (response.status === 200) { // Check status code
 
 		var data = JSON.parse(response.data);
 
-		// Returned a snapshot?
-		if (data.archived_snapshots.hasOwnProperty('closest')) {
+		if (data.archived_snapshots.hasOwnProperty('closest')) { // Did the API return a snapshot?
 
 			ui.visibility('message', 'hide');
 			ui.visibility('archive-version', 'show');
 			ui.visibility('archive-history', 'show');
 
 			archivedVersion = data.archived_snapshots.closest.url;
-			//timeStamp = data.archived_snapshots.closest.timestamp;
 
-			// Change timeStamp in to a format that is supported by Date.
+			// Change timeStamp in to a format that is supported by Date()
 			timeStamp = format.timeStampToDate(data.archived_snapshots.closest.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
-				ui.content('date', format.timeStamp('date', timeStamp, settings.get('timeZoneConvert'), settings.get('dateFormat')));
-				ui.content('time', format.timeStamp('time', timeStamp, settings.get('timeZoneConvert'), settings.get('timeFormat')));
+				ui.content('date', format.readableDate(timeStamp, settings.get('timeZoneConvert'), settings.get('dateFormat')));
+				ui.content('time', format.readableTime(timeStamp, settings.get('timeZoneConvert'), settings.get('timeFormat')));
 				ui.visibility('time-date', 'show');
 
 			} else { // Display time since (e.g: "1 hour ago")
@@ -88,7 +85,7 @@ function apiData(response) {
 
 			});
 
-		} else { // A snapshot was not returned
+		} else { // A snapshot was not returned.
 
 			debug.log('No snapshot returned for ' + url);
 
@@ -98,11 +95,11 @@ function apiData(response) {
 
 		}
 
-	} else { // Error fetching data
+	} else { // Error fetching data from API
 
 		debug.log('API Data not fetched for ' + url);
 
-		ui.content('message', 'Unable to fetch data from the Wayback Machine');
+		ui.content('message', browser.i18n.getMessage('ApiRequestFailed'));
 		ui.visibility('archive-version', 'hide');
 		ui.visibility('archive-history', 'hide');
 
@@ -134,9 +131,6 @@ function wasArchived(response) {
 
 		// Update Stats 
 		stats.update();
-
-		// Location of the archived page.
-		archivedLocation = response.captureUrl;
 
 		// Title
 		ui.content('overlay-title', 'Page Archived');
@@ -182,7 +176,7 @@ function isValid(status) {
 	} else { // URL is not valid.			
 
 		ui.content('overlay-title', '');
-		ui.content('overlay-reason', 'This page can not be archived!');
+		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
 
 		ui.visibility('overlay', 'show');
 
@@ -219,11 +213,11 @@ function eventListeners() {
 
 	} else { // Stats disabled. Disable the button.
 
-		// Update the button's CSS classes 
+		// Update the button's CSS classes
 		ui.className('stats', 'left button small two disabled');
 
-		// Add title attribute
-		ui.title('options-box', 'Statistics are disabled');
+		// Add title attribute  
+		ui.title('options-box', browser.i18n.getMessage('StatisticsDisabled'));
 
 	}
 

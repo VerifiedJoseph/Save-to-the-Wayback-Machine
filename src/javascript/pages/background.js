@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Stats, Settings, validate, global, archive, browser, Audio, Debug */
+/*global Stats, Settings, validate, global, archive, browser, Audio, Debug, console */
 "use strict";
 
 var settings = new Settings(),
@@ -16,7 +16,7 @@ function contextMenus() {
 	if (contextMenuSet === false && settings.get('contextMenu') === true) {
 
 		browser.contextMenus.create({
-			"title": "Archive this page",
+			"title": browser.i18n.getMessage('MenuItemArchivePage'),
 			"contexts": ["page"],
 			"id": "archivePage"
 		}, function () {
@@ -100,8 +100,8 @@ function wasArchived(response) {
 
 		// Log Details
 		debug.log('Page Not Archived \n URL :' + response.url + '\n Status code: ' + response.code + '\n Reason: ' + response.error);
-
-		notifyUser(response.url, 'Page Not Archived, Sorry!', response.error);
+		
+		notifyUser(response.url, browser.i18n.getMessage('notificationArchiveFailed'), response.error);
 		notifyUserSound();
 
 	} else { // Page saved
@@ -170,7 +170,7 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
 
 		} else { // Failed, show notification
 
-			notifyUser(tab.url, 'This page can not be archived, Sorry!', 'The Wayback Machine can not archive local files or pages from web.archive.org.');
+			notifyUser(tab.url, browser.i18n.getMessage('notificationCanNotArchive'), browser.i18n.getMessage('notificationBodyCanNotArchive'));
 			notifyUserSound();
 
 		}

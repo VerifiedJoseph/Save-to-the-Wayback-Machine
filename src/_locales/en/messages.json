@@ -1,0 +1,71 @@
+{
+	"extensionName": {
+		"message": "Save To The Wayback Machine",
+		"description": "Name of the extension."
+	},
+
+	"extensionDescription": {
+		"message": "Quickly save web pages to the Internet Archive's Wayback Machine.",
+		"description": "Description of the extension."
+	},
+
+	"MenuItemArchivePage": {
+		"message": "Archive this Page",
+		"description": "Title of context menu item that saves a page to the Wayback Machine."
+	},
+
+	"MenuItemArchiveLink": {
+		"message": "Archive this Link",
+		"description": "Title of context menu item that saves a link to the Wayback Machine."
+	},
+
+	"notificationArchiveFailed": {
+		"message": "Page Not Archived",
+		"description": "Title of notification that tells the user that the page was not archived."
+	},
+
+	"notificationCanNotArchive": {
+		"message": "This page can not be archived",
+		"description": "Title of notification that tells the user that the page can not archived."
+	},
+
+	"notificationBodyCanNotArchive": {
+		"message": "The Wayback Machine can not archive local files or pages from archive.org.",
+		"description": "Body of notification that tells the user that the page can not archived."
+	},
+	
+	"ArchiveFailedWebsiteExcluded": {
+		"message": "This website is excluded from the Wayback Machine.",
+		"description": "Text telling the user that the page was not archived as the website is excluded from the Wayback Machine."
+	},
+	
+	"ArchiveFailedBlocked": {
+		"message": "Unable to archive page. Blocked by website's robots.txt file.",
+		"description": "Text telling the user that the page was not archived as the website's robots.txt file blocked it."
+	},
+	
+	"ArchiveFailedNotFetched": {
+		"message": "Unable to archive page. \r\n Try again later.",
+		"description": "Text telling the user that the page was not archived as the Wayback Machine can't fetch it."
+	},
+	
+	"ArchiveFailedDefault": {
+		"message": "An unkown error occurred. \r\n Try again later.",
+		"description": "Default archive failed error text"
+	},
+	
+	"UrlValidationFailed": {
+		"message": "This page can not be archived!",
+		"description": "Text telling the user that the page was not archived as its URL failed validation."
+	},
+	
+	"ApiRequestFailed": {
+		"message": "Unable to fetch page details from the Wayback Machine.",
+		"description": "Text telling the user that the request to Wayback Machine API has failed."
+	},
+	
+	"StatisticsDisabled": {
+		"message": "Statistics are disabled",
+		"description": "Button title telling the user that statistics are disabled."
+	}
+}

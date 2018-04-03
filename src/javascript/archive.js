@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global debug, global, Request */
+/*global debug, global, browser, Request */
 
 "use strict";
 
@@ -21,22 +21,22 @@ function archive(url, callback) {
 				archived: false,
 				url: url, // Page URL
 				captureUrl: null, // Wayback Machine capture URL for the archived page.
-				error: 'An unkown error occurred. \r\n Try again later.', // Default error note 
-				code: 200 // HTTP status code
+				error: browser.i18n.getMessage('ArchiveFailedDefault'), // Default error note 
+				code: 200 // Default HTTP status code
 			};
 
 		// Check for Wayback Runtime Error header
 		if (headers.hasOwnProperty('x-archive-wayback-runtime-error')) {
 			runtimeError = headers['x-archive-wayback-runtime-error'].split(':');
 
-			if (runtimeError[0] === 'AdministrativeAccessControlException') { // website or URL is excluded from Wayback Machine.
-				status.error = 'This website is excluded from the Wayback Machine.';
+			if (runtimeError[0] === 'AdministrativeAccessControlException') { // Website or URL is excluded from Wayback Machine.
+				status.error = browser.i18n.getMessage('ArchiveFailedWebsiteExcluded');
 
 			} else if (runtimeError[0] === 'RobotAccessControlException') { // Blocked By robots.txt file.
-				status.error = 'Unable to archive page. Blocked by robots.txt file.';
+				status.error = browser.i18n.getMessage('ArchiveFailedBlocked');
 
 			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException') { // Wayback Machine faild to fetch page.
-				status.error = 'Unable to archive page. \r\n Try again later.';
+				status.error = browser.i18n.getMessage('ArchiveFailedNotFetched');
 			}
 
 			status.code = statusCode;
