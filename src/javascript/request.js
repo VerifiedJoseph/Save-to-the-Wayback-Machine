@@ -68,8 +68,6 @@ function Request() {
 				}
 			}
 
-			debug.log(response);
-
 			callback(response);
 		};
 

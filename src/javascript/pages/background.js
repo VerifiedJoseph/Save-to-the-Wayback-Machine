@@ -56,14 +56,13 @@ function notifyUser(url, title, message) {
 	if (settings.get('contextMenuNote') === true) { // Notifications enabled			
 
 		// Create notification
-		browser.notifications.create({
+		browser.notifications.create("", {
 			title: title,
 			iconUrl: '/images/icons/96.png',
 			type: 'basic',
 			message: message
 		});
 
-		//debug.log('Created notification: ' + message);
 		debug.log('Created notification \n Title: ' + title + '\n Message: ' + message + '\n URL: ' + url);
 	}
 }
@@ -99,7 +98,7 @@ function wasArchived(response) {
 	if (response.archived === false) { // Page was not archived
 
 		// Log Details
-		debug.log('Page Not Archived \n URL :' + response.url + '\n Status code: ' + response.code + '\n Reason: ' + response.error);
+		debug.log('Page Not Archived \n URL:' + response.url + ' \n Status code: ' + response.code + '\n Reason: ' + response.error);
 		
 		notifyUser(response.url, browser.i18n.getMessage('notificationArchiveFailed'), response.error);
 		notifyUserSound();
@@ -109,7 +108,7 @@ function wasArchived(response) {
 		// Log number
 		stats.update();
 
-		// Create tab with save page
+		// Create tab with saved page
 		browser.tabs.create({
 			url: 'https://web.archive.org' + response.captureUrl
 		});
