@@ -13,7 +13,7 @@ function Stats() {
 
 	/**
 	 * Load stats from storage
-	 * @param {bool} statsEnabled
+	 * @param {boolean} statsEnabled
 	 */
 	this.load = function load(statsEnabled) {
 		self.statsEnabled = statsEnabled;

@@ -94,7 +94,7 @@ function Settings() {
 
 	/**
 	 * Get setting from the items object 
-	 * @param {string} name - Name of the setting
+	 * @param {string} name Name of the setting
 	 * @return {mixed}
 	 */
 	this.get = function get(name) {

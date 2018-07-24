@@ -4,14 +4,14 @@
 "use strict";
 
 /*
-	Create, update or remove elements 
+	Create, update or remove elements
  */
 function UI() {
 	var domElement = null;
 
 	/**
 	 * Does the element exist in the DOM
-	 * @param {string} element - element id
+	 * @param {string} element Element id
 	 * @return {boolean}
 	 */
 	this.isElement = function isElement(element) {
@@ -40,8 +40,8 @@ function UI() {
 	};
 
 	/**
-	 * Update the element's contents (text)
-	 * @param {string} element - element id
+	 * Set or change the value of an element's textContent
+	 * @param {string} element Element id
 	 * @param {string} data
 	 */
 	this.content = function content(element, value) {
@@ -55,9 +55,9 @@ function UI() {
 	};
 
 	/**
-	 * Change the element's visibility
+	 * Change the visibility of an element
 	 * @param {string} element - element id
-	 * @param {string} data
+	 * @param {string} action
 	 */
 	this.visibility = function visibility(element, action) {
 
@@ -78,9 +78,9 @@ function UI() {
 	};
 
 	/**
-	 * Change or add an element's class
-	 * @param {string} element - element id
-	 * @param {string} value - class name
+	 * Set or change an element's class
+	 * @param {string} element Element id
+	 * @param {string} value Class name
 	 */
 	this.className = function className(element, value) {
 
@@ -93,8 +93,8 @@ function UI() {
 	};
 
 	/**
-	 * Disable a input box or button
-	 * @param {string} element - element id
+	 * Disable an input element
+	 * @param {string} element Element id
 	 * @param {boolean} value
 	 */
 	this.disableInput = function disableInput(element, value) {
@@ -108,8 +108,8 @@ function UI() {
 	};
 
 	/**
-	 * Set or change the contents of an element's title
-	 * @param {string} element - element id
+	 * Set or change an element's title
+	 * @param {string} element Element id
 	 * @param {boolean} value
 	 */
 	this.title = function title(element, value) {
@@ -123,10 +123,10 @@ function UI() {
 	};
 
 	/**
-	 * Set or change the contents of an element's attribute
-	 * @param {string} element - element id
-	 * @param {string} attr - attribute name
-	 * @param {string} value - attribute value
+	 * Set or change an element's attribute
+	 * @param {string} element Element id
+	 * @param {string} attr Attribute name
+	 * @param {string} value - Attribute value
 	 */
 	this.attribute = function attribute(element, attr, value) {
 
@@ -139,9 +139,9 @@ function UI() {
 	};
 
 	/**
-	 * Remove a attribute from an element  
-	 * @param {string} element - element id
-	 * @param {string} attr - attribute name
+	 * Remove an attribute from an element
+	 * @param {string} element Element id
+	 * @param {string} attr Attribute name
 	 */
 	this.attributeRemove = function attributeRemove(element, attr) {
 

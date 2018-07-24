@@ -4,7 +4,6 @@
 "use strict";
 
 /**
-
  * Validate a URL or IP address (IPv4)
  * @param {string} url
  * @param {callable} callback
@@ -14,8 +13,6 @@ function validate(url, callback) {
 	var status = true,
 		hostname,
 		urlRegex = new RegExp(global.regex.urlAndIpv4);
-		/*var urlRegex = new RegExp(global.regex.url);
-		var ipv4Regex = new RegExp(global.regex.ipv4);*/
 	
 	debug.log('Vaildating URL: ' + url);
 	
