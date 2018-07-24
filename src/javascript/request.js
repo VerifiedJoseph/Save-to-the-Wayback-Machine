@@ -19,7 +19,7 @@ function Request() {
 	/**
 	 * Make a HTTP request with XMLHttpRequest()
 	 * @param {string} url
-	 * @param {callback}
+	 * @param {callback} callback
 	 */
 	this.open = function open(url, callback) {
 
@@ -37,37 +37,26 @@ function Request() {
 			response.method = 'GET';
 			response.url = url;
 
-			// Parses response headers
-			var headers = {},
-				header,
-				key,
-				val,
-				index,
-				i = 0;
+			// Get the raw headers string
+			var rawHeaders = request.getAllResponseHeaders();
 
-			// Split string at newlines.
-			headers = request.getAllResponseHeaders().split('\u000d\u000a');
+			// Split and trim the raw headers string at newlines
+			var rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
 
-			// Loop response headers and add them to the response object
-			for (i = 0; i < headers.length; i += 1) {
-				header = headers[i];
+			// Loop raw headers array and create object key/value pairs.
+			rawHeadersArray.forEach(function (line) {
 
-				// Find the first colon in the header and get its location.
-				index = header.indexOf(':');
+				var parts = line.split(': '),
+					header = parts[0],
+					value = parts[1];
 
-				if (index > 0) {
+				response.headers[header] = value;
+			});
 
-					// Header Name (object key)
-					key = header.substring(0, index).toLowerCase();
-
-					// Header Value
-					val = header.substring(index + 2);
-
-					// Add header to response object
-					response.headers[key] = val;
-				}
-			}
-
+			/**
+			 * @callback open~callback
+			 * @param {object} response
+			 */
 			callback(response);
 		};
 
@@ -79,6 +68,10 @@ function Request() {
 			response.method = 'GET';
 			response.url = url;
 
+			/**
+			 * @callback open~callback
+			 * @param {object} response
+			 */
 			callback(response);
 		};
 

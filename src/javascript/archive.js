@@ -5,7 +5,7 @@
 
 /**
  * Save a page to the Wayback Machine
- * @param {string} url - URL of the page to archive
+ * @param {string} url
  * @param {callback} callback
  */
 function archive(url, callback) {
@@ -20,7 +20,7 @@ function archive(url, callback) {
 				archived: false,
 				url: url, // Page URL
 				captureUrl: null, // Wayback Machine capture URL for the archived page.
-				error: browser.i18n.getMessage('ArchiveFailedDefault'), // Default error note 
+				error: browser.i18n.getMessage('ArchiveFailedDefault'), // Default error message
 				code: 200 // Default HTTP status code
 			};
 
@@ -34,7 +34,7 @@ function archive(url, callback) {
 			} else if (runtimeError[0] === 'RobotAccessControlException') { // Blocked By robots.txt file.
 				status.error = browser.i18n.getMessage('ArchiveFailedBlocked');
 
-			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException') { // Wayback Machine faild to fetch page.
+			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException') { // Wayback Machine failed to fetch page.
 				status.error = browser.i18n.getMessage('ArchiveFailedNotFetched');
 			}
 
@@ -57,7 +57,7 @@ function archive(url, callback) {
 
 		/**
 		 * @callback archive~callback
-		 * @param {object} status - Details about the archived page.
+		 * @param {object} status Status of archived page.
 		 */
 		callback(status);
 
