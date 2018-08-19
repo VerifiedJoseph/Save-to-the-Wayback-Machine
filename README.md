@@ -1,13 +1,14 @@
 # Save to the Wayback Machine
+![Screenshot](screenshot.png)
 
-## Introduction
-
-A browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine.. [More info here](https://verifiedjoseph.com/projects/save-to-the-wayback-machine).
+Browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine. [More info here](https://verifiedjoseph.com/projects/save-to-the-wayback-machine).
 
 ## Install 
 [![Download from the Google Chrome Web Store](https://verifiedjoseph.com/images/install/153px/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
 [![Download from Opera add-ons](https://verifiedjoseph.com/images/install/153px/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
 [![Download from Firefox add-ons](https://verifiedjoseph.com/images/install/153px/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
+
+[Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
 
 ## License
 
