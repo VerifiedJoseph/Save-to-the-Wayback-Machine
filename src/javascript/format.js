@@ -48,11 +48,6 @@ function Format() {
 	 */
 	this.timeStampToDate = function timeStampToDate(timeStamp) {
 
-		/*return timeStamp.replace(
-			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
-			'$2/$3/$1 $4:$5:$6Z'
-		);*/
-
 		return timeStamp.replace(
 			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
 			'$1-$2-$3T$4:$5:$6Z'
