@@ -1,81 +1,71 @@
 /*jslint node: true */
-/*global debug, global, XMLHttpRequest */
+/*global debug, global, fetch, Headers */
 
 "use strict";
 
 function Request() {
 
 	/*
-		Request response data
+		Response Data
 	*/
-	var response = {
+	var responseData = {
 		headers: {},
-		status: null,
+		status: 0,
 		data: null,
-		method: null,
+		method: 'GET',
 		url: null
 	};
 
 	/**
-	 * Make a HTTP request with XMLHttpRequest()
+	 * Make a HTTP request with fetch()
 	 * @param {string} url
 	 * @param {callback} callback
 	 */
 	this.open = function open(url, callback) {
 
-		var request = new XMLHttpRequest();
-
-		request.open('GET', url, true);
-		request.setRequestHeader('x-requested-by', global.requestedBy);
-
 		debug.log('GET Request: ' + url);
+		
+		fetch(url, {
+			method: 'GET',
+			redirect: 'follow',
+			headers: new Headers({
+				'x-requested-by': global.requestedBy
+			})
+		}).then(function (response) {
 
-		request.onload = function () { // On request load
+			responseData.status = response.status;
+			responseData.url = response.url;
 
-			response.status = request.status;
-			response.data = request.response;
-			response.method = 'GET';
-			response.url = url;
+			if (response.headers.has('x-archive-wayback-runtime-error')) {
+				responseData.headers['x-archive-wayback-runtime-error'] = response.headers.get('x-archive-wayback-runtime-error');
+			}
+			
+			if (response.headers.has('content-location')) {
+				responseData.headers['content-location'] = response.headers.get('content-location');
+			}
+			
+			return response.text();
 
-			// Get the raw headers string
-			var rawHeaders = request.getAllResponseHeaders();
+		}).then(function (text) {
+			responseData.data = text;
 
-			// Split and trim the raw headers string at newlines
-			var rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
+		}).catch(function (error) {
 
-			// Loop raw headers array and create object key/value pairs.
-			rawHeadersArray.forEach(function (line) {
+			responseData.url = url;
+			
+			debug.log('GET Request failed: ' + url);
+			debug.log(error);
 
-				var parts = line.split(': '),
-					header = parts[0],
-					value = parts[1];
-
-				response.headers[header] = value;
-			});
-
-			/**
-			 * @callback open~callback
-			 * @param {object} response
-			 */
-			callback(response);
-		};
-
-		request.onerror = function () { // On connection error
-			debug.log('Request failed (connection error)');
-
-			response.status = request.status;
-			response.data = request.response;
-			response.method = 'GET';
-			response.url = url;
+		}).then(function () {
 
 			/**
 			 * @callback open~callback
 			 * @param {object} response
 			 */
-			callback(response);
-		};
+			callback(responseData);
 
-		request.send(); // Send the request
+		});
+
 	};
 
 }
