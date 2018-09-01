@@ -24,7 +24,7 @@ var global = {
 		// HTTP status codes
 		httpCodes: /^(200|201|202|203|301|302|303|307|308|400|401|403|404|405|406|408|409|411|412|413|414|415|418|429|431|451)$/
 	},
-	hostNameBlackList: [
+	hostNameBlacklist: [
 		'archive.org',
 		'web.archive.org',
 		'127.0.0.1',
