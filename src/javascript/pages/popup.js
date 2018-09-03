@@ -171,7 +171,7 @@ function isValid(status) {
 
 		// Fetch Wayback API data
 		var request = new Request();
-		request.open(global.urls.api + url, apiData);
+		request.get(global.urls.api + url, apiData);
 
 	} else { // URL is not valid.			
 
