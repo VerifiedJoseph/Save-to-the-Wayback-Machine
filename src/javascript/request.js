@@ -21,7 +21,7 @@ function Request() {
 	 * @param {string} url
 	 * @param {callback} callback
 	 */
-	this.open = function open(url, callback) {
+	this.get = function get(url, callback) {
 
 		debug.log('GET Request: ' + url);
 		
