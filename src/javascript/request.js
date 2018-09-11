@@ -1,71 +1,81 @@
 /*jslint node: true */
-/*global debug, global, fetch, Headers */
+/*global debug, global, XMLHttpRequest */
 
 "use strict";
 
 function Request() {
 
 	/*
-		Response Data
+		Request response data
 	*/
-	var responseData = {
+	var response = {
 		headers: {},
-		status: 0,
+		status: null,
 		data: null,
-		method: 'GET',
+		method: null,
 		url: null
 	};
 
 	/**
-	 * Make a HTTP request with fetch()
+	 * Make a HTTP request with XMLHttpRequest()
 	 * @param {string} url
 	 * @param {callback} callback
 	 */
-	this.get = function get(url, callback) {
+	this.open = function open(url, callback) {
+
+		var request = new XMLHttpRequest();
+
+		request.open('GET', url, true);
+		request.setRequestHeader('x-requested-by', global.requestedBy);
 
 		debug.log('GET Request: ' + url);
-		
-		fetch(url, {
-			method: 'GET',
-			redirect: 'follow',
-			headers: new Headers({
-				'x-requested-by': global.requestedBy
-			})
-		}).then(function (response) {
 
-			responseData.status = response.status;
-			responseData.url = response.url;
+		request.onload = function () { // On request load
 
-			if (response.headers.has('x-archive-wayback-runtime-error')) {
-				responseData.headers['x-archive-wayback-runtime-error'] = response.headers.get('x-archive-wayback-runtime-error');
-			}
-			
-			if (response.headers.has('content-location')) {
-				responseData.headers['content-location'] = response.headers.get('content-location');
-			}
-			
-			return response.text();
+			response.status = request.status;
+			response.data = request.response;
+			response.method = 'GET';
+			response.url = url;
 
-		}).then(function (text) {
-			responseData.data = text;
+			// Get the raw headers string
+			var rawHeaders = request.getAllResponseHeaders();
 
-		}).catch(function (error) {
+			// Split and trim the raw headers string at newlines
+			var rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
 
-			responseData.url = url;
-			
-			debug.log('GET Request failed: ' + url);
-			debug.log(error);
+			// Loop raw headers array and create object key/value pairs.
+			rawHeadersArray.forEach(function (line) {
 
-		}).then(function () {
+				var parts = line.split(': '),
+					header = parts[0],
+					value = parts[1];
+
+				response.headers[header] = value;
+			});
 
 			/**
 			 * @callback open~callback
 			 * @param {object} response
 			 */
-			callback(responseData);
+			callback(response);
+		};
 
-		});
+		request.onerror = function () { // On connection error
+			debug.log('Request failed (connection error)');
 
+			response.status = request.status;
+			response.data = request.response;
+			response.method = 'GET';
+			response.url = url;
+
+			/**
+			 * @callback open~callback
+			 * @param {object} response
+			 */
+			callback(response);
+		};
+
+		request.send(); // Send the request
 	};
 
 }
