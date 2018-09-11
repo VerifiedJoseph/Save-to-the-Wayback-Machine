@@ -57,7 +57,7 @@ function displaySettings(showDefaults) {
 	// Open archive links in the active tab
 	document.getElementById('archive_links').checked = list.openInCurrent;
 
-	// Open archive links in the active tab
+	// Log debug messages
 	document.getElementById('debug_log').checked = list.logDebugInfo;
 
 	// Disable the context nenu notification option if 'contextMenu' is false. 
