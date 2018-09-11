@@ -295,6 +295,10 @@ function Format() {
 
 		interval = Math.floor(seconds / 60);
 
+		if (interval === 1) {
+			return interval + " minute ago";
+		}
+		
 		if (interval > 1) {
 			return interval + " minutes ago";
 		}
