@@ -251,13 +251,15 @@ function Format() {
 		var date,
 			seconds,
 			interval;
-
-		if (convertTimeZone === true) { // Convert to local timezone
-
-			date = new Date(dateString + ' UTC');
+		
+		if (convertTimeZone === true) { // Convert UTC to local timezone
+			
+			date = new Date(dateString);
 
 		} else {
 
+			// Remove UTC 'Z' time zone designator
+			dateString = dateString.slice(0, -1);
 			date = new Date(dateString);
 
 		}
@@ -293,6 +295,10 @@ function Format() {
 
 		interval = Math.floor(seconds / 60);
 
+		if (interval === 1) {
+			return interval + " minute ago";
+		}
+		
 		if (interval > 1) {
 			return interval + " minutes ago";
 		}
