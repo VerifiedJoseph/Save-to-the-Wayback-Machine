@@ -1,3 +1,18 @@
+5.1.5 -- 17/09/18
+	Additions:
+		Added empty id string to browser.notifications.create() in background.js
+
+	Changes:
+		Replaced nested if statements with try...catch in validate.js
+		Replaced for loop with forEach when handling raw HTTP headers in request.js
+		Renamed global.hostNameBlackList to global.hostNameBlacklist in global.js
+		Removed commented out timeStamp.replace() from format.js
+		Removed protocol blacklist from global.js
+	
+	Fixes:
+		Fixed time ago failing to display when converting UTC to local time.
+		Fixed incorrect code comment in options.js 
+
 5.1.4 -- (1.1.4 Firefox) -- 06/04/18
 	Additions:
 		
