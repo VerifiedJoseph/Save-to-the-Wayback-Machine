@@ -10,7 +10,7 @@
 	},
 
 	"MenuItemArchivePage": {
-		"message": "Archive this Page",
+		"message": "Archive Page",
 		"description": "Title of context menu item that saves a page to the Wayback Machine."
 	},
 
