@@ -211,13 +211,10 @@ function eventListeners() {
 
 		});
 
-	} else { // Stats disabled. Disable the button.
+	} else { // Stats disabled. Hide button.
 
-		// Update the button's CSS classes
-		ui.className('stats', 'left button small two disabled');
-
-		// Add title attribute  
-		ui.title('options-box', browser.i18n.getMessage('StatisticsDisabled'));
+		// Change visibility of button
+		ui.visibility('stats', 'hide');
 
 	}
 
