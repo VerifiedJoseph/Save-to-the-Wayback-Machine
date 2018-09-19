@@ -3,79 +3,91 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body {
 	line-height: 1;
-	font-family: arial,sans-serif; 
-	font-size : 14px;
+	font-family: arial, sans-serif;
+	font-size: 14px;
 	color: #505050;
 	background-color: #FFF;
 	height: 164px;
 }
 
 a:link {
-	color:#202020;
+	color: #202020;
 	white-space: nowrap;
 	text-decoration: none;
 }
 
 a:visited {
-	text-decoration: none; 
-	color:black;
+	text-decoration: none;
+	color: black;
 }
 
 a:hover {
 	text-decoration: underline;
-	color:black;
+	color: black;
 }
 
-.left {float:left;}
-.right {float:right;}
-.clear {clear:both;}
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
 
 .wrapper {
 	margin: 0 auto;
 	background: white;
-  width: 158px;
+	width: 158px;
 	height: 164px;
-  position: relative;
+	position: relative;
 }
 
 /* Details */
 .details-title {
-	width:100%;
+	width: 100%;
 	text-align: center;
 	margin-top: 7px;
 	height: 16px;
 }
 
 #details {
-	width:100%;
-  height: 41px;
+	width: 100%;
+	height: 41px;
 	text-align: center;
 	padding-top: 2px;
 }
 
 /* Time Date */
-#time-date, #time-since, #archive-version, #archive-history {
-	display:none;
+#time-date,
+#time-since,
+#archive-version,
+#archive-history {
+	display: none;
 }
 
-#time-date > p, #message {
-	padding:2px;
+#time-date > p,
+#message {
+	padding: 2px;
 }
 
 #time-since > p {
 	padding: 10px;
-  padding-left: 2px;
-  padding-right: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 /* View (Page) */
 .view {
-	display:none;
-  position: absolute;
-  width: 100%;
-  background-color: white;
-  height: 164px;
- 	padding: 10px;
+	display: none;
+	position: absolute;
+	width: 100%;
+	background-color: white;
+	height: 164px;
+	padding: 10px;
 }
 
 /*  Stats reset div  */
@@ -102,22 +114,23 @@ a:hover {
 
 /* Overlay */
 #overlay {
-	display:none;
-  position: absolute;
-  width: 100%;
-  background-color: rgba(80, 69, 61, 0.9);
-  text-align: center;
-  color: white;
-  height: 164px;
-  font-weight: 700;
-  padding: 12px;
+	display: none;
+	position: absolute;
+	width: 100%;
+	background-color: rgba(80, 69, 61, 0.9);
+	text-align: center;
+	color: white;
+	height: 164px;
+	font-weight: 700;
+	padding: 12px;
 }
 
 #overlay > .title {
 	height: 14px;
 }
 
-#overlay-title, #overlay-reason {
+#overlay-title,
+#overlay-reason {
 	text-shadow: 1px 1px 1px rgb(33, 33, 33);
 }
 
@@ -126,63 +139,65 @@ a:hover {
 }
 
 /* Options */
-#options-box, .stats-options {
+#options-box,
+.stats-options {
 	position: absolute;
-	bottom:4px;
+	bottom: 4px;
 	left: 0px;
 }
 
 /* Buttons */
 .button {
-	width:100%;
+	width: 100%;
 	text-align: center;
-	padding:4px;
-	padding-bottom: 0px;		
+	padding: 4px;
+	padding-bottom: 0px;
 }
 
 .button.disabled > span {
-  color: rgb(153, 153, 153);
-  cursor: default;	
+	color: rgb(153, 153, 153);
+	cursor: default;
 }
 
-.button > span, .button.small > span {
+.button > span,
+.button.small > span {
 	background-color: #f5f5f5;
-  border: 1px solid #ccc;
-	padding:2px;
-  width: 100%;
-  display: inline-block;
+	border: 1px solid #ccc;
+	padding: 2px;
+	width: 100%;
+	display: inline-block;
 	cursor: pointer;
 }
 
 .button.small {
-	width:79px;
+	width: 79px;
 }
 
 .button.small.one {
-	padding-right:2px;
+	padding-right: 2px;
 }
 
 .button.small.two {
-	padding-left:2px;
+	padding-left: 2px;
 }
 
 .button.x-small {
-	width: 67px;	
+	width: 67px;
 }
 
 .button.x-small.one {
-	padding-left:0px;
+	padding-left: 0px;
 	padding-right: 2px;
 }
 
 .button.x-small.two {
-	padding-left:2px;
-	padding-right:2px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 .button.view-page {
 	color: black;
-  font-weight: normal;
+	font-weight: normal;
 	padding-top: 20px;
 	display: none;
 }
@@ -195,30 +210,32 @@ a:hover {
 /* Loading animation */
 @-webkit-keyframes loading-anim {
 	0% {
-  	opacity: 1
-  }
-  100% {
-  	opacity: 0
-  }
+		opacity: 1
+	}
+
+	100% {
+		opacity: 0
+	}
 }
+
 @keyframes loading-anim {
-  0% {
-  	opacity: 1
-  }
-  100% {
-  	opacity: 0
-  }
+	0% {
+		opacity: 1
+	}
+
+	100% {
+		opacity: 0
+	}
 }
 
 .loading {
-  /*position: relative;*/
+	/*position: relative;*/
 	display: none;
-  background: none;
-  width: 110px;
-  height: 0px;
+	background: none;
+	width: 110px;
+	height: 0px;
 	padding-top: 10px;
-	
-	transform:scale(0.25);
+	transform: scale(0.25);
 }
 
 .loading > div:nth-of-type(1) {
