@@ -104,7 +104,8 @@ h3 {
 	display: none;
 	position: absolute;
 	top: 0px;
-	background-color: rgba(255, 255, 255, 0.95);
+	background-color: #FFFFFF;
+	opacity: 0.95;
 	width: 650px;
 	text-align: center;
 	height: 100%;
@@ -168,12 +169,12 @@ span.checkbox {
 }
 
 button:disabled {
-	color: rgb(153, 153, 153);
+	color: #999999;
 	cursor: default;
 }
 
 input:disabled + div {
-	color: rgb(153, 153, 153);
+	color: #999999;
 }
 
 button {
@@ -189,7 +190,7 @@ button {
 
 label > button:disabled ~ div,
 .disabled {
-	color: rgb(153, 153, 153);
+	color: #999999;
 	cursor: not-allowed;
 }
 
@@ -291,6 +292,6 @@ label.radio > .text {
 }
 
 label.checkbox :disabled ~ .text {
-	color: rgb(153, 153, 153);
+	color: #999999;
 	cursor: not-allowed;
 }
