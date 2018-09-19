@@ -78,20 +78,35 @@ function UI() {
 	};
 
 	/**
-	 * Set or change an element's class
+	 * Add a class to an element
 	 * @param {string} element Element id
 	 * @param {string} value Class name
 	 */
-	this.className = function className(element, value) {
+	this.addClass = function addClass(element, value) {
+	
+		if (this.isElement(element) === true && typeof value !== 'undefined') {
 
-		if (this.isElement(element) === true) {
-
-			domElement.className = value;
+			domElement.classList.add(value);
 
 		}
-
+	
 	};
+	
+	/**
+	 * Remove a class from an element
+	 * @param {string} element Element id
+	 * @param {string} value Class name
+	 */
+	this.removeClass = function removeClass(element, value) {
+	
+		if (this.isElement(element) === true && typeof value !== 'undefined') {
 
+			domElement.classList.remove(value);
+
+		}
+	
+	};
+	
 	/**
 	 * Disable an input element
 	 * @param {string} element Element id

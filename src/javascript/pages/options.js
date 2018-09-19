@@ -71,7 +71,7 @@ function displaySettings(showDefaults) {
 	if (list.notePlayAlert === false) {
 
 		// Grey out the option text
-		ui.className('note-sound', 'disabled');
+		ui.addClass('note-sound', 'disabled');
 
 		// Disable the sound select dropdown and preview button
 		ui.disableInput('note_sound_list', true);
@@ -83,8 +83,8 @@ function displaySettings(showDefaults) {
 	if (list.displayFullDate === false) {
 
 		// Grey out the option text
-		ui.className('note-date', 'disabled');
-		ui.className('note-time', 'disabled');
+		ui.addClass('note-date', 'disabled');
+		ui.addClass('note-time', 'disabled');
 
 		// Disable the select dropdowns
 		ui.disableInput('date_format', true);
@@ -273,13 +273,13 @@ body.addEventListener('click', function (event) {
 
 			ui.disableInput('note_sound_list', false);
 			ui.disableInput('preview_sound', false);
-			ui.className('note-sound', '');
+			ui.removeClass('note-sound', 'disabled');
 
 		} else {
 
 			ui.disableInput('note_sound_list', true);
 			ui.disableInput('preview_sound', true);
-			ui.className('note-sound', 'disabled');
+			ui.addClass('note-sound', 'disabled');
 
 		}
 
@@ -289,8 +289,8 @@ body.addEventListener('click', function (event) {
 
 			ui.disableInput('date_format', false);
 			ui.disableInput('time_format', false);
-			ui.className('note-date', '');
-			ui.className('note-time', '');
+			ui.removeClass('note-date', 'disabled');
+			ui.removeClass('note-time', 'disabled');
 
 		}
 
@@ -298,8 +298,8 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
-			ui.className('note-date', 'disabled');
-			ui.className('note-time', 'disabled');
+			ui.addClass('note-date', 'disabled');
+			ui.addClass('note-time', 'disabled');
 
 			ui.disableInput('date_format', true);
 			ui.disableInput('time_format', true);
