@@ -108,21 +108,6 @@ function UI() {
 	};
 	
 	/**
-	 * Set or change an element's class
-	 * @param {string} element Element id
-	 * @param {string} value Class name
-	 */
-	this.className = function className(element, value) {
-
-		if (this.isElement(element) === true) {
-
-			domElement.className = value;
-
-		}
-
-	};
-
-	/**
 	 * Disable an input element
 	 * @param {string} element Element id
 	 * @param {boolean} value
