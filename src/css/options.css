@@ -43,8 +43,9 @@ html {
 	box-sizing: border-box;
 	background-color: #FFF;
 }
+
 body {
-	font-family: arial,sans-serif;
+	font-family: arial, sans-serif;
 	font-size: 14px;
 	margin: 0;
 	line-height: 1.428571429;
@@ -81,10 +82,23 @@ h3 {
 	height: 40px;
 }
 
-.left {float:left;}
-.right {float:right;}
-.clear {clear:both; padding:0px;}
-#status {padding: 2px 8px; font-size: 13px;}
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+	padding: 0px;
+}
+
+#status {
+	padding: 2px 8px;
+	font-size: 13px;
+}
 
 #confirm {
 	display: none;
@@ -94,12 +108,12 @@ h3 {
 	width: 650px;
 	text-align: center;
 	height: 100%;
-	padding:0px;
+	padding: 0px;
 }
 
 .confirm-center {
 	margin-top: 40%;
-	padding:0px;
+	padding: 0px;
 }
 
 .options-container {
@@ -109,7 +123,7 @@ h3 {
 }
 
 .section {
-    margin: 10px 0px;
+	margin: 10px 0px;
 }
 
 #note-date {
@@ -118,9 +132,9 @@ h3 {
 
 .option {
 	padding-left: 6px;
-	padding-bottom:5px;
+	padding-bottom: 5px;
 	font-size: 13px;
-	min-height:20px;
+	min-height: 20px;
 }
 
 .option.child {
@@ -132,11 +146,19 @@ h3 {
 }
 
 .option.bottom {
-	padding-bottom:0px;
+	padding-bottom: 0px;
 }
 
-.note {position: relative; top: -20px;}
-.note-button {display: block; position: relative; top: 20px;}
+.note {
+	position: relative;
+	top: -20px;
+}
+
+.note-button {
+	display: block;
+	position: relative;
+	top: 20px;
+}
 
 span.checkbox {
 	height: 17px;
@@ -146,15 +168,15 @@ span.checkbox {
 }
 
 button:disabled {
-  color: rgb(153, 153, 153);
+	color: rgb(153, 153, 153);
 	cursor: default;
 }
 
 input:disabled + div {
-  color: rgb(153, 153, 153);
+	color: rgb(153, 153, 153);
 }
 
-button {	
+button {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	padding: 3px;
@@ -165,8 +187,9 @@ button {
 	cursor: pointer;
 }
 
-label > button:disabled  ~ div, .disabled  {
-  color: rgb(153, 153, 153);
+label > button:disabled ~ div,
+.disabled {
+	color: rgb(153, 153, 153);
 	cursor: not-allowed;
 }
 
@@ -174,44 +197,53 @@ label > button:disabled  ~ div, .disabled  {
 	display: inline-block;
 }
 
-select.sound, select.number {
+select.sound,
+select.number {
 	width: 65px;
 }
 
-select.date, select.time {
+select.date,
+select.time {
 	width: 130px;
 }
 
 select {
 	padding-left: 5px;
 	width: 65px;
-	height: 23px; 
+	height: 23px;
 	background: url(../images/select.png) no-repeat right white;
 	border: 0;
 	border-radius: 0;
 	display: inline-block;
 	-webkit-appearance: none;
-	-moz-appearance:none;
+	-moz-appearance: none;
 	border: 1px solid #ccc;
- }
+}
 
 select:disabled {
 	background: url(../images/select-disabled.png) no-repeat right white;
 	cursor: not-allowed;
- }
- 
-input:focus, select:focus, textarea:focus, button:focus {outline: none;}
-
-/* Checkbox and radio buttons */
-label.checkbox input[type="checkbox"], label.radio input[type="radio"] {
-	display:none;
 }
 
-label.checkbox span, label.radio span {
-  display:inline-block;
-	width:20px; 
-	height:20px;
-  vertical-align:middle;
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+/* Checkbox and radio buttons */
+label.checkbox input[type="checkbox"],
+label.radio input[type="radio"] {
+	display: none;
+}
+
+label.checkbox span,
+label.radio span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
 	position: relative;
 	margin-top: 0px;
 	cursor: pointer;
@@ -249,15 +281,16 @@ label.radio :checked + span {
 	background-position: 0 -38px;
 }
 
-label.checkbox > .text, label.radio > .text {	
+label.checkbox > .text,
+label.radio > .text {
 	padding-top: 1px;
 	padding-left: 5px;
 	display: inline-block;
 	margin-top: 1px;
-	position: absolute;	
+	position: absolute;
 }
 
-label.checkbox :disabled ~ .text {	
+label.checkbox :disabled ~ .text {
 	color: rgb(153, 153, 153);
 	cursor: not-allowed;
 }
