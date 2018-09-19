@@ -40,7 +40,7 @@ function archive(url, callback) {
 
 			status.code = statusCode;
 
-		} else if (statusCode.match(global.regex.httpCodes)) { // Check HTTP status codes
+		} else if (global.httpStatusCodes.includes(Number(statusCode))) { // Check HTTP status codes
 
 			status.archived = true;
 			status.code = statusCode;
