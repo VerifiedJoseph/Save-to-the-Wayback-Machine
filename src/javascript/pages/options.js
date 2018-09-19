@@ -273,7 +273,7 @@ body.addEventListener('click', function (event) {
 
 			ui.disableInput('note_sound_list', false);
 			ui.disableInput('preview_sound', false);
-			ui.className('note-sound', '');
+			ui.removeClass('note-sound', 'disabled');
 
 		} else {
 
@@ -289,8 +289,8 @@ body.addEventListener('click', function (event) {
 
 			ui.disableInput('date_format', false);
 			ui.disableInput('time_format', false);
-			ui.className('note-date', '');
-			ui.className('note-time', '');
+			ui.removeClass('note-date', 'disabled');
+			ui.removeClass('note-time', 'disabled');
 
 		}
 
