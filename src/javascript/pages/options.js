@@ -63,7 +63,7 @@ function displaySettings(showDefaults) {
 	// Disable the context nenu notification option if 'contextMenu' is false. 
 	if (list.contextMenu === false) {
 
-		ui.disableInput('context_note', true);
+		ui.disableInput('context_note');
 
 	}
 
@@ -74,8 +74,8 @@ function displaySettings(showDefaults) {
 		ui.addClass('note-sound', 'disabled');
 
 		// Disable the sound select dropdown and preview button
-		ui.disableInput('note_sound_list', true);
-		ui.disableInput('preview_sound', true);
+		ui.disableInput('note_sound_list');
+		ui.disableInput('preview_sound');
 
 	}
 
@@ -87,8 +87,8 @@ function displaySettings(showDefaults) {
 		ui.addClass('note-time', 'disabled');
 
 		// Disable the select dropdowns
-		ui.disableInput('date_format', true);
-		ui.disableInput('time_format', true);
+		ui.disableInput('date_format');
+		ui.disableInput('time_format');
 
 	}
 
@@ -263,7 +263,7 @@ body.addEventListener('click', function (event) {
 
 		} else {
 
-			ui.disableInput('context_note', true);
+			ui.disableInput('context_note');
 
 		}
 
@@ -277,8 +277,8 @@ body.addEventListener('click', function (event) {
 
 		} else {
 
-			ui.disableInput('note_sound_list', true);
-			ui.disableInput('preview_sound', true);
+			ui.disableInput('note_sound_list');
+			ui.disableInput('preview_sound');
 			ui.addClass('note-sound', 'disabled');
 
 		}
@@ -301,8 +301,8 @@ body.addEventListener('click', function (event) {
 			ui.addClass('note-date', 'disabled');
 			ui.addClass('note-time', 'disabled');
 
-			ui.disableInput('date_format', true);
-			ui.disableInput('time_format', true);
+			ui.disableInput('date_format');
+			ui.disableInput('time_format');
 
 		}
 
