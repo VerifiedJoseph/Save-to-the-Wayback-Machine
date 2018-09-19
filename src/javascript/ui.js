@@ -78,6 +78,21 @@ function UI() {
 	};
 
 	/**
+	 * Add a class to an element
+	 * @param {string} element Element id
+	 * @param {string} value Class name
+	 */
+	this.addClass = function addClass(element, value) {
+	
+		if (this.isElement(element) === true && typeof value !== 'undefined') {
+
+			domElement.classList.add(value);
+
+		}
+	
+	};
+	
+	/**
 	 * Set or change an element's class
 	 * @param {string} element Element id
 	 * @param {string} value Class name
