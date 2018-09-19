@@ -108,6 +108,20 @@ function UI() {
 	};
 	
 	/**
+	 * Enable an input element
+	 * @param {string} element Element id
+	 */
+	this.enableInput = function enableInput(element) {
+
+		if (this.isElement(element) === true) {
+
+			domElement.disabled = false;
+
+		}
+
+	};
+	
+	/**
 	 * Disable an input element
 	 * @param {string} element Element id
 	 * @param {boolean} value
