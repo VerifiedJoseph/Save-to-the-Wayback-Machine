@@ -93,6 +93,21 @@ function UI() {
 	};
 	
 	/**
+	 * Remove a class from an element
+	 * @param {string} element Element id
+	 * @param {string} value Class name
+	 */
+	this.removeClass = function removeClass(element, value) {
+	
+		if (this.isElement(element) === true && typeof value !== 'undefined') {
+
+			domElement.classList.remove(value);
+
+		}
+	
+	};
+	
+	/**
 	 * Set or change an element's class
 	 * @param {string} element Element id
 	 * @param {string} value Class name
