@@ -124,13 +124,12 @@ function UI() {
 	/**
 	 * Disable an input element
 	 * @param {string} element Element id
-	 * @param {boolean} value
 	 */
-	this.disableInput = function disableInput(element, value) {
+	this.disableInput = function disableInput(element) {
 
 		if (this.isElement(element) === true) {
 
-			domElement.disabled = value;
+			domElement.disabled = true;
 
 		}
 
