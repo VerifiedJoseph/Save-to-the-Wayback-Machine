@@ -259,7 +259,7 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
-			ui.disableInput('context_note', false);
+			ui.enableInput('context_note');
 
 		} else {
 
@@ -271,8 +271,8 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
-			ui.disableInput('note_sound_list', false);
-			ui.disableInput('preview_sound', false);
+			ui.enableInput('note_sound_list');
+			ui.enableInput('preview_sound');
 			ui.removeClass('note-sound', 'disabled');
 
 		} else {
@@ -287,8 +287,8 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
-			ui.disableInput('date_format', false);
-			ui.disableInput('time_format', false);
+			ui.enableInput('date_format');
+			ui.enableInput('time_format');
 			ui.removeClass('note-date', 'disabled');
 			ui.removeClass('note-time', 'disabled');
 
