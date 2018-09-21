@@ -69,7 +69,7 @@ function UI() {
 
 			} else if (action === 'hide') {
 
-				domElement.style.display = 'none';
+				this.addClass(element, 'hide');
 
 			}
 
