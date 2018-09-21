@@ -14,10 +14,9 @@
 			<div class="title">
 				<p id="overlay-title">Archiving Page...</p>
 			</div>
-			<div id="overlay-button" class="button view-page">
-				<span>View page</span>
-			</div>
-			<p id="overlay-reason"></p>
+			<button id="overlay-button" class="hide button overlay">View page</button>
+
+			<p class="reason" id="overlay-reason"></p>
 			<div id="loading-animation" class='loading'>
 				<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 				<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
@@ -34,60 +33,48 @@
 			</div>
 		</div>
 
-		<div id="confirm" class="view confirm">
-			<p id="reason">Are you sure?</p>
-			<div id="yes" class="left button x-small one">
-				<span>Yes</span>
-			</div>
-			<div id="no" class="left button x-small two">
-				<span>No</span>
-			</div>
-		</div>
-
-		<div id="stats-view" class="view stats">
-			Pages Archived:
-			<div class="number">
-				<span title="Total number of pages archived since the extension was installed" id="total-number">0</span>
-			</div>
-			<div class="stats-options">
-				<div id="back" class="left button small one">
-					<span>Back</span>
+		<div id="archive">
+			<button class="new popup" id="archive-now">Archive page</button>
+			
+			<div class="details">
+				<div class="title">
+					<strong>Page last archived:</strong>
 				</div>
-				<div class="clear"></div>
+				<div>
+					<p id="message">Loading...</p>
+				</div>
+				<div id="time-date">
+					<p><span id="date"></span></p>
+					<p>at <span id="time"></span></p>
+				</div>
+				<div id="time-since">
+					<p id="since"></p>
+				</div>
 			</div>
+			
+			<button class="popup margin" id="archive-version">View archived version</button>
+			<button class="popup" id="archive-history">View page history</button>
 		</div>
-
-		<div id="archive-now" class="button">
-			<span>Archive page</span>
-		</div>
-		<div class="details-title">
-			<strong>Page last archived:</strong>
-		</div>
-		<div id="details">
+		
+		<div id="statistics" class="hide">
 			<div>
-				<p id="message">Loading...</p>
-			</div>
-			<div id="time-date">
-				<p><span id="date"></span></p>
-				<p>at <span id="time"></span></p>
-			</div>
-			<div id="time-since">
-				<p id="since"></p>
+				Pages Archived:
+				<div class="number">
+					<span title="Total number of pages archived since the extension was installed" id="total-number">0</span>
+				</div>
+				<div class="stats-options">
+					<button class="small" id="back">Back</button>
+					<div class="clear"></div>
+				</div>
 			</div>
 		</div>
-		<div id="archive-version" class="button">
-			<span>View archived version</span>
-		</div>
-		<div id="archive-history" class="button">
-			<span>View page history</span>
-		</div>
-
+		
 		<div id="options-box">
-			<div id="options" class="left button small one">
-				<span>Options</span>
+			<div class="left">
+				<button class="left small" id="options">options</button>
 			</div>
-			<div id="stats" class="left button small two">
-				<span>Statistics</span>
+			<div class="right">
+				<button class="right small" id="stats">Statistics</button>
 			</div>
 			<div class="clear"></div>
 		</div>
