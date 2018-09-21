@@ -64,8 +64,8 @@ function UI() {
 		if (this.isElement(element) === true) {
 
 			if (action === 'show') {
-
-				domElement.style.display = 'block';
+				
+				this.removeClass(element, 'hide');
 
 			} else if (action === 'hide') {
 
