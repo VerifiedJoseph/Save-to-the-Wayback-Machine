@@ -1,63 +1,9 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-html {
-	box-sizing: border-box;
-	background-color: #FFF;
-}
-
-body {
-	font-family: arial, sans-serif;
-	font-size: 14px;
-	margin: 0;
-	line-height: 1.428571429;
-}
-
 h3 {
 	font-weight: 100;
 	/*margin: 10px 0px;*/
 	font-size: 16px;
 	margin: 0px;
 }
-
 
 .header-container {
 	padding: 5px 55px;
@@ -69,8 +15,7 @@ h3 {
 }
 
 .header > .title {
-	height: 16px;
-	padding: 10px;
+	padding: 8px;
 }
 
 .header > .image {
@@ -80,19 +25,6 @@ h3 {
 .header > .image > img {
 	width: 40px;
 	height: 40px;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.clear {
-	clear: both;
-	padding: 0px;
 }
 
 #status {
@@ -168,16 +100,16 @@ span.checkbox {
 	display: inline-block;
 }
 
-button:disabled {
+/*button:disabled {
 	color: #999999;
 	cursor: default;
-}
+}*/
 
 input:disabled + div {
 	color: #999999;
 }
 
-button {
+/*button {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	padding: 3px;
@@ -186,7 +118,7 @@ button {
 	font-size: 13px;
 	display: inline-block;
 	cursor: pointer;
-}
+}*/
 
 label > button:disabled ~ div,
 .disabled {
