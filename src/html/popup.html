@@ -10,14 +10,14 @@
 
 <body>
 	<div class="wrapper">
-		<div id="overlay">
+		<div id="overlay" class="hide">
 			<div class="title">
 				<p id="overlay-title">Archiving Page...</p>
 			</div>
-			<button id="overlay-button" class="hide button overlay">View page</button>
+			<button id="overlay-button" class="overlay hide">View page</button>
 
 			<p class="reason" id="overlay-reason"></p>
-			<div id="loading-animation" class='loading'>
+			<div id="loading-animation" class="loading hide">
 				<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 				<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 				<div style='top:80px;left:93px;width:14px;height:40px;background:#c9cdcf;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
@@ -43,17 +43,17 @@
 				<div>
 					<p id="message">Loading...</p>
 				</div>
-				<div id="time-date">
+				<div id="time-date" class="hide">
 					<p><span id="date"></span></p>
 					<p>at <span id="time"></span></p>
 				</div>
-				<div id="time-since">
+				<div id="time-since" class="hide">
 					<p id="since"></p>
 				</div>
 			</div>
 			
-			<button class="popup margin" id="archive-version">View archived version</button>
-			<button class="popup" id="archive-history">View page history</button>
+			<button class="popup margin hide" id="archive-version">View archived version</button>
+			<button class="popup hide" id="archive-history">View page history</button>
 		</div>
 		
 		<div id="statistics" class="hide">
