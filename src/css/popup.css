@@ -1,35 +1,27 @@
 body {
-	line-height: 1;
-	font-size: 14px;
+	line-height: 1.4;
 	color: #505050;
-	height: 164px;
-}
-
-a:link {
-	color: #202020;
-	white-space: nowrap;
-	text-decoration: none;
-}
-
-a:visited {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: black;
+	height: 177px;
 }
 
 .wrapper {
 	margin: 0 auto;
 	background: white;
 	width: 158px;
-	height: 164px;
+	height: inherit;
 	position: relative;
 }
 
 /* Details */
+.details {
+	text-align: center;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.details > .title {}
+
+
 .details-title {
 	width: 100%;
 	text-align: center;
@@ -39,7 +31,7 @@ a:hover {
 
 #details {
 	width: 100%;
-	height: 41px;
+	height: 48px;
 	text-align: center;
 	padding-top: 2px;
 }
@@ -73,21 +65,6 @@ a:hover {
 	padding: 10px;
 }
 
-/*  Stats reset div  */
-.view.confirm {
-	padding: 12px;
-	padding-top: 25%;
-	z-index: 100;
-}
-
-.view.confirm > #reason {
-	text-align: center;
-}
-
-#reason {
-	padding-top: 15px;
-}
-
 .number {
 	padding: 5px;
 	font-size: 19px;
@@ -104,7 +81,7 @@ a:hover {
 	opacity: 0.9;
 	text-align: center;
 	color: white;
-	height: 164px;
+	height: inherit;
 	font-weight: 700;
 	padding: 12px;
 }
@@ -113,13 +90,27 @@ a:hover {
 	height: 14px;
 }
 
-#overlay-title,
-#overlay-reason {
+#overlay > .reason {
+	margin-top: 25px;
+}
+
+#overlay > .reason, 
+#overlay > .title {
 	text-shadow: 1px 1px 1px #212121;
 }
 
-#overlay-reason {
-	padding-top: 20px;
+
+#archive, #statistics {
+	padding: 4px;
+	height: 177px;
+	width: 100%;
+	background-color: #FFF;
+}
+
+#statistics {
+	position: absolute;
+	top: 0;
+	padding: 10px;
 }
 
 /* Options */
@@ -128,6 +119,9 @@ a:hover {
 	position: absolute;
 	bottom: 4px;
 	left: 0px;
+	width: 150px;
+	margin-left: 4px;
+    margin-right: 4px;
 }
 
 /* Buttons */
@@ -219,6 +213,7 @@ a:hover {
 	width: 110px;
 	height: 0px;
 	padding-top: 10px;
+	margin-top: 25px;
 	transform: scale(0.25);
 }
 

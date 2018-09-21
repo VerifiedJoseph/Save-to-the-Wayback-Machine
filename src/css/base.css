@@ -10,6 +10,7 @@ body {
 	font-family: arial, sans-serif;
 	font-size: 14px;
 	margin: 0;
+	line-height: 1.5;
 }
 
 .left {
@@ -22,9 +23,42 @@ body {
 
 .clear {
 	clear: both;
-	padding: 0px;
 }
 
 .hide {
-	display: none;
+	display: none !important;
+}
+
+
+/* Buttons */
+button {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    min-width: 70px;
+    padding: 2px;
+	font-size: 14px;
+}
+
+button:disabled {
+	color: #999999;
+	cursor: not-allowed;
+}
+
+button.small {
+	width: 73px;
+}
+
+button.popup {
+	width: 100%;
+}
+
+button.margin {
+	margin-bottom: 4px;
+}
+
+button.overlay {
+	margin-top: 20px;
+	width: 120px;
 }
