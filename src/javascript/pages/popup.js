@@ -195,7 +195,7 @@ function eventListeners() {
 		// Opening stats view
 		document.getElementById('stats').addEventListener('click', function () {
 
-			ui.visibility('stats-view', 'show');
+			ui.visibility('statistics', 'show');
 			ui.visibility('options-box', 'hide');
 
 			// Display stats
@@ -206,7 +206,7 @@ function eventListeners() {
 		// Closing stats view (back)
 		document.getElementById('back').addEventListener('click', function () {
 
-			ui.visibility('stats-view', 'hide');
+			ui.visibility('statistics', 'hide');
 			ui.visibility('options-box', 'show');
 
 		});
