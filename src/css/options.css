@@ -99,25 +99,9 @@ span.checkbox {
 	display: inline-block;
 }
 
-/*button:disabled {
-	color: #999999;
-	cursor: default;
-}*/
-
 input:disabled + div {
 	color: #999999;
 }
-
-/*button {
-	background-color: #f5f5f5;
-	border: 1px solid #ccc;
-	padding: 3px;
-	padding-bottom: 3px;
-	min-width: 70px;
-	font-size: 13px;
-	display: inline-block;
-	cursor: pointer;
-}*/
 
 label > button:disabled ~ div,
 .disabled {
