@@ -84,11 +84,9 @@ button.inline {
 }
 
 /* Inputs */
-span.checkbox {
-	height: 17px;
-	padding-top: 2px;
-	padding-left: 10px;
-	display: inline-block;
+label.checkbox input[type="checkbox"],
+label.radio input[type="radio"] {
+	display: none;
 }
 
 input:disabled + div {
@@ -101,11 +99,15 @@ label > button:disabled ~ div,
 	cursor: not-allowed;
 }
 
+/* Select dropdown */
 .select {
+	position: relative;
 	display: inline-block;
 }
 
-select.sound,
+select.sound {
+	width: 70px;
+}
 select.number {
 	width: 65px;
 }
@@ -115,11 +117,24 @@ select.time {
 	width: 130px;
 }
 
+.select span:after {
+	display: block;
+	content: " ";
+	position: absolute;
+	top: 7px;
+	right: 6px;
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 8px solid #000;
+	pointer-events: none;
+}
+
 select {
 	padding-left: 5px;
 	width: 65px;
 	height: 23px;
-	background: url(../images/select.png) no-repeat right white;
 	border: 0;
 	border-radius: 0;
 	display: inline-block;
@@ -129,23 +144,16 @@ select {
 }
 
 select:disabled {
-	background: url(../images/select-disabled.png) no-repeat right white;
 	cursor: not-allowed;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-	outline: none;
+select:disabled ~ span:after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 8px solid #999999;
 }
 
 /* Checkbox and radio buttons */
-label.checkbox input[type="checkbox"],
-label.radio input[type="radio"] {
-	display: none;
-}
-
 label.checkbox span,
 label.radio span {
 	display: inline-block;
@@ -153,40 +161,53 @@ label.radio span {
 	height: 20px;
 	vertical-align: middle;
 	position: relative;
+	border: 1px solid #ccc;
 	margin-top: 0px;
 	cursor: pointer;
 }
 
-label.checkbox span {
-	background: url(../images/checkbox.png) no-repeat white;
-	background-position: 0 0px;
+label.checkbox span:after,
+label.radio span:after {
+	content: " ";
+	display: none;
+	position: absolute;
+	border: solid black;
+        border-top-width: medium;
+        border-right-width: medium;
+        border-bottom-width: medium;
+        border-left-width: medium;
 }
 
-label.radio span {
-	background: url(../images/radio.png) no-repeat white;
-	background-position: 0 0px;
+label.checkbox span:after {
+	left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+	border-width: 0 3px 3px 0;
 }
 
-/* Checkbox checked */
-label.checkbox :checked + span {
-	background-position: 0 -38px;
+label.radio span:after {
+	left: 3px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+	background-color: #000;
 }
 
-/* Checkbox disabled */
-label.checkbox :disabled + span {
+label.checkbox :checked ~ span:after, label.radio :checked ~ span:after {
+	display: block;
+}
+
+label.checkbox :disabled ~ span:after {
 	cursor: not-allowed;
-	background-position: 0 0px;
 }
 
-/* Checkbox disabled and checked */
-label.checkbox :disabled:checked + span {
-	cursor: not-allowed;
-	background-position: 0 -19px;
-}
-
-/* Radio checked */
-label.radio :checked + span {
-	background-position: 0 -38px;
+label.checkbox :disabled ~ span:after {
+    border: solid #999999;
+    border-width: 0 3px 3px 0;
 }
 
 label.checkbox > .text,
