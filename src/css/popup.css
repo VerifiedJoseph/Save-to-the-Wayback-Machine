@@ -1,7 +1,7 @@
 body {
 	line-height: 1.4;
 	color: #505050;
-	height: 177px;
+	min-height: 177px;
 }
 
 .wrapper {
@@ -54,7 +54,7 @@ body {
 	position: absolute;
 	top: 0;
 	padding: 10px;
-	min-height: 150px;
+	min-height: 151px;
 }
 
 /* Details */
