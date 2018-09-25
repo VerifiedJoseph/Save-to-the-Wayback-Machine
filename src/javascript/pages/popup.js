@@ -162,8 +162,11 @@ function isValid(status) {
 		document.getElementById('archive-now').addEventListener('click', function () {
 
 			ui.visibility('overlay', 'show');
-			ui.visibility('loading-animation', 'show');
-
+			ui.visibility('loading-animation', 'show');			
+			
+			// Add .overlay to #options-box
+			ui.addClass('options-box', 'overlay');
+			
 			// Save to page to the archive
 			archive(url, wasArchived);
 
@@ -179,8 +182,10 @@ function isValid(status) {
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
 
 		ui.visibility('overlay', 'show');
+
+		// Add .overlay to #options-box
 		ui.addClass('options-box', 'overlay');
-		
+
 	}
 
 }
