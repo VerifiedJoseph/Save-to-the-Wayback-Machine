@@ -20,10 +20,10 @@ body {
 	opacity: 0.9;
 	text-align: center;
 	color: white;
-	height: inherit;
+	min-height: 151px;
 	font-weight: 700;
 	padding: 12px;
-	height: 151px;
+
 }
 
 #overlay > .title {
@@ -43,15 +43,18 @@ body {
 /* Archive & statistics Divs */
 #archive, #statistics {
 	padding: 4px;
-	height: 151px;
+	min-height: 147px;
 	width: 100%;
 	background-color: #FFF;
+	margin-bottom: 4px;
+    padding-bottom: 0px;
 }
 
 #statistics {
 	position: absolute;
 	top: 0;
 	padding: 10px;
+	min-height: 150px;
 }
 
 /* Details */
@@ -59,6 +62,7 @@ body {
 	text-align: center;
 	margin-top: 4px;
 	margin-bottom: 4px;
+	height: 65px;
 }
 
 .details > .title {}
