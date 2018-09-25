@@ -179,7 +179,8 @@ function isValid(status) {
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
 
 		ui.visibility('overlay', 'show');
-
+		ui.addClass('options-box', 'overlay');
+		
 	}
 
 }
@@ -194,9 +195,21 @@ function eventListeners() {
 
 		// Opening stats view
 		document.getElementById('stats').addEventListener('click', function () {
-
+			
+			// Show statistics div and back button
 			ui.visibility('statistics', 'show');
-			ui.visibility('options-box', 'hide');
+			ui.visibility('back', 'show');
+
+			// Remove .overlay from #options-box if #overlay is displayed
+			if (ui.isDisplayed('overlay') === true) {
+			
+				ui.removeClass('options-box', 'overlay');
+				
+			}
+			
+			// Hide option and stats buttons
+			ui.visibility('options', 'hide');
+			ui.visibility('stats', 'hide');
 
 			// Display stats
 			ui.content('total-number', format.number(stats.get(), settings.get('numberFormat')));
@@ -206,8 +219,20 @@ function eventListeners() {
 		// Closing stats view (back)
 		document.getElementById('back').addEventListener('click', function () {
 
+			// Show option and stats buttons
+			ui.visibility('options', 'show');
+			ui.visibility('stats', 'show');
+			
+			// Add .overlay to #options-box if #overlay is displayed
+			if (ui.isDisplayed('overlay') === true) {
+			
+				ui.addClass('options-box', 'overlay');
+				
+			}
+			
+			// Hide statistics div and back butto
 			ui.visibility('statistics', 'hide');
-			ui.visibility('options-box', 'show');
+			ui.visibility('back', 'hide');
 
 		});
 
