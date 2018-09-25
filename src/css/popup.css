@@ -23,6 +23,7 @@ body {
 	height: inherit;
 	font-weight: 700;
 	padding: 12px;
+	height: 151px;
 }
 
 #overlay > .title {
@@ -42,7 +43,7 @@ body {
 /* Archive & statistics Divs */
 #archive, #statistics {
 	padding: 4px;
-	height: 177px;
+	height: 151px;
 	width: 100%;
 	background-color: #FFF;
 }
@@ -83,12 +84,13 @@ body {
 
 
 /* Options */
-#options-box,
-.stats-options {
-	position: absolute;
-	bottom: 4px;
-	left: 0px;
-	width: 150px;
-	margin-left: 4px;
-    margin-right: 4px;
+#options-box {
+	padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#options-box.overlay {
+	background-color: #50453D;
+    opacity: 0.9;
 }
