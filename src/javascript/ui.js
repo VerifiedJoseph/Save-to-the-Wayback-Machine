@@ -81,7 +81,7 @@ function UI() {
 	 * Is the element displayed
 	 * @param {string} element Element id
 	*/
-	this.isDisplayed = function isVisable(element) {
+	this.isDisplayed = function isDisplayed(element) {
 
 		if (this.isElement(element) === true) {
 
