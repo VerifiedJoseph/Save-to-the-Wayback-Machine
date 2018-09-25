@@ -87,8 +87,6 @@ function UI() {
 
 			var display = window.getComputedStyle(domElement).display;
 			
-			console.log(display);
-			
 			if (display !== 'none') {
 				
 				return true;
