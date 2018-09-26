@@ -1,7 +1,21 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
-	line-height: 1.4;
-	color: #505050;
-	min-height: 177px;
+	background-color: #FFF;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	line-height: 1;
+	height: 177px;
+	width: 158px;
 }
 
 .wrapper {
@@ -12,6 +26,60 @@ body {
 	position: relative;
 }
 
+/* Archive & statistics Divs */
+#archive {
+	margin: 4px;
+	margin-bottom: 0px;
+	padding-bottom: 4px;
+	height: 150px;
+}
+
+.details {
+	text-align: center;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	height: 65px;
+}
+
+.title {
+	padding-top: 2px;
+}
+
+#time-date,
+#message {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#date {
+	padding-bottom: 4px;
+}
+
+#statistics {
+	background-color: #FFF;
+	position: absolute;
+	top: -4px;
+	padding: 10px;
+	width: 100%;
+	margin: 0;
+	height: 154px;
+}
+
+.number {
+	padding: 5px;
+	font-weight: bold;
+}
+
+#options-box {
+	padding: 4px;
+	padding-top: 0px;
+}
+
+#options-box.overlay {
+	background-color: #50453D;
+	opacity: 0.9;
+}
+
 /* Overlay */
 #overlay {
 	position: absolute;
@@ -20,10 +88,10 @@ body {
 	opacity: 0.9;
 	text-align: center;
 	color: white;
-	min-height: 151px;
+	height: 154px;
 	font-weight: 700;
 	padding: 12px;
-
+	top: -4px;
 }
 
 #overlay > .title {
@@ -31,70 +99,10 @@ body {
 }
 
 #overlay > .reason {
-	margin-top: 25px;
+	padding-top: 25px;
 }
 
-#overlay > .reason, 
+#overlay > .reason,
 #overlay > .title {
 	text-shadow: 1px 1px 1px #212121;
-}
-
-
-/* Archive & statistics Divs */
-#archive, #statistics {
-	padding: 4px;
-	min-height: 147px;
-	width: 100%;
-	background-color: #FFF;
-	margin-bottom: 4px;
-    padding-bottom: 0px;
-}
-
-#statistics {
-	position: absolute;
-	top: 0;
-	padding: 10px;
-	min-height: 151px;
-}
-
-/* Details */
-.details {
-	text-align: center;
-	margin-top: 4px;
-	margin-bottom: 4px;
-	height: 65px;
-}
-
-.details > .title {}
-
-/* Time Date */
-#time-date > p,
-#message {
-	padding: 2px;
-}
-
-#time-since > p {
-	padding: 10px;
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.number {
-	padding: 5px;
-	font-size: 19px;
-	font-size: 15px;
-	font-weight: bold;
-}
-
-
-/* Options */
-#options-box {
-	padding-bottom: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#options-box.overlay {
-	background-color: #50453D;
-    opacity: 0.9;
 }
