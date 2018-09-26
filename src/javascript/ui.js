@@ -55,29 +55,6 @@ function UI() {
 	};
 
 	/**
-	 * Change the visibility of an element
-	 * @param {string} element - element id
-	 * @param {string} action
-	 */
-	this.visibility = function visibility(element, action) {
-
-		if (this.isElement(element) === true) {
-
-			if (action === 'show') {
-				
-				this.removeClass(element, 'hide');
-
-			} else if (action === 'hide') {
-
-				this.addClass(element, 'hide');
-
-			}
-
-		}
-
-	};
-
-	/**
 	 * Change the display status of an element via the CSS class .hide
 	 * @param {string} element Element id
 	 * @param {boolean} boolean
