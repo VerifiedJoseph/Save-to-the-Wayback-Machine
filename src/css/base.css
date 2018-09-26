@@ -5,12 +5,21 @@ html {
 	box-sizing: border-box;
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
 	background-color: #FFF;
-	font-family: arial, sans-serif;
+	font-family: arial;
 	font-size: 14px;
 	margin: 0;
-	line-height: 1.5;
+}
+
+p {
+	margin: 0;
 }
 
 .left {
@@ -31,15 +40,21 @@ body {
 
 
 /* Buttons */
-button {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    display: inline-block;
-    cursor: pointer;
-    min-width: 70px;
-    padding: 2px;
-	font-size: 14px;
+button::-moz-focus-inner {
+	padding:  adding: 0;
+	border: 0
 }
+
+button {
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	display: inline-block;
+	cursor: pointer;
+	min-width: 70px;
+	font-size: 14px;
+	padding: 2px;
+	height: 23px;
+	}
 
 button:disabled {
 	color: #999999;
@@ -59,6 +74,6 @@ button.margin {
 }
 
 button.overlay {
-	margin-top: 20px;
-	width: 120px;
+    margin-top: 20px;
+    width: 120px;
 }

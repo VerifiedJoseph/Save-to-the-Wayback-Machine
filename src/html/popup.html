@@ -36,43 +36,40 @@
 
 		<div id="archive">
 			<button class="new popup" id="archive-now">Archive page</button>
-			
+
 			<div class="details">
 				<div class="title">
 					<strong>Page last archived:</strong>
 				</div>
-				<div>
-					<p id="message">Loading...</p>
+				<div id="message">
+					Loading...
 				</div>
 				<div id="time-date" class="hide">
-					<p><span id="date"></span></p>
-					<p>at <span id="time"></span></p>
+					<div id="date"></div>
+					<div>at <span id="time"></span></div>
 				</div>
 				<div id="time-since" class="hide">
 					<p id="since"></p>
 				</div>
 			</div>
-			
+
 			<button class="popup margin hide" id="archive-version">View archived version</button>
 			<button class="popup hide" id="archive-history">View page history</button>
 		</div>
-		
+
 		<div id="statistics" class="hide">
 			<div>
 				Pages Archived:
 				<div class="number">
 					<span title="Total number of pages archived since the extension was installed" id="total-number">0</span>
 				</div>
-				<div class="stats-options">
-					<button class="small" id="back">Back</button>
-					<div class="clear"></div>
-				</div>
 			</div>
 		</div>
-		
+
 		<div id="options-box">
 			<div class="left">
-				<button class="left small" id="options">options</button>
+				<button class="left small" id="options">Options</button>
+				<button class="left small hide" id="back">Back</button>
 			</div>
 			<div class="right">
 				<button class="right small" id="stats">Statistics</button>

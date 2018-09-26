@@ -77,6 +77,29 @@ function UI() {
 
 	};
 
+	/*
+	 * Is the element displayed
+	 * @param {string} element Element id
+	*/
+	this.isDisplayed = function isDisplayed(element) {
+
+		if (this.isElement(element) === true) {
+
+			var display = window.getComputedStyle(domElement).display;
+			
+			if (display !== 'none') {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+
+	
 	/**
 	 * Add a class to an element
 	 * @param {string} element Element id
