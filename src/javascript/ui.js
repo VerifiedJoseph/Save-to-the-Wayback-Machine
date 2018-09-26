@@ -55,28 +55,28 @@ function UI() {
 	};
 
 	/**
-	 * Change the visibility of an element
-	 * @param {string} element - element id
-	 * @param {string} action
+	 * Change the display status of an element via the CSS class .hide
+	 * @param {string} element Element id
+	 * @param {boolean} boolean
 	 */
-	this.visibility = function visibility(element, action) {
-
+	this.display = function display(element, boolean) {
+	
 		if (this.isElement(element) === true) {
-
-			if (action === 'show') {
-				
+		
+			if (boolean === true) { // Remove .hide class and display element
+			
 				this.removeClass(element, 'hide');
-
-			} else if (action === 'hide') {
-
+			
+			} else if (boolean === false) { // Add .hide class and hide element
+		
 				this.addClass(element, 'hide');
-
+		
 			}
-
+			
 		}
-
+		
 	};
-
+	
 	/*
 	 * Is the element displayed
 	 * @param {string} element Element id
@@ -97,8 +97,7 @@ function UI() {
 		
 		return false;
 		
-	}
-
+	};
 	
 	/**
 	 * Add a class to an element

@@ -49,9 +49,9 @@ function apiData(response) {
 
 		if (data.archived_snapshots.hasOwnProperty('closest')) { // Did the API return a snapshot?
 
-			ui.visibility('message', 'hide');
-			ui.visibility('archive-version', 'show');
-			ui.visibility('archive-history', 'show');
+			ui.display('message', false);
+			ui.display('archive-version', true);
+			ui.display('archive-history', true);
 
 			archivedVersion = data.archived_snapshots.closest.url;
 
@@ -62,12 +62,12 @@ function apiData(response) {
 
 				ui.content('date', format.readableDate(timeStamp, settings.get('timeZoneConvert'), settings.get('dateFormat')));
 				ui.content('time', format.readableTime(timeStamp, settings.get('timeZoneConvert'), settings.get('timeFormat')));
-				ui.visibility('time-date', 'show');
+				ui.display('time-date', true);
 
 			} else { // Display time since (e.g: "1 hour ago")
 
 				ui.content('since', format.timeSince(timeStamp, settings.get('timeZoneConvert')));
-				ui.visibility('time-since', 'show');
+				ui.display('time-since', true);
 
 			}
 
@@ -90,8 +90,8 @@ function apiData(response) {
 			debug.log('No snapshot returned for ' + url);
 
 			ui.content('message', 'Page has not been archived.');
-			ui.visibility('archive-version', 'hide');
-			ui.visibility('archive-history', 'hide');
+			ui.display('archive-version', false);
+			ui.display('archive-history', false);
 
 		}
 
@@ -100,8 +100,8 @@ function apiData(response) {
 		debug.log('API Data not fetched for ' + url);
 
 		ui.content('message', browser.i18n.getMessage('ApiRequestFailed'));
-		ui.visibility('archive-version', 'hide');
-		ui.visibility('archive-history', 'hide');
+		ui.display('archive-version', false);
+		ui.display('archive-history', false);
 
 	}
 
@@ -114,7 +114,7 @@ function apiData(response) {
 function wasArchived(response) {
 
 	// Hide loading animation
-	ui.visibility('loading-animation', 'hide');
+	ui.display('loading-animation', false);
 
 	if (response.archived === false) { // Page was not archived
 
@@ -143,7 +143,7 @@ function wasArchived(response) {
 		});
 
 		// Show view button.
-		ui.visibility('overlay-button', 'show');
+		ui.display('overlay-button', true);
 
 	}
 
@@ -161,8 +161,8 @@ function isValid(status) {
 		// Event listener for archive now button
 		document.getElementById('archive-now').addEventListener('click', function () {
 
-			ui.visibility('overlay', 'show');
-			ui.visibility('loading-animation', 'show');			
+			ui.display('overlay', true);
+			ui.display('loading-animation', true);
 			
 			// Add .overlay to #options-box
 			ui.addClass('options-box', 'overlay');
@@ -181,7 +181,7 @@ function isValid(status) {
 		ui.content('overlay-title', '');
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
 
-		ui.visibility('overlay', 'show');
+		ui.display('overlay', true);
 
 		// Add .overlay to #options-box
 		ui.addClass('options-box', 'overlay');
@@ -202,8 +202,8 @@ function eventListeners() {
 		document.getElementById('stats').addEventListener('click', function () {
 			
 			// Show statistics div and back button
-			ui.visibility('statistics', 'show');
-			ui.visibility('back', 'show');
+			ui.display('statistics', true);
+			ui.display('back', true);
 
 			// Remove .overlay from #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
@@ -213,8 +213,8 @@ function eventListeners() {
 			}
 			
 			// Hide option and stats buttons
-			ui.visibility('options', 'hide');
-			ui.visibility('stats', 'hide');
+			ui.display('options', false);
+			ui.display('stats', false);
 
 			// Display stats
 			ui.content('total-number', format.number(stats.get(), settings.get('numberFormat')));
@@ -225,8 +225,8 @@ function eventListeners() {
 		document.getElementById('back').addEventListener('click', function () {
 
 			// Show option and stats buttons
-			ui.visibility('options', 'show');
-			ui.visibility('stats', 'show');
+			ui.display('options', true);
+			ui.display('stats', true);
 			
 			// Add .overlay to #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
@@ -236,15 +236,15 @@ function eventListeners() {
 			}
 			
 			// Hide statistics div and back butto
-			ui.visibility('statistics', 'hide');
-			ui.visibility('back', 'hide');
+			ui.display('statistics', false);
+			ui.display('back', false);
 
 		});
 
 	} else { // Stats disabled. Hide button.
 
 		// Change visibility of button
-		ui.visibility('stats', 'hide');
+		ui.display('stats', false);
 
 	}
 

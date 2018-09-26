@@ -185,7 +185,7 @@ function saveSettings() {
 function resetSettings() {
 
 	// Hide reset confirm div 
-	ui.visibility('confirm', 'hide');
+	ui.display('confirm', false);
 
 	settings.update(defaults, function (reset) {
 
@@ -317,11 +317,11 @@ body.addEventListener('click', function (event) {
 
 	} else if (input.id === 'reset') { // Reset user options			
 
-		ui.visibility('confirm', 'show'); // Show confirm div
+		ui.display('confirm', true); // Show confirm div
 
 	} else if (input.id === 'no') { // No, hide rest confirm div	
 
-		ui.visibility('confirm', 'hide');
+		ui.display('confirm', false);
 
 	} else if (input.id === 'yes') { // Yes, reset user options confirmed
 
