@@ -13,7 +13,7 @@ function Debug() {
 	/*
 		Enable the logging
 	*/
-	this.enable = function log(status) {
+	this.enable = function enable(status) {
 		
 		isEnabled = status;
 		
