@@ -11,17 +11,17 @@ function UI() {
 
 	/**
 	 * Does the element exist in the DOM
-	 * @param {string} element Element id
-	 * @return {boolean}
+	 * @param {string} id Element id
+	 * @return {boolean} status
 	 */
-	this.isElement = function isElement(element) {
+	this.isElement = function isElement(id) {
 
 		var status = false;
 		domElement = null;
 
-		if (element !== 'undefined' || element !== null) {
+		if (id !== 'undefined' || id !== null) {
 
-			domElement = document.getElementById(element);
+			domElement = document.getElementById(id);
 
 			if (domElement !== null) { // Element found
 
@@ -29,7 +29,7 @@ function UI() {
 
 			} else {
 
-				debug.log('Element not Found:' + element);
+				debug.log('Element not Found:' + id);
 
 			}
 
@@ -44,9 +44,9 @@ function UI() {
 	 * @param {string} element Element id
 	 * @param {string} data
 	 */
-	this.content = function content(element, value) {
+	this.content = function content(id, value) {
 
-		if (this.isElement(element) === true && value !== undefined) {
+		if (this.isElement(id) === true && value !== undefined) {
 
 			domElement.textContent = value;
 
@@ -56,20 +56,20 @@ function UI() {
 
 	/**
 	 * Change the display status of an element via the CSS class .hide
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {boolean} boolean
 	 */
-	this.display = function display(element, boolean) {
+	this.display = function display(id, boolean) {
 	
-		if (this.isElement(element) === true) {
+		if (this.isElement(id) === true) {
 		
 			if (boolean === true) { // Remove .hide class and display element
 			
-				this.removeClass(element, 'hide');
+				this.removeClass(id, 'hide');
 			
 			} else if (boolean === false) { // Add .hide class and hide element
 		
-				this.addClass(element, 'hide');
+				this.addClass(id, 'hide');
 		
 			}
 			
@@ -79,11 +79,11 @@ function UI() {
 	
 	/*
 	 * Is the element displayed
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	*/
-	this.isDisplayed = function isDisplayed(element) {
+	this.isDisplayed = function isDisplayed(id) {
 
-		if (this.isElement(element) === true) {
+		if (this.isElement(id) === true) {
 
 			var display = window.getComputedStyle(domElement).display;
 			
@@ -101,12 +101,12 @@ function UI() {
 	
 	/**
 	 * Add a class to an element
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {string} value Class name
 	 */
-	this.addClass = function addClass(element, value) {
+	this.addClass = function addClass(id, value) {
 	
-		if (this.isElement(element) === true && typeof value !== 'undefined') {
+		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
 			domElement.classList.add(value);
 
@@ -116,12 +116,12 @@ function UI() {
 	
 	/**
 	 * Remove a class from an element
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {string} value Class name
 	 */
-	this.removeClass = function removeClass(element, value) {
+	this.removeClass = function removeClass(id, value) {
 	
-		if (this.isElement(element) === true && typeof value !== 'undefined') {
+		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
 			domElement.classList.remove(value);
 
@@ -131,11 +131,11 @@ function UI() {
 	
 	/**
 	 * Enable an input element
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 */
-	this.enableInput = function enableInput(element) {
+	this.enableInput = function enableInput(id) {
 
-		if (this.isElement(element) === true) {
+		if (this.isElement(id) === true) {
 
 			domElement.disabled = false;
 
@@ -145,11 +145,11 @@ function UI() {
 	
 	/**
 	 * Disable an input element
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 */
-	this.disableInput = function disableInput(element) {
+	this.disableInput = function disableInput(id) {
 
-		if (this.isElement(element) === true) {
+		if (this.isElement(id) === true) {
 
 			domElement.disabled = true;
 
@@ -159,10 +159,10 @@ function UI() {
 
 	/**
 	 * Set or change an element's title
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {boolean} value
 	 */
-	this.title = function title(element, value) {
+	this.title = function title(id, value) {
 
 		if (this.isElement(element) === true && typeof value !== 'undefined') {
 
@@ -174,13 +174,13 @@ function UI() {
 
 	/**
 	 * Set or change an element's attribute
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {string} attr Attribute name
-	 * @param {string} value - Attribute value
+	 * @param {string} value Attribute value
 	 */
-	this.attribute = function attribute(element, attr, value) {
+	this.attribute = function attribute(id, attr, value) {
 
-		if (this.isElement(element) === true && typeof attr !== 'undefined' && typeof value !== 'undefined') {
+		if (this.isElement(id) === true && typeof attr !== 'undefined' && typeof value !== 'undefined') {
 
 			domElement.setAttribute(attr, value);
 
@@ -190,12 +190,12 @@ function UI() {
 
 	/**
 	 * Remove an attribute from an element
-	 * @param {string} element Element id
+	 * @param {string} id Element id
 	 * @param {string} attr Attribute name
 	 */
 	this.attributeRemove = function attributeRemove(element, attr) {
 
-		if (this.isElement(element) === true && typeof attr !== 'undefined') {
+		if (this.isElement(id) === true && typeof attr !== 'undefined') {
 
 			if (domElement.hasAttribute(attr)) {
 
