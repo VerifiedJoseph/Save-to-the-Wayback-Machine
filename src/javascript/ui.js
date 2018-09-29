@@ -7,7 +7,7 @@
 	Create, update or remove elements
  */
 function UI() {
-	var domElement = null;
+	var element = null;
 
 	/**
 	 * Does the element exist in the DOM
@@ -17,13 +17,13 @@ function UI() {
 	this.isElement = function isElement(id) {
 
 		var status = false;
-		domElement = null;
+		element = null;
 
 		if (id !== 'undefined' || id !== null) {
 
-			domElement = document.getElementById(id);
+			element = document.getElementById(id);
 
-			if (domElement !== null) { // Element found
+			if (element !== null) { // Element found
 
 				status = true;
 
@@ -48,7 +48,7 @@ function UI() {
 
 		if (this.isElement(id) === true && value !== undefined) {
 
-			domElement.textContent = value;
+			element.textContent = value;
 
 		}
 
@@ -85,7 +85,7 @@ function UI() {
 
 		if (this.isElement(id) === true) {
 
-			var display = window.getComputedStyle(domElement).display;
+			var display = window.getComputedStyle(element).display;
 			
 			if (display !== 'none') {
 				
@@ -108,7 +108,7 @@ function UI() {
 	
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
-			domElement.classList.add(value);
+			element.classList.add(value);
 
 		}
 	
@@ -123,7 +123,7 @@ function UI() {
 	
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
-			domElement.classList.remove(value);
+			element.classList.remove(value);
 
 		}
 	
@@ -137,7 +137,7 @@ function UI() {
 
 		if (this.isElement(id) === true) {
 
-			domElement.disabled = false;
+			element.disabled = false;
 
 		}
 
@@ -151,7 +151,7 @@ function UI() {
 
 		if (this.isElement(id) === true) {
 
-			domElement.disabled = true;
+			element.disabled = true;
 
 		}
 
@@ -166,7 +166,7 @@ function UI() {
 
 		if (this.isElement(element) === true && typeof value !== 'undefined') {
 
-			domElement.title = value;
+			element.title = value;
 
 		}
 
@@ -182,7 +182,7 @@ function UI() {
 
 		if (this.isElement(id) === true && typeof attr !== 'undefined' && typeof value !== 'undefined') {
 
-			domElement.setAttribute(attr, value);
+			element.setAttribute(attr, value);
 
 		}
 
@@ -197,9 +197,9 @@ function UI() {
 
 		if (this.isElement(id) === true && typeof attr !== 'undefined') {
 
-			if (domElement.hasAttribute(attr)) {
+			if (element.hasAttribute(attr)) {
 
-				domElement.removeAttribute(attr);
+				element.removeAttribute(attr);
 
 			}
 
