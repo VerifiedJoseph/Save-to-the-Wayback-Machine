@@ -41,7 +41,7 @@ p {
 
 /* Buttons */
 button::-moz-focus-inner {
-	padding:  adding: 0;
+	padding: adding: 0;
 	border: 0
 }
 
@@ -54,7 +54,7 @@ button {
 	font-size: 14px;
 	padding: 2px;
 	height: 23px;
-	}
+}
 
 button:disabled {
 	color: #999999;
@@ -74,6 +74,6 @@ button.margin {
 }
 
 button.overlay {
-    margin-top: 20px;
-    width: 120px;
+	margin-top: 20px;
+	width: 120px;
 }
