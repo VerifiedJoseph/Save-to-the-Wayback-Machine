@@ -112,6 +112,7 @@ label > button:disabled ~ div,
 select.sound {
 	width: 70px;
 }
+
 select.number {
 	width: 65px;
 }
@@ -176,32 +177,33 @@ label.radio span:after {
 	display: none;
 	position: absolute;
 	border: solid black;
-        border-top-width: medium;
-        border-right-width: medium;
-        border-bottom-width: medium;
-        border-left-width: medium;
+	border-top-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
 }
 
 label.checkbox span:after {
 	left: 6px;
-    top: 2px;
-    width: 6px;
-    height: 12px;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+	top: 2px;
+	width: 6px;
+	height: 12px;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 	border-width: 0 3px 3px 0;
 }
 
 label.radio span:after {
 	left: 3px;
-    top: 3px;
-    width: 12px;
-    height: 12px;
+	top: 3px;
+	width: 12px;
+	height: 12px;
 	background-color: #000;
 }
 
-label.checkbox :checked ~ span:after, label.radio :checked ~ span:after {
+label.checkbox :checked ~ span:after,
+label.radio :checked ~ span:after {
 	display: block;
 }
 
@@ -210,8 +212,8 @@ label.checkbox :disabled ~ span:after {
 }
 
 label.checkbox :disabled ~ span:after {
-    border: solid #999999;
-    border-width: 0 3px 3px 0;
+	border: solid #999999;
+	border-width: 0 3px 3px 0;
 }
 
 label.checkbox > .text,
