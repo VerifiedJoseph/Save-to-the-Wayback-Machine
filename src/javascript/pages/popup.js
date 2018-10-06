@@ -163,10 +163,10 @@ function isValid(status) {
 
 			ui.display('overlay', true);
 			ui.display('loading-animation', true);
-			
+
 			// Add .overlay to #options-box
 			ui.addClass('options-box', 'overlay');
-			
+
 			// Save to page to the archive
 			archive(url, wasArchived);
 
@@ -200,18 +200,18 @@ function eventListeners() {
 
 		// Opening stats view
 		document.getElementById('stats').addEventListener('click', function () {
-			
+
 			// Show statistics div and back button
 			ui.display('statistics', true);
 			ui.display('back', true);
 
 			// Remove .overlay from #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
-			
+
 				ui.removeClass('options-box', 'overlay');
-				
+
 			}
-			
+
 			// Hide option and stats buttons
 			ui.display('options', false);
 			ui.display('stats', false);
@@ -227,14 +227,14 @@ function eventListeners() {
 			// Show option and stats buttons
 			ui.display('options', true);
 			ui.display('stats', true);
-			
+
 			// Add .overlay to #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
-			
+
 				ui.addClass('options-box', 'overlay');
-				
+
 			}
-			
+
 			// Hide statistics div and back butto
 			ui.display('statistics', false);
 			ui.display('back', false);

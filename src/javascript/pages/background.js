@@ -99,7 +99,7 @@ function wasArchived(response) {
 
 		// Log Details
 		debug.log('Page Not Archived \n URL:' + response.url + ' \n Status code: ' + response.code + '\n Reason: ' + response.error);
-		
+
 		notifyUser(response.url, browser.i18n.getMessage('notificationArchiveFailed'), response.error);
 		notifyUserSound();
 

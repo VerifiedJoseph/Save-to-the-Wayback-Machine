@@ -60,75 +60,75 @@ function UI() {
 	 * @param {boolean} boolean
 	 */
 	this.display = function display(id, boolean) {
-	
+
 		if (this.isElement(id) === true) {
-		
+
 			if (boolean === true) { // Remove .hide class and display element
-			
+
 				this.removeClass(id, 'hide');
-			
+
 			} else if (boolean === false) { // Add .hide class and hide element
-		
+
 				this.addClass(id, 'hide');
-		
+
 			}
-			
+
 		}
-		
+
 	};
-	
+
 	/*
 	 * Is the element displayed
 	 * @param {string} id Element id
-	*/
+	 */
 	this.isDisplayed = function isDisplayed(id) {
 
 		if (this.isElement(id) === true) {
 
 			var display = window.getComputedStyle(element).display;
-			
+
 			if (display !== 'none') {
-				
+
 				return true;
-				
+
 			}
-			
+
 		}
-		
+
 		return false;
-		
+
 	};
-	
+
 	/**
 	 * Add a class to an element
 	 * @param {string} id Element id
 	 * @param {string} value Class name
 	 */
 	this.addClass = function addClass(id, value) {
-	
+
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
 			element.classList.add(value);
 
 		}
-	
+
 	};
-	
+
 	/**
 	 * Remove a class from an element
 	 * @param {string} id Element id
 	 * @param {string} value Class name
 	 */
 	this.removeClass = function removeClass(id, value) {
-	
+
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
 
 			element.classList.remove(value);
 
 		}
-	
+
 	};
-	
+
 	/**
 	 * Enable an input element
 	 * @param {string} id Element id
@@ -142,7 +142,7 @@ function UI() {
 		}
 
 	};
-	
+
 	/**
 	 * Disable an input element
 	 * @param {string} id Element id

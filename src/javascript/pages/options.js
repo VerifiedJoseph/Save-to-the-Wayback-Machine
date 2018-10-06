@@ -102,7 +102,7 @@ function displayDateTime() {
 	var date = new Date(),
 		dateSelect = document.getElementById('date_format'),
 		timeSelect = document.getElementById('time_format');
-	
+
 	// Date formats
 	dateSelect.options[0].textContent = format.readableDate(date, true, 'F j, Y');
 	dateSelect.options[1].textContent = format.readableDate(date, true, 'Y/m/d');
