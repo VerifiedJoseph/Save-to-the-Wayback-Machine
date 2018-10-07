@@ -1,3 +1,30 @@
+5.2.0 -- 07/10/18
+	Additions:
+		Added function UI.display()
+		Added function UI.isDisplayed()
+		Added function UI.enableInput()
+		Added function UI.addClass()
+		Added function UI.removeClass()
+		Added file loading.css
+		Added file base.css
+
+	Changes:
+		Updated screenshots
+		Formatted JavaScript, CSS and HTML with js-beautify.
+		Statistics button in popup.html is now hidden when statistics are disabled.
+		Options button width is changed to match pop-up window width when statistics button is hidden.
+		Replaced RGB values with hex values in CSS files.
+		Replaced input images with CSS.
+		Replaced 'fake' div buttons with real buttons.
+		Removed function UI.visibility()
+		Removed function UI.className() 
+		Removed boolean parameter from function  UI.disableInput()
+		Removed files: checkbox.png, radio.png, select-disabled.png and select.png 
+	
+	Fixes:
+		Fixed overlapping buttons when display scaling is greater than 100%
+		Fixed incorrect function name in Debug.enable()
+
 5.1.5 -- 17/09/18
 	Additions:
 		Added empty id string to browser.notifications.create() in background.js
