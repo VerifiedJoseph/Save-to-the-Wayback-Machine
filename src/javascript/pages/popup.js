@@ -243,7 +243,7 @@ function eventListeners() {
 
 	} else { // Stats disabled. Hide button.
 
-		// Change display ststus of stats button
+		// Change display status of stats button
 		ui.display('stats', false);
 
 		// Change width of options button to 150px
