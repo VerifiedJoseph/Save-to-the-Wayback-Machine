@@ -51,6 +51,10 @@ body {
 	padding-bottom: 10px;
 }
 
+#time-since {
+	padding-top: 18px;
+}
+
 #date {
 	padding-bottom: 4px;
 }
