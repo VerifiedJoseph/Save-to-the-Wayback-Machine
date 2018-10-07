@@ -1,10 +1,15 @@
 {
+	"applications": {
+		"gecko": {
+			"strict_min_version": "53.0"
+		}
+	},
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
 	"author": "VerifiedJoseph",
 	"default_locale": "en",
-	"version": "5.2.0",
-	"version_name": "5.2.0 (Released 07/10/2018)",
+	"version": "5.2.1",
+	"version_name": "5.2.1 (Released 07/10/2018)",
 	"manifest_version": 2,
 	"icons": {
 		"16": "images/icons/16.png",
@@ -34,7 +39,7 @@
 		"default_title": "__MSG_extensionName__"
 	},
 	"background": {
-		"persistent": false,
+		"persistent": true,
 		"page": "html/background.html"
 	},
 	"options_page": "html/options.html",
