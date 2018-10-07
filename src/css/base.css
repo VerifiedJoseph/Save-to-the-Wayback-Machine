@@ -41,7 +41,7 @@ p {
 
 /* Buttons */
 button::-moz-focus-inner {
-	padding: adding: 0;
+	padding: 0;
 	border: 0
 }
 
