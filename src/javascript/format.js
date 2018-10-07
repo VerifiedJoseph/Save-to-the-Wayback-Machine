@@ -247,13 +247,13 @@ function Format() {
 		if (convertTimeZone === undefined) {
 			convertTimeZone = false;
 		}
-		
+
 		var date,
 			seconds,
 			interval;
-		
+
 		if (convertTimeZone === true) { // Convert UTC to local timezone
-			
+
 			date = new Date(dateString);
 
 		} else {
@@ -298,7 +298,7 @@ function Format() {
 		if (interval === 1) {
 			return interval + " minute ago";
 		}
-		
+
 		if (interval > 1) {
 			return interval + " minutes ago";
 		}
