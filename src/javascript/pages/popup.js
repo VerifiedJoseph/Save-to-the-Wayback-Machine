@@ -70,15 +70,12 @@ function apiData(response) {
 
 			// Event listener for archive history button
 			document.getElementById('archive-history').addEventListener('click', function () {
-
 				tab(global.urls.calendar + url); // Create tab
-
 			});
 
 			// Event listener for archive version button
 			document.getElementById('archive-version').addEventListener('click', function () {
-
-
+				tab(global.urls.base + '/web/' + data.archived_snapshots.closest.timestamp  + '/' + data.url); // Create tab
 			});
 
 		} else { // A snapshot was not returned.
@@ -133,9 +130,7 @@ function wasArchived(response) {
 
 		// Add event listener for view button.
 		document.getElementById('overlay-button').addEventListener('click', function () {
-
-			tab('https://web.archive.org' + response.captureUrl); // Create tab
-
+			tab(global.urls.base + response.captureUrl); // Create tab
 		});
 
 		// Show view button.
