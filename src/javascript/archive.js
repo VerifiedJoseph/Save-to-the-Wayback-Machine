@@ -11,7 +11,7 @@
 function archive(url, callback) {
 
 	var request = new Request();
-	request.open(global.urls.save + url, function (response) {
+	request.open(global.urls.save + encodeURI(url), function (response) {
 
 		var headers = response.headers,
 			statusCode = response.status.toString(),
