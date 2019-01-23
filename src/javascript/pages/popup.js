@@ -7,7 +7,6 @@ var ui = new UI(),
 	debug = new Debug(),
 	stats = new Stats(),
 	format = new Format(),
-	archivedVersion, // Capture URL from the Wayback availability API.
 	timeStamp, // Time stamp from the Wayback availability API.
 	url; // URL of the current tab.
 
@@ -53,8 +52,6 @@ function apiData(response) {
 			ui.display('archive-version', true);
 			ui.display('archive-history', true);
 
-			archivedVersion = data.archived_snapshots.closest.url;
-
 			// Change timeStamp in to a format that is supported by Date()
 			timeStamp = format.timeStampToDate(data.archived_snapshots.closest.timestamp);
 
@@ -73,16 +70,12 @@ function apiData(response) {
 
 			// Event listener for archive history button
 			document.getElementById('archive-history').addEventListener('click', function () {
-
 				tab(global.urls.calendar + url); // Create tab
-
 			});
 
 			// Event listener for archive version button
 			document.getElementById('archive-version').addEventListener('click', function () {
-
-				tab(archivedVersion); // Create tab
-
+				tab(global.urls.base + '/web/' + data.archived_snapshots.closest.timestamp  + '/' + data.url); // Create tab
 			});
 
 		} else { // A snapshot was not returned.
@@ -137,9 +130,7 @@ function wasArchived(response) {
 
 		// Add event listener for view button.
 		document.getElementById('overlay-button').addEventListener('click', function () {
-
-			tab('https://web.archive.org' + response.captureUrl); // Create tab
-
+			tab(global.urls.base + response.captureUrl); // Create tab
 		});
 
 		// Show view button.

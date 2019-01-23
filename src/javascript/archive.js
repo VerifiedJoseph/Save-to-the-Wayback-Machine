@@ -50,7 +50,7 @@ function archive(url, callback) {
 				status.captureUrl = headers['content-location'];
 
 			} else { // No Content-Location header, use page URL.
-				status.captureUrl = '/' + url;
+				status.captureUrl = '/web/' + url;
 			}
 
 		}

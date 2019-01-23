@@ -7,6 +7,7 @@
 */
 var global = {
 	urls: {
+		base: 'https://web.archive.org',
 		save: 'https://web.archive.org/save/',
 		calendar: 'https://web.archive.org/web/*/',
 		api: 'https://archive.org/wayback/available?url='
