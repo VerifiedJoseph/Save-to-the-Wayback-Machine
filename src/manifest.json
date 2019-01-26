@@ -1,9 +1,4 @@
 {
-	"applications": {
-		"gecko": {
-			"strict_min_version": "53.0"
-		}
-	},
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
 	"author": "VerifiedJoseph",
