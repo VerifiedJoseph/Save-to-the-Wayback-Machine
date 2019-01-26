@@ -39,7 +39,7 @@
 		"default_title": "__MSG_extensionName__"
 	},
 	"background": {
-		"persistent": true,
+		"persistent": false
 		"page": "html/background.html"
 	},
 	"options_page": "html/options.html",
