@@ -1,3 +1,18 @@
+5.2.2 -- 29/01/2019
+	Additions:
+		none
+
+	Changes:
+		Changed CSS font-family value to sans-serif
+		Removed extra css values from popup.css
+		Page URL is encoded in save page request
+		Updated all archive.org URLs to use HTTPS
+		Removed variable archivedVersion from popup.js
+		Added variable global.urls.base to global.js
+	
+	Fixes:
+		Fixed confirm panel overlapping page header in options.html 
+
 5.2.1 -- 07/10/18
 	Additions:
 		none
