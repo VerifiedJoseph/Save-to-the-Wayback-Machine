@@ -193,7 +193,7 @@ function UI() {
 	 * @param {string} id Element id
 	 * @param {string} attr Attribute name
 	 */
-	this.attributeRemove = function attributeRemove(element, attr) {
+	this.attributeRemove = function attributeRemove(id, attr) {
 
 		if (this.isElement(id) === true && typeof attr !== 'undefined') {
 
