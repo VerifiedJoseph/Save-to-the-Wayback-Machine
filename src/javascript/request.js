@@ -5,7 +5,7 @@
 
 function Request() {
 
-	var request = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
 	
 	var method = 'GET';
 	
@@ -28,20 +28,20 @@ function Request() {
 	this.get = function open(url, callback) {
 		method = 'GET';
 			
-		request.open(method, url, true);
-		request.setRequestHeader('x-requested-by', global.requestedBy);
+		xhr.open(method, url, true);
+		xhr.setRequestHeader('x-requested-by', global.requestedBy);
 
 		debug.log('GET Request: ' + url);
 
-		request.onload = function () { // On request load
+		xhr.onload = function () { // On request load
 
-			response.status = request.status;
-			response.data = request.response;
+			response.status = xhr.status;
+			response.data = xhr.response;
 			response.method = 'GET';
 			response.url = url;
 
 			response.headers = parseHeaders(
-				request.getAllResponseHeaders()
+				xhr.getAllResponseHeaders()
 			);
 
 			/**
@@ -51,11 +51,11 @@ function Request() {
 			callback(response);
 		};
 
-		request.onerror = function () { // On connection error
+		xhr.onerror = function () { // On connection error
 			debug.log('Request failed (connection error)');
 
-			response.status = request.status;
-			response.data = request.response;
+			response.status = xhr.status;
+			response.data = xhr.response;
 			response.method = 'GET';
 			response.url = url;
 
@@ -66,7 +66,7 @@ function Request() {
 			callback(response);
 		};
 
-		request.send(); // Send the request
+		xhr.send(); // Send the request
 	};
 	
 	/**
