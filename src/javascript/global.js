@@ -10,7 +10,8 @@ var global = {
 		base: 'https://web.archive.org',
 		save: 'https://web.archive.org/save/',
 		calendar: 'https://web.archive.org/web/*/',
-		api: 'https://archive.org/wayback/available?url='
+		api: 'https://archive.org/wayback/available?url=',
+		personalArchive: 'https://web.archive.org/__wb/web-archive/'
 	},
 	regex: {
 
