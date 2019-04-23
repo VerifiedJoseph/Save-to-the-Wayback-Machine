@@ -5,6 +5,8 @@
 
 function Request() {
 
+	var request = new XMLHttpRequest();
+	
 	/*
 		Request response data
 	*/
@@ -22,8 +24,6 @@ function Request() {
 	 * @param {callback} callback
 	 */
 	this.get = function open(url, callback) {
-
-		var request = new XMLHttpRequest();
 
 		request.open('GET', url, true);
 		request.setRequestHeader('x-requested-by', global.requestedBy);
