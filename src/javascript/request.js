@@ -37,21 +37,9 @@ function Request() {
 			response.method = 'GET';
 			response.url = url;
 
-			// Get the raw headers string
-			var rawHeaders = request.getAllResponseHeaders();
-
-			// Split and trim the raw headers string at newlines
-			var rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
-
-			// Loop raw headers array and create object key/value pairs.
-			rawHeadersArray.forEach(function (line) {
-
-				var parts = line.split(': '),
-					header = parts[0],
-					value = parts[1];
-
-				response.headers[header] = value;
-			});
+			response.headers = parseHeaders(
+				request.getAllResponseHeaders()
+			);
 
 			/**
 			 * @callback open~callback
@@ -77,5 +65,30 @@ function Request() {
 
 		request.send(); // Send the request
 	};
+	
+	/**
+	 * Parse response headers
+	 * @param {string} rawHeaders
+	 * @return {array} headers
+	 */
+	function parseHeaders(rawHeaders) {
+		var headers = [], rawHeadersArray;
+		
+		// Split and trim the raw headers string at newlines
+		rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
+		
+		// Loop raw headers array and create object key/value pairs.
+		rawHeadersArray.forEach(function (line) {
+			
+			var parts = line.split(': '),
+				header = parts[0],
+				value = parts[1];
 
+			headers[header] = value;
+		});
+	
+		return headers;
+		
+	}
+	
 }
