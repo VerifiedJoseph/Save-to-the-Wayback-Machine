@@ -24,7 +24,7 @@ function Request() {
 	 * @param {string} url
 	 * @param {callback} callback
 	 */
-	this.get = function open(url, callback) {
+	this.get = function get(url, callback) {
 		method = 'GET';
 			
 		xhr.open(method, url, true);
