@@ -7,11 +7,10 @@ function Request() {
 
 	var xhr = new XMLHttpRequest();
 	
+	/** @var {string} method */
 	var method = 'GET';
 	
-	/*
-		Request response data
-	*/
+	/** @var {object} response */
 	var response = {
 		headers: {},
 		status: null,
