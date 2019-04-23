@@ -60,6 +60,49 @@ function Request() {
 	};
 	
 	/**
+	 * Make a HTTP POST request with XMLHttpRequest()
+	 * @param {string} url
+	 * @param {string} contentType
+	 * @param {string} payload
+	 * @param {callback} callback
+	 */
+	this.post = function post(url, contentType, payload, callback) {
+		method = 'POST';
+
+		xhr.open(method, url, true);
+		xhr.setRequestHeader('x-requested-by', global.requestedBy);
+		xhr.setRequestHeader('content-type', contentType);
+
+		debug.log('POST Request: ' + url);
+
+		xhr.onload = function () {
+			
+			getResponse(url);
+			
+			/**
+			 * @callback open~callback
+			 * @param {object} response
+			 */
+			callback(response);
+		};
+
+		xhr.onerror = function () {
+			debug.log('Request failed (connection error)');
+
+			getResponse(url);
+			
+			/**
+			 * @callback open~callback
+			 * @param {object} response
+			 */
+			callback(response);
+		};
+		
+		// Send request
+		xhr.send(payload);
+	};
+	
+	/**
 	 * Parse response headers
 	 * @param {string} rawHeaders
 	 * @return {array} headers
