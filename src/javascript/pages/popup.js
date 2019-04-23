@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global browser, UI, Request, Settings, Stats, Debug, global, archive, validate, Format, document, window */
+/*global browser, UI, Request, Settings, Stats, Debug, global, archivePage, validate, Format, document, window */
 "use strict";
 
 var ui = new UI(),
@@ -159,7 +159,7 @@ function isValid(status) {
 			ui.addClass('options-box', 'overlay');
 
 			// Save to page to the archive
-			archive(url, wasArchived);
+			archivePage(url, wasArchived);
 
 		});
 

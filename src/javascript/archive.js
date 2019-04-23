@@ -8,7 +8,7 @@
  * @param {string} url
  * @param {callback} callback
  */
-function archive(url, callback) {
+function archivePage(url, callback) {
 
 	var request = new Request();
 	request.open(global.urls.save + encodeURI(url), function (response) {

@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Stats, Settings, validate, global, archive, browser, Audio, Debug, console */
+/*global Stats, Settings, validate, global, archivePage, browser, Audio, Debug, console */
 "use strict";
 
 var settings = new Settings(),
@@ -165,7 +165,7 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
 
 		if (status === true) {
 
-			archive(tab.url, wasArchived); // Save the page
+			archivePage(tab.url, wasArchived); // Save the page
 
 		} else { // Failed, show notification
 
