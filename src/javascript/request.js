@@ -17,7 +17,7 @@ function Request() {
 		status: null,
 		data: null,
 		method: null,
-		url: null
+		urls: {}
 	};
 
 	/**
@@ -35,15 +35,8 @@ function Request() {
 
 		xhr.onload = function () { // On request load
 
-			response.status = xhr.status;
-			response.data = xhr.response;
-			response.method = 'GET';
-			response.url = url;
-
-			response.headers = parseHeaders(
-				xhr.getAllResponseHeaders()
-			);
-
+			getResponse(url);
+			
 			/**
 			 * @callback open~callback
 			 * @param {object} response
@@ -54,10 +47,7 @@ function Request() {
 		xhr.onerror = function () { // On connection error
 			debug.log('Request failed (connection error)');
 
-			response.status = xhr.status;
-			response.data = xhr.response;
-			response.method = 'GET';
-			response.url = url;
+			getResponse(url);
 
 			/**
 			 * @callback open~callback
@@ -91,6 +81,22 @@ function Request() {
 		});
 	
 		return headers;
+		
+	}
+	
+	/**
+	 * Get response details
+	 * @param {string} url
+	 */
+	function getResponse(url) {
+		
+		response.status = xhr.status;
+		response.method = method;
+		response.data = xhr.response;
+		response.urls['request'] = url;
+		response.urls['response'] = xhr.responseURL;
+	
+		response.headers = parseHeaders(xhr.getAllResponseHeaders());
 		
 	}
 	
