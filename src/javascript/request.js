@@ -67,19 +67,23 @@ function Request() {
 	function parseHeaders(rawHeaders) {
 		var headers = [], rawHeadersArray;
 		
-		// Split and trim the raw headers string at newlines
-		rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
+		if (rawHeaders) {
 		
-		// Loop raw headers array and create object key/value pairs.
-		rawHeadersArray.forEach(function (line) {
+			// Split and trim the raw headers string at newlines
+			rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
+		
+			// Loop raw headers array and create object key/value pairs.
+			rawHeadersArray.forEach(function (line) {
 			
-			var parts = line.split(': '),
-				header = parts[0],
-				value = parts[1];
+				var parts = line.split(': '),
+					header = parts[0],
+					value = parts[1];
 
-			headers[header] = value;
-		});
-	
+				headers[header] = value;
+			});
+			
+		}
+		
 		return headers;
 		
 	}
