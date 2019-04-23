@@ -17,11 +17,11 @@ function Request() {
 	};
 
 	/**
-	 * Make a HTTP request with XMLHttpRequest()
+	 * Make a HTTP GET request with XMLHttpRequest()
 	 * @param {string} url
 	 * @param {callback} callback
 	 */
-	this.open = function open(url, callback) {
+	this.get = function open(url, callback) {
 
 		var request = new XMLHttpRequest();
 
