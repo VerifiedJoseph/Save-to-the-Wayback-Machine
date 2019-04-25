@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global */
+/*global settings, Intl, spacetime */
 
 "use strict";
 
@@ -57,80 +57,37 @@ function Format() {
 
 	/**
 	 * Format time stamp into a readable date format
-	 * @param {string} dateString
-	 * @param {boolean} convertTimeZone Convert to local time zone
-	 * @param {string} format Date format
 	 * @return {string} output
+	 * @param {string} customFormat Custom date format
+	 * @return {string}
 	 */
-	this.readableDate = function readableDate(dateString, convertTimeZone, format) {
-		format = format || null;
+	this.readableDate = function readableDate(isoString, customFormat) {
 
-		var monthWord,
-			months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			date,
-			year,
-			month,
-			day;
-
-		if (typeof dateString !== 'undefined' || dateString !== null) {
-
-			date = new Date(dateString);
-
-			if (convertTimeZone === true) { // Convert to local timezone
-
-				monthWord = months[date.getMonth()];
-
-				day = date.getDate();
-				month = date.getMonth() + 1;
-				year = date.getFullYear();
-
-			} else { // Use UTC
-
-				monthWord = months[date.getMonth()];
-
-				day = date.getUTCDate();
-				month = date.getUTCMonth() + 1;
-				year = date.getUTCFullYear();
-
-			}
-
-			// Add leading zero, if value is lees than 10 
-			if (month < 10) {
-				month = '0' + month;
-			}
-
-			if (day < 10) {
-				day = '0' + day;
-			}
-
-
-			if (format === 'F j, Y') { // F j, Y - June 5, 2016
-
-				return monthWord + ' ' + day + ', ' + year;
-
-			}
-
-			if (format === 'Y/m/d') { // Y/m/d - 2016/06/05
-
-				return year + '/' + month + '/' + day;
-
-			}
-
-			if (format === 'd/m/Y') { // d/m/Y - 05/06/2016
-
-				return day + '/' + month + '/' + year;
-
-			}
-
-			if (format === 'm/d/Y') { // m/d/Y - 06/05/2016
-
-				return month + '/' + day + '/' + year;
-
-			}
-
-			return 'Invalid date format given';
-
+		var d = spacetime(isoString),
+			format = settings.get('dateFormat');
+		
+		if (customFormat) {
+			format = customFormat;
 		}
+		
+		if (settings.get('timeZoneConvert') === true) {
+			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		if (format === 'Y/m/d' || format === 'year/month/day') {
+			return d.format('ymd');
+		}
+		
+		if (format === 'd/m/Y' || format === 'day/month/year') {
+			return d.format('dmy');
+		}
+		
+		if (format === 'm/d/Y' || format === 'month/day/year') {
+			return d.format('mdy');
+		}
+
+		// default -  April 04, 2018
+		return d.format('month') + ' ' + d.format('date') + ', ' + d.format('year');
 
 	};
 
