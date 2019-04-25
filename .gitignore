@@ -6,6 +6,9 @@ versions (.zip)/Dev tests/
 versions (.zip)/Firefox Validator tests
 versions (.zip)/4-2-0-opera (Not Released).zip
 
+# Javascript Dependencies
+src/javascript/libraries
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
