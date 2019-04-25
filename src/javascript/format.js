@@ -57,7 +57,7 @@ function Format() {
 
 	/**
 	 * Format time stamp into a readable date format
-	 * @return {string} output
+	 * @param {string} isoString Date in ISO 8601 format
 	 * @param {string} customFormat Custom date format
 	 * @return {string}
 	 */
@@ -93,104 +93,42 @@ function Format() {
 
 	/**
 	 * Format time stamp into a readable time format
-	 * @param {string} dateString
-	 * @param {boolean} convertTimeZone Convert to local time zone
-	 * @param {string} format Time format
-	 * @return {string} output
+	 * @param {string} isoString Date in ISO 8601 format
+	 * @param {string} customFormat Custom date format
+	 * @return {string}
 	 */
-	this.readableTime = function readableTime(dateString, convertTimeZone, format) {
-		format = format || null;
+	this.readableTime = function readableTime(isoString, customFormat) {
 
-		var date,
-			hour,
-			min,
-			sec,
-			ap;
-
-		if (typeof dateString !== 'undefined' || dateString !== null) {
-
-			date = new Date(dateString);
-
-			if (convertTimeZone === true) { // Convert to local timezone
-
-				hour = date.getHours();
-				min = date.getMinutes();
-				sec = date.getSeconds();
-
-			} else { // Use UTC
-
-				hour = date.getUTCHours();
-				min = date.getUTCMinutes();
-				sec = date.getUTCSeconds();
-
-			}
-
-			// Add leading zero, if value is lees than 10
-			if (min < 10) {
-				min = '0' + min;
-			}
-
-			if (sec < 10) {
-				sec = '0' + sec;
-			}
-
-
-			// 12 Hour clock
-			if (format === 'g:i A' || format === 'g:i:s A') {
-
-				ap = 'AM'; // Before midday
-
-				if (hour > 12) { // If hour is greater than 12, remove 12 hours.
-
-					hour -= 12;
-					ap = "PM"; // Past midday
-
-				} else if (hour === 0) { // If hour is 0 (midnight), change it to 12 (12:00 am).
-
-					hour = 12;
-
-				}
-
-				// Add leading zero to hour, if it is not present after changing to the 12 hour clock.
-				if (hour < 10) {
-					hour = '0' + hour;
-				}
-
-				if (format === 'g:i A') { // Without seconds - g:i A - 02:50 (PM/AM)
-
-					return hour + ':' + min + ' ' + ap;
-
-				} else { // With seconds - g:i:s A - 02:50:48 (PM/AM)
-
-					return hour + ':' + min + ':' + sec + ' ' + ap;
-
-				}
-
-			}
-
-			// Add leading zero to hour
-			if (hour < 10) {
-				hour = '0' + hour;
-			}
-
-			// 24 Hour clock: H:i - 14:50
-			if (format === 'H:i') {
-
-				return hour + ':' + min;
-
-			}
-
-			// H:i:s - 14:50:48
-			if (format === 'H:i:s') {
-
-				return hour + ':' + min + ':' + sec;
-
-			}
-
-			return 'Invalid date or time format';
-
+		var d = spacetime(isoString),
+			format = settings.get('timeFormat');
+		
+		if (customFormat) {
+			format = customFormat;
+		}
+		
+		if (settings.get('timeZoneConvert') === true) {
+			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		if (format === 'h:mm a' || format === 'g:i A') { // 12 Hour clock
+			return d.unixFmt('hh:mm a');
+		}
+		
+		if (format === 'h:mm:ss a' || format === 'g:i:s A') { // 12 Hour clock with seconds
+			return d.unixFmt('hh:mm:ss a');
+		}
+		
+		if (format === 'HH:mm' || format === 'H:i') { // 24 Hour clock
+			return d.format('time-24');
 		}
 
+		if (format === 'HH:mm:ss' || format === 'H:i:s') { // 24 Hour clock with seconds
+			return d.unixFmt('HH:mm:ss');
+		}
+
+		// default - 12 Hour clock
+		return d.unixFmt('HH:mm a');
+		
 	};
 
 	/**
