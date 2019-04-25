@@ -133,73 +133,81 @@ function Format() {
 
 	/**
 	 * Format time stamp to a time ago string. example: "1 hour ago"
-	 * @param {string} dateString
-	 * @param {bool} convertTimeZone Convert to local time zone
-	 * @return {string} output
+	 * @param {string} isoString
+	 * @return {string}
 	 */
-	this.timeSince = function timeSince(dateString, convertTimeZone) {
+	this.timeSince = function timeSince(isoString) {
+		
+		var before = spacetime(isoString), now = spacetime();
+		
+		if (settings.get('timeZoneConvert') === true) {
+			before = before.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		var diif = now.since(before).diff;
+		
+		if (diif.years > 1) {
+			return diif.years + ' years ago';
+		}
+		
+		if (diif.years === 1) {
 
-		if (convertTimeZone === undefined) {
-			convertTimeZone = false;
+			if (diif.months > 0) {
+				return '1 year, ' + diif.months + ' months ago';
+			}
+			
+			if (diif.days > 0) {
+				return '1 year, ' + diif.days + ' days ago';
+			}
+			
+			return '1 year ago';
+			
+		}
+		
+		if (diif.months > 1) {
+			
+			if (diif.days > 0) {
+				return diif.months + ' months, ' + diif.days + ' days ago';
+			}
+			
+			return diif.months + " months ago";
+		}
+		
+		if (diif.months === 1) {
+			
+			if (diif.days > 0) {
+				return '1 month, ' + diif.days + ' days ago';
+			}
+			
+			return '1 month ago';
+		}
+		
+		if (diif.days > 1) {
+			return diif.days + ' days ago';
+		}
+		
+		if (diif.days === 1) {
+			return '1 days ago';
 		}
 
-		var date,
-			seconds,
-			interval;
-
-		if (convertTimeZone === true) { // Convert UTC to local timezone
-
-			date = new Date(dateString);
-
-		} else {
-
-			// Remove UTC 'Z' time zone designator
-			dateString = dateString.slice(0, -1);
-			date = new Date(dateString);
-
+		if (diif.hours === 1) {
+			return '1 hour ago';
 		}
 
-		seconds = Math.floor((new Date() - date) / 1000);
-		interval = Math.floor(seconds / 31536000);
-
-		if (interval > 1) {
-			return interval + " years ago";
+		if (diif.hours > 1) {
+			return diif.hours + " hours ago";
 		}
 
-		interval = Math.floor(seconds / 2592000);
-
-		if (interval > 1) {
-			return interval + " months ago";
+		if (diif.minutes === 1) {
+			return diif.minutes + " minute ago";
 		}
 
-		interval = Math.floor(seconds / 86400);
-
-		if (interval > 1) {
-			return interval + " days ago";
+		if (diif.minutes > 1) {
+			return diif.minutes + " minutes ago";
 		}
 
-		interval = Math.floor(seconds / 3600);
-
-		if (interval === 1) {
-			return interval + " hour ago";
-		}
-
-		if (interval > 1) {
-			return interval + " hours ago";
-		}
-
-		interval = Math.floor(seconds / 60);
-
-		if (interval === 1) {
-			return interval + " minute ago";
-		}
-
-		if (interval > 1) {
-			return interval + " minutes ago";
-		}
-
-		return Math.floor(seconds) + " seconds ago";
-
+		return diif.seconds + " seconds ago";
+		
 	};
 
 }
