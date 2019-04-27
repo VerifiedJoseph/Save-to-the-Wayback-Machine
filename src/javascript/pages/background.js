@@ -47,50 +47,6 @@ function contextMenus() {
 }
 
 /**
- * Show a notification
- * @param {string} url
- * @param {string} title
- * @param {string} message
- */
-function notifyUser(url, title, message) {
-
-	if (settings.get('contextMenuNote') === true) { // Notifications enabled			
-
-		// Create notification
-		browser.notifications.create("", {
-			title: title,
-			iconUrl: '/images/icons/96.png',
-			type: 'basic',
-			message: message
-		});
-
-		debug.log('Created notification \n Title: ' + title + '\n Message: ' + message + '\n URL: ' + url);
-	}
-}
-
-/*
- * Play alert sound along with the notification (if enabled by user)
- */
-function notifyUserSound() {
-
-	if (settings.get('notePlayAlert') === true) { // Enabled
-
-		var sound = settings.get('noteAlertSound'),
-			file = global.alertSounds[sound],
-			audio;
-
-		if (typeof file !== 'undefined') {
-
-			audio = new Audio('../sounds/' + file);
-			audio.play();
-
-			debug.log('Played notification sound (#' + sound + ') ');
-		}
-	}
-
-}
-
-/**
  * Was the page archived?
  * @param {object} response
  */
