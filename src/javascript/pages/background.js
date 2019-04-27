@@ -1,9 +1,10 @@
 /*jslint node: true */
-/*global Stats, Settings, validate, global, archive, browser, Audio, Debug, console */
+/*global Stats, Settings, Notify, validate, global, archive, browser, Audio, Debug, console */
 "use strict";
 
 var settings = new Settings(),
 	debug = new Debug(),
+	notify = new Notify(),
 	stats = new Stats(),
 	contextMenuSet = false;
 
@@ -46,50 +47,6 @@ function contextMenus() {
 }
 
 /**
- * Show a notification
- * @param {string} url
- * @param {string} title
- * @param {string} message
- */
-function notifyUser(url, title, message) {
-
-	if (settings.get('contextMenuNote') === true) { // Notifications enabled			
-
-		// Create notification
-		browser.notifications.create("", {
-			title: title,
-			iconUrl: '/images/icons/96.png',
-			type: 'basic',
-			message: message
-		});
-
-		debug.log('Created notification \n Title: ' + title + '\n Message: ' + message + '\n URL: ' + url);
-	}
-}
-
-/*
- * Play alert sound along with the notification (if enabled by user)
- */
-function notifyUserSound() {
-
-	if (settings.get('notePlayAlert') === true) { // Enabled
-
-		var sound = settings.get('noteAlertSound'),
-			file = global.alertSounds[sound],
-			audio;
-
-		if (typeof file !== 'undefined') {
-
-			audio = new Audio('../sounds/' + file);
-			audio.play();
-
-			debug.log('Played notification sound (#' + sound + ') ');
-		}
-	}
-
-}
-
-/**
  * Was the page archived?
  * @param {object} response
  */
@@ -100,8 +57,11 @@ function wasArchived(response) {
 		// Log Details
 		debug.log('Page Not Archived \n URL:' + response.url + ' \n Status code: ' + response.code + '\n Reason: ' + response.error);
 
-		notifyUser(response.url, browser.i18n.getMessage('notificationArchiveFailed'), response.error);
-		notifyUserSound();
+		notify.note(
+			browser.i18n.getMessage('notificationArchiveFailed'),
+			response.error
+		);
+		notify.sound();
 
 	} else { // Page saved
 
@@ -169,8 +129,11 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
 
 		} else { // Failed, show notification
 
-			notifyUser(tab.url, browser.i18n.getMessage('notificationCanNotArchive'), browser.i18n.getMessage('notificationBodyCanNotArchive'));
-			notifyUserSound();
+			notify.note(
+				browser.i18n.getMessage('notificationCanNotArchive'),
+				browser.i18n.getMessage('notificationBodyCanNotArchive')
+			);
+			notify.sound();
 
 		}
 
