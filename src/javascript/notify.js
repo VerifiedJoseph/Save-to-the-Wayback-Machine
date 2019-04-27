@@ -30,4 +30,23 @@ function Notify() {
 		
 	};
 	
+	/**
+	 * Play an alert sound when a notification is displayed
+	 * @param {string} url
+	 * @param {string} title
+	 * @param {string} message
+	 */
+	this.sound = function sound() {
+		
+		if (settings.get('notePlayAlert') === true){
+
+			var audio = new Audio('../sounds/' + global.alertSounds[settings.get('noteAlertSound')]);
+			audio.play();
+
+			debug.log('Played notification sound (#' + settings.get('noteAlertSound') + ') ');
+			
+		}
+		
+	};
+	
 }
