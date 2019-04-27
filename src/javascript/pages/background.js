@@ -1,9 +1,10 @@
 /*jslint node: true */
-/*global Stats, Settings, validate, global, archive, browser, Audio, Debug, console */
+/*global Stats, Settings, Notify, validate, global, archive, browser, Audio, Debug, console */
 "use strict";
 
 var settings = new Settings(),
 	debug = new Debug(),
+	notify = new Notify(),
 	stats = new Stats(),
 	contextMenuSet = false;
 
@@ -100,8 +101,11 @@ function wasArchived(response) {
 		// Log Details
 		debug.log('Page Not Archived \n URL:' + response.url + ' \n Status code: ' + response.code + '\n Reason: ' + response.error);
 
-		notifyUser(response.url, browser.i18n.getMessage('notificationArchiveFailed'), response.error);
-		notifyUserSound();
+		notify.note(
+			browser.i18n.getMessage('notificationArchiveFailed'),
+			response.error
+		);
+		notify.sound();
 
 	} else { // Page saved
 
@@ -169,8 +173,11 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
 
 		} else { // Failed, show notification
 
-			notifyUser(tab.url, browser.i18n.getMessage('notificationCanNotArchive'), browser.i18n.getMessage('notificationBodyCanNotArchive'));
-			notifyUserSound();
+			notify.note(
+				browser.i18n.getMessage('notificationCanNotArchive'),
+				browser.i18n.getMessage('notificationBodyCanNotArchive')
+			);
+			notify.sound();
 
 		}
 
