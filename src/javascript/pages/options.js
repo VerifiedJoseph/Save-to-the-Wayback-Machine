@@ -36,9 +36,6 @@ function displaySettings(showDefaults) {
 	// Time format
 	document.getElementById('time_format').value = list.timeFormat;
 
-	// Convert time zone
-	document.getElementById('time_zone_convert').checked = list.timeZoneConvert;
-
 	// Full date and time
 	document.getElementById('full_date_time').checked = list.displayFullDate;
 
@@ -174,7 +171,6 @@ function saveSettings() {
 		timeZone: document.getElementById('timezone').value,
 		dateFormat: document.getElementById('date_format').value,
 		timeFormat: document.getElementById('time_format').value,
-		timeZoneConvert: document.getElementById('time_zone_convert').checked,
 
 		displayFullDate: document.getElementById('full_date_time').checked,
 		displayTimeSince: document.getElementById('time_since_archive').checked,
