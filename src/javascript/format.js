@@ -70,9 +70,9 @@ function Format() {
 			format = customFormat;
 		}
 		
-		if (settings.get('timeZoneConvert') === true) {
-			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
-		}
+		// Set timezone
+		d = d.goto(settings.get('timeZone'));
+
 		
 		if (format === 'Y/m/d' || format === 'year/month/day') {
 			return d.format('ymd');
@@ -106,9 +106,8 @@ function Format() {
 			format = customFormat;
 		}
 		
-		if (settings.get('timeZoneConvert') === true) {
-			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
-		}
+		// Set timezone
+		d = d.goto(settings.get('timeZone'));
 		
 		if (format === 'h:mm a' || format === 'g:i A') { // 12 Hour clock
 			return d.unixFmt('hh:mm a');

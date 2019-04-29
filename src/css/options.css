@@ -122,6 +122,10 @@ select.time {
 	width: 130px;
 }
 
+select.timezone {
+	width: 169px;
+}
+
 .select span:after {
 	display: block;
 	content: " ";

@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Audio, Settings, UI, Format, Debug, global, document, setTimeout */
+/*global Audio, Settings, UI, Format, Debug, global, document, setTimeout, Intl */
 "use strict";
 
 var settings = new Settings(),
@@ -27,6 +27,9 @@ function displaySettings(showDefaults) {
 	// Number format
 	document.getElementById('number_format').value = list.numberFormat;
 
+	// Timezone
+	document.getElementById('timezone').value = list.timeZone;
+	
 	// Date format
 	document.getElementById('date_format').value = list.dateFormat;
 
@@ -117,6 +120,29 @@ function displayDateTime() {
 
 }
 
+function displayTimeZones() {
+	
+	var select = document.getElementById('timezone'),
+		opt;
+	
+	// Set default (Automatic) timezone
+	opt = document.createElement('option');
+    opt.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	opt.innerText = 'Automatic';
+	opt.title = 'Automatic time zone: ' + Intl.DateTimeFormat().resolvedOptions().timeZone;
+	select.appendChild(opt);
+	
+	// Create timezone list
+	timezones.forEach(function (timezone) {
+		opt = document.createElement('option');
+    	opt.value = timezone;
+		opt.innerText = timezone;
+
+		select.appendChild(opt);
+	});
+	
+}
+
 /**
  * Show settings status
  * @param {string} text
@@ -145,6 +171,7 @@ function saveSettings() {
 
 		numberFormat: document.getElementById('number_format').value,
 
+		timeZone: document.getElementById('timezone').value,
 		dateFormat: document.getElementById('date_format').value,
 		timeFormat: document.getElementById('time_format').value,
 		timeZoneConvert: document.getElementById('time_zone_convert').checked,
@@ -238,9 +265,10 @@ settings.load(function () {
 		options = all.options;
 		defaults = all.defaultOptions;
 
-		displaySettings(false);
-
 		displayDateTime();
+		displayTimeZones();
+		
+		displaySettings(false);
 
 	}
 
