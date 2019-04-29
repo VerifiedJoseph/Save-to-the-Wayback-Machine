@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Audio, Settings, UI, Format, Debug, global, document, setTimeout */
+/*global Audio, Settings, UI, Format, Debug, global, document, setTimeout, Intl */
 "use strict";
 
 var settings = new Settings(),
@@ -115,6 +115,29 @@ function displayDateTime() {
 	timeSelect.options[2].textContent = format.readableTime(date, 'HH:mm');
 	timeSelect.options[3].textContent = format.readableTime(date, 'HH:mm:ss');
 
+}
+
+function displayTimeZones() {
+	
+	var select = document.getElementById('timezone'),
+		opt;
+	
+	// Set default (Automatic) timezone
+	opt = document.createElement('option');
+    opt.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	opt.innerText = 'Automatic';
+	opt.title = 'Automatic time zone: ' + Intl.DateTimeFormat().resolvedOptions().timeZone;
+	select.appendChild(opt);
+	
+	// Create timezone list
+	timezones.forEach(function (timezone) {
+		opt = document.createElement('option');
+    	opt.value = timezone;
+		opt.innerText = timezone;
+
+		select.appendChild(opt);
+	});
+	
 }
 
 /**
@@ -238,9 +261,10 @@ settings.load(function () {
 		options = all.options;
 		defaults = all.defaultOptions;
 
-		displaySettings(false);
-
 		displayDateTime();
+		displayTimeZones();
+		
+		displaySettings(false);
 
 	}
 
