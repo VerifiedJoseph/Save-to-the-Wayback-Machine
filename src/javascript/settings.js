@@ -20,7 +20,6 @@ function Settings() {
 			dateFormat: 'F j, Y', // Default date format (e.g: April 04, 2018)
 			timeFormat: 'g:i A', // Default date time (e.g: 06:16 PM)
 			timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Default timezone from system
-			timeZoneConvert: true, // Convert time from UTC to local time zone
 			displayFullDate: true, // Display full time and date using user selected formats
 			displayTimeSince: false, // Display time past since date (e.g: "1 hour ago")
 
