@@ -29,7 +29,7 @@ function displaySettings(showDefaults) {
 
 	// Timezone
 	document.getElementById('timezone').value = list.timeZone;
-	
+
 	// Date format
 	document.getElementById('date_format').value = list.dateFormat;
 
@@ -118,26 +118,26 @@ function displayDateTime() {
 }
 
 function displayTimeZones() {
-	
+
 	var select = document.getElementById('timezone'),
 		opt;
-	
+
 	// Set default (Automatic) timezone
 	opt = document.createElement('option');
-    opt.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	opt.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
 	opt.innerText = 'Automatic';
 	opt.title = 'Automatic time zone: ' + Intl.DateTimeFormat().resolvedOptions().timeZone;
 	select.appendChild(opt);
-	
+
 	// Create timezone list
 	timezones.forEach(function (timezone) {
 		opt = document.createElement('option');
-    	opt.value = timezone;
+		opt.value = timezone;
 		opt.innerText = timezone;
 
 		select.appendChild(opt);
 	});
-	
+
 }
 
 /**
@@ -263,7 +263,7 @@ settings.load(function () {
 
 		displayDateTime();
 		displayTimeZones();
-		
+
 		displaySettings(false);
 
 	}
