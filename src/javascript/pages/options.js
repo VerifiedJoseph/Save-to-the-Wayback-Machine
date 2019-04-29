@@ -27,6 +27,9 @@ function displaySettings(showDefaults) {
 	// Number format
 	document.getElementById('number_format').value = list.numberFormat;
 
+	// Timezone
+	document.getElementById('timezone').value = list.timeZone;
+	
 	// Date format
 	document.getElementById('date_format').value = list.dateFormat;
 
