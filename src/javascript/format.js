@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global */
+/*global settings, Intl, spacetime */
 
 "use strict";
 
@@ -57,254 +57,157 @@ function Format() {
 
 	/**
 	 * Format time stamp into a readable date format
-	 * @param {string} dateString
-	 * @param {boolean} convertTimeZone Convert to local time zone
-	 * @param {string} format Date format
-	 * @return {string} output
+	 * @param {string} isoString Date in ISO 8601 format
+	 * @param {string} customFormat Custom date format
+	 * @return {string}
 	 */
-	this.readableDate = function readableDate(dateString, convertTimeZone, format) {
-		format = format || null;
+	this.readableDate = function readableDate(isoString, customFormat) {
 
-		var monthWord,
-			months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			date,
-			year,
-			month,
-			day;
-
-		if (typeof dateString !== 'undefined' || dateString !== null) {
-
-			date = new Date(dateString);
-
-			if (convertTimeZone === true) { // Convert to local timezone
-
-				monthWord = months[date.getMonth()];
-
-				day = date.getDate();
-				month = date.getMonth() + 1;
-				year = date.getFullYear();
-
-			} else { // Use UTC
-
-				monthWord = months[date.getMonth()];
-
-				day = date.getUTCDate();
-				month = date.getUTCMonth() + 1;
-				year = date.getUTCFullYear();
-
-			}
-
-			// Add leading zero, if value is lees than 10 
-			if (month < 10) {
-				month = '0' + month;
-			}
-
-			if (day < 10) {
-				day = '0' + day;
-			}
-
-
-			if (format === 'F j, Y') { // F j, Y - June 5, 2016
-
-				return monthWord + ' ' + day + ', ' + year;
-
-			}
-
-			if (format === 'Y/m/d') { // Y/m/d - 2016/06/05
-
-				return year + '/' + month + '/' + day;
-
-			}
-
-			if (format === 'd/m/Y') { // d/m/Y - 05/06/2016
-
-				return day + '/' + month + '/' + year;
-
-			}
-
-			if (format === 'm/d/Y') { // m/d/Y - 06/05/2016
-
-				return month + '/' + day + '/' + year;
-
-			}
-
-			return 'Invalid date format given';
-
+		var d = spacetime(isoString),
+			format = settings.get('dateFormat');
+		
+		if (customFormat) {
+			format = customFormat;
 		}
+		
+		if (settings.get('timeZoneConvert') === true) {
+			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		if (format === 'Y/m/d' || format === 'year/month/day') {
+			return d.format('ymd');
+		}
+		
+		if (format === 'd/m/Y' || format === 'day/month/year') {
+			return d.format('dmy');
+		}
+		
+		if (format === 'm/d/Y' || format === 'month/day/year') {
+			return d.format('mdy');
+		}
+
+		// default -  April 04, 2018
+		return d.format('month') + ' ' + d.format('date') + ', ' + d.format('year');
 
 	};
 
 	/**
 	 * Format time stamp into a readable time format
-	 * @param {string} dateString
-	 * @param {boolean} convertTimeZone Convert to local time zone
-	 * @param {string} format Time format
-	 * @return {string} output
+	 * @param {string} isoString Date in ISO 8601 format
+	 * @param {string} customFormat Custom date format
+	 * @return {string}
 	 */
-	this.readableTime = function readableTime(dateString, convertTimeZone, format) {
-		format = format || null;
+	this.readableTime = function readableTime(isoString, customFormat) {
 
-		var date,
-			hour,
-			min,
-			sec,
-			ap;
-
-		if (typeof dateString !== 'undefined' || dateString !== null) {
-
-			date = new Date(dateString);
-
-			if (convertTimeZone === true) { // Convert to local timezone
-
-				hour = date.getHours();
-				min = date.getMinutes();
-				sec = date.getSeconds();
-
-			} else { // Use UTC
-
-				hour = date.getUTCHours();
-				min = date.getUTCMinutes();
-				sec = date.getUTCSeconds();
-
-			}
-
-			// Add leading zero, if value is lees than 10
-			if (min < 10) {
-				min = '0' + min;
-			}
-
-			if (sec < 10) {
-				sec = '0' + sec;
-			}
-
-
-			// 12 Hour clock
-			if (format === 'g:i A' || format === 'g:i:s A') {
-
-				ap = 'AM'; // Before midday
-
-				if (hour > 12) { // If hour is greater than 12, remove 12 hours.
-
-					hour -= 12;
-					ap = "PM"; // Past midday
-
-				} else if (hour === 0) { // If hour is 0 (midnight), change it to 12 (12:00 am).
-
-					hour = 12;
-
-				}
-
-				// Add leading zero to hour, if it is not present after changing to the 12 hour clock.
-				if (hour < 10) {
-					hour = '0' + hour;
-				}
-
-				if (format === 'g:i A') { // Without seconds - g:i A - 02:50 (PM/AM)
-
-					return hour + ':' + min + ' ' + ap;
-
-				} else { // With seconds - g:i:s A - 02:50:48 (PM/AM)
-
-					return hour + ':' + min + ':' + sec + ' ' + ap;
-
-				}
-
-			}
-
-			// Add leading zero to hour
-			if (hour < 10) {
-				hour = '0' + hour;
-			}
-
-			// 24 Hour clock: H:i - 14:50
-			if (format === 'H:i') {
-
-				return hour + ':' + min;
-
-			}
-
-			// H:i:s - 14:50:48
-			if (format === 'H:i:s') {
-
-				return hour + ':' + min + ':' + sec;
-
-			}
-
-			return 'Invalid date or time format';
-
+		var d = spacetime(isoString),
+			format = settings.get('timeFormat');
+		
+		if (customFormat) {
+			format = customFormat;
+		}
+		
+		if (settings.get('timeZoneConvert') === true) {
+			d = d.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		if (format === 'h:mm a' || format === 'g:i A') { // 12 Hour clock
+			return d.unixFmt('hh:mm a');
+		}
+		
+		if (format === 'h:mm:ss a' || format === 'g:i:s A') { // 12 Hour clock with seconds
+			return d.unixFmt('hh:mm:ss a');
+		}
+		
+		if (format === 'HH:mm' || format === 'H:i') { // 24 Hour clock
+			return d.format('time-24');
 		}
 
+		if (format === 'HH:mm:ss' || format === 'H:i:s') { // 24 Hour clock with seconds
+			return d.unixFmt('HH:mm:ss');
+		}
+
+		// default - 12 Hour clock
+		return d.unixFmt('HH:mm a');
+		
 	};
 
 	/**
 	 * Format time stamp to a time ago string. example: "1 hour ago"
-	 * @param {string} dateString
-	 * @param {bool} convertTimeZone Convert to local time zone
-	 * @return {string} output
+	 * @param {string} isoString
+	 * @return {string}
 	 */
-	this.timeSince = function timeSince(dateString, convertTimeZone) {
+	this.timeSince = function timeSince(isoString) {
+		
+		var before = spacetime(isoString), now = spacetime();
+		
+		if (settings.get('timeZoneConvert') === true) {
+			before = before.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
+		}
+		
+		var diif = now.since(before).diff;
+		
+		if (diif.years > 1) {
+			return diif.years + ' years ago';
+		}
+		
+		if (diif.years === 1) {
 
-		if (convertTimeZone === undefined) {
-			convertTimeZone = false;
+			if (diif.months > 0) {
+				return '1 year, ' + diif.months + ' months ago';
+			}
+			
+			if (diif.days > 0) {
+				return '1 year, ' + diif.days + ' days ago';
+			}
+			
+			return '1 year ago';
+			
+		}
+		
+		if (diif.months > 1) {
+			
+			if (diif.days > 0) {
+				return diif.months + ' months, ' + diif.days + ' days ago';
+			}
+			
+			return diif.months + " months ago";
+		}
+		
+		if (diif.months === 1) {
+			
+			if (diif.days > 0) {
+				return '1 month, ' + diif.days + ' days ago';
+			}
+			
+			return '1 month ago';
+		}
+		
+		if (diif.days > 1) {
+			return diif.days + ' days ago';
+		}
+		
+		if (diif.days === 1) {
+			return '1 days ago';
 		}
 
-		var date,
-			seconds,
-			interval;
-
-		if (convertTimeZone === true) { // Convert UTC to local timezone
-
-			date = new Date(dateString);
-
-		} else {
-
-			// Remove UTC 'Z' time zone designator
-			dateString = dateString.slice(0, -1);
-			date = new Date(dateString);
-
+		if (diif.hours === 1) {
+			return '1 hour ago';
 		}
 
-		seconds = Math.floor((new Date() - date) / 1000);
-		interval = Math.floor(seconds / 31536000);
-
-		if (interval > 1) {
-			return interval + " years ago";
+		if (diif.hours > 1) {
+			return diif.hours + " hours ago";
 		}
 
-		interval = Math.floor(seconds / 2592000);
-
-		if (interval > 1) {
-			return interval + " months ago";
+		if (diif.minutes === 1) {
+			return diif.minutes + " minute ago";
 		}
 
-		interval = Math.floor(seconds / 86400);
-
-		if (interval > 1) {
-			return interval + " days ago";
+		if (diif.minutes > 1) {
+			return diif.minutes + " minutes ago";
 		}
 
-		interval = Math.floor(seconds / 3600);
-
-		if (interval === 1) {
-			return interval + " hour ago";
-		}
-
-		if (interval > 1) {
-			return interval + " hours ago";
-		}
-
-		interval = Math.floor(seconds / 60);
-
-		if (interval === 1) {
-			return interval + " minute ago";
-		}
-
-		if (interval > 1) {
-			return interval + " minutes ago";
-		}
-
-		return Math.floor(seconds) + " seconds ago";
-
+		return diif.seconds + " seconds ago";
+		
 	};
 
 }

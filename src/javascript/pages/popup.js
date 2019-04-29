@@ -57,8 +57,8 @@ function apiData(response) {
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
-				ui.content('date', format.readableDate(timeStamp, settings.get('timeZoneConvert'), settings.get('dateFormat')));
-				ui.content('time', format.readableTime(timeStamp, settings.get('timeZoneConvert'), settings.get('timeFormat')));
+				ui.content('date', format.readableDate(timeStamp));
+				ui.content('time', format.readableTime(timeStamp));
 				ui.display('time-date', true);
 
 			} else { // Display time since (e.g: "1 hour ago")

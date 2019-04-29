@@ -104,16 +104,16 @@ function displayDateTime() {
 		timeSelect = document.getElementById('time_format');
 
 	// Date formats
-	dateSelect.options[0].textContent = format.readableDate(date, true, 'F j, Y');
-	dateSelect.options[1].textContent = format.readableDate(date, true, 'Y/m/d');
-	dateSelect.options[2].textContent = format.readableDate(date, true, 'd/m/Y');
-	dateSelect.options[3].textContent = format.readableDate(date, true, 'm/d/Y');
+	dateSelect.options[0].textContent = format.readableDate(date, 'F j, Y');
+	dateSelect.options[1].textContent = format.readableDate(date, 'Y/m/d');
+	dateSelect.options[2].textContent = format.readableDate(date, 'd/m/Y');
+	dateSelect.options[3].textContent = format.readableDate(date, 'm/d/Y');
 
 	// Time formats
-	timeSelect.options[0].textContent = format.readableTime(date, true, 'g:i A');
-	timeSelect.options[1].textContent = format.readableTime(date, true, 'g:i:s A');
-	timeSelect.options[2].textContent = format.readableTime(date, true, 'H:i');
-	timeSelect.options[3].textContent = format.readableTime(date, true, 'H:i:s');
+	timeSelect.options[0].textContent = format.readableTime(date, 'h:mm a');
+	timeSelect.options[1].textContent = format.readableTime(date, 'h:mm:ss a');
+	timeSelect.options[2].textContent = format.readableTime(date, 'HH:mm');
+	timeSelect.options[3].textContent = format.readableTime(date, 'HH:mm:ss');
 
 }
 
