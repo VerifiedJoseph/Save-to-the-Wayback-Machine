@@ -168,6 +168,7 @@ function saveSettings() {
 
 		numberFormat: document.getElementById('number_format').value,
 
+		timeZone: document.getElementById('timezone').value,
 		dateFormat: document.getElementById('date_format').value,
 		timeFormat: document.getElementById('time_format').value,
 		timeZoneConvert: document.getElementById('time_zone_convert').checked,
