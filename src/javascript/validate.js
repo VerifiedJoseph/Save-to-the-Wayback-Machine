@@ -12,7 +12,7 @@ function validate(url, callback) {
 
 	var valid = true,
 		hostname,
-		urlRegex = new RegExp(global.regex.urlAndIpv4);
+		urlRegex = new RegExp(global.urlRegex);
 
 	debug.log('Vaildating URL: ' + url);
 
@@ -27,7 +27,7 @@ function validate(url, callback) {
 
 		// Get hostname with regex
 		hostname = url.match(urlRegex);
-
+		
 		// Check blacklist for hostname 
 		if (global.hostNameBlacklist.includes(hostname[1])) {
 
