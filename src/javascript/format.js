@@ -86,8 +86,8 @@ function Format() {
 			return d.format('mdy');
 		}
 
-		// default -  April 04, 2018
-		return d.format('month') + ' ' + d.format('date') + ', ' + d.format('year');
+		// default - April 04, 2018
+		return d.unixFmt('MMMM d, Y');
 
 	};
 

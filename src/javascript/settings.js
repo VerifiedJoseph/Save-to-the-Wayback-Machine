@@ -17,8 +17,8 @@ function Settings() {
 			logNumberArchived: true, // Log number of pages archived.
 
 			// Date and time formats
-			dateFormat: 'F j, Y', // Default date format (e.g: April 04, 2018)
 			timeFormat: 'g:i A', // Default date time (e.g: 06:16 PM)
+			dateFormat: 'MMMM d, Y', // Default date format (e.g: May 17, 2019)
 			timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Default timezone from system
 			displayFullDate: true, // Display full time and date using user selected formats
 			displayTimeSince: false, // Display time past since date (e.g: "1 hour ago")
