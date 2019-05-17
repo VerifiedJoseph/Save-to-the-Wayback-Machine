@@ -165,22 +165,22 @@ browser.storage.onChanged.addListener(function () {
 // Listener for context menu link
 browser.contextMenus.onClicked.addListener(function (info, tab) {
 
-	validate(tab.url, function (status) {
+	settings.load(function () {
 
-		if (status === true) {
+		validate(tab.url, function (status) {
 
-			archive(tab.url, wasArchived); // Save the page
+			if (status === true) {
+				archive(tab.url, wasArchived); // Save the page
 
-		} else { // Failed, show notification
+			} else { // Failed, show notification
 
-			notify.note(
-				browser.i18n.getMessage('notificationCanNotArchive'),
-				browser.i18n.getMessage('notificationBodyCanNotArchive')
-			);
-			notify.sound();
-
-		}
-
+				notify.note(
+					browser.i18n.getMessage('notificationCanNotArchive'),
+					browser.i18n.getMessage('notificationBodyCanNotArchive')
+				);
+				notify.sound();
+			}
+		});
 	});
 
 });
