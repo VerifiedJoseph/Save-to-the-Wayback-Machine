@@ -80,7 +80,7 @@ function wasArchived(response) {
 
 // Load settings on start.
 settings.load(function () {
-	
+
 	if (settings.isLoaded() === true) {
 
 		// Start Debug logging (if enabled by user)
@@ -91,7 +91,7 @@ settings.load(function () {
 		stats.load(settings.get('logNumberArchived'));
 
 		contextMenus();
-		
+
 	} else {
 
 		console.log('Failed to load settings, extension not started!');
@@ -112,21 +112,21 @@ function convertDateTimeFormats() {
 		update = {};
 
 	if (dateOld.includes(dateFormat) === true) {
-		
+
 		update = {
 			dateFormat: dateNew[dateOld.indexOf(dateFormat)]
 		};
 
 		settings.update(update, function (updated) {
-			
+
 			if (updated === true) {
 				debug.log('Updated date format from ' + dateFormat + ' to ' + update.dateFormat);
 			}
-			
+
 		});
 
 	}
-	
+
 	if (timeOld.includes(timeFormat) === true) {
 
 		update = {
@@ -148,7 +148,7 @@ function convertDateTimeFormats() {
 browser.storage.onChanged.addListener(function () {
 
 	settings.load(function () {
-		
+
 		if (settings.isLoaded() === true) {
 
 			// Start Debug logging (if enabled by user)

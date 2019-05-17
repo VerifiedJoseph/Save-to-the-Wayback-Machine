@@ -65,23 +65,23 @@ function Format() {
 
 		var d = spacetime(isoString),
 			format = settings.get('dateFormat');
-		
+
 		if (customFormat) {
 			format = customFormat;
 		}
-		
+
 		// Set timezone
 		d = d.goto(settings.get('timeZone'));
 
-		
+
 		if (format === 'Y/m/d' || format === 'ymd') {
 			return d.format('ymd');
 		}
-		
+
 		if (format === 'd/m/Y' || format === 'dmy') {
 			return d.format('dmy');
 		}
-		
+
 		if (format === 'm/d/Y' || format === 'mdy') {
 			return d.format('mdy');
 		}
@@ -101,22 +101,22 @@ function Format() {
 
 		var d = spacetime(isoString),
 			format = settings.get('timeFormat');
-		
+
 		if (customFormat) {
 			format = customFormat;
 		}
-		
+
 		// Set timezone
 		d = d.goto(settings.get('timeZone'));
-		
+
 		if (format === 'h:mm a' || format === 'g:i A') { // 12 Hour clock
 			return d.unixFmt('hh:mm a');
 		}
-		
+
 		if (format === 'h:mm:ss a' || format === 'g:i:s A') { // 12 Hour clock with seconds
 			return d.unixFmt('hh:mm:ss a');
 		}
-		
+
 		if (format === 'HH:mm' || format === 'H:i') { // 24 Hour clock
 			return d.format('time-24');
 		}
@@ -127,7 +127,7 @@ function Format() {
 
 		// default - 12 Hour clock
 		return d.unixFmt('HH:mm a');
-		
+
 	};
 
 	/**
@@ -136,55 +136,56 @@ function Format() {
 	 * @return {string}
 	 */
 	this.timeSince = function timeSince(isoString) {
-		
-		var before = spacetime(isoString), now = spacetime();
-		
+
+		var before = spacetime(isoString),
+			now = spacetime();
+
 		if (settings.get('timeZoneConvert') === true) {
 			before = before.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
 		}
-		
+
 		var diif = now.since(before).diff;
-		
+
 		if (diif.years > 1) {
 			return diif.years + ' years ago';
 		}
-		
+
 		if (diif.years === 1) {
 
 			if (diif.months > 0) {
 				return '1 year, ' + diif.months + ' months ago';
 			}
-			
+
 			if (diif.days > 0) {
 				return '1 year, ' + diif.days + ' days ago';
 			}
-			
+
 			return '1 year ago';
-			
+
 		}
-		
+
 		if (diif.months > 1) {
-			
+
 			if (diif.days > 0) {
 				return diif.months + ' months, ' + diif.days + ' days ago';
 			}
-			
+
 			return diif.months + " months ago";
 		}
-		
+
 		if (diif.months === 1) {
-			
+
 			if (diif.days > 0) {
 				return '1 month, ' + diif.days + ' days ago';
 			}
-			
+
 			return '1 month ago';
 		}
-		
+
 		if (diif.days > 1) {
 			return diif.days + ' days ago';
 		}
-		
+
 		if (diif.days === 1) {
 			return '1 days ago';
 		}
@@ -206,7 +207,7 @@ function Format() {
 		}
 
 		return diif.seconds + " seconds ago";
-		
+
 	};
 
 }
