@@ -105,9 +105,9 @@ function displayDateTime() {
 
 	// Date formats
 	dateSelect.options[0].textContent = format.readableDate(date, 'MMMM d, Y');
-	dateSelect.options[2].textContent = format.readableDate(date, 'Y/m/d');
-	dateSelect.options[3].textContent = format.readableDate(date, 'd/m/Y');
-	dateSelect.options[4].textContent = format.readableDate(date, 'm/d/Y');
+	dateSelect.options[1].textContent = format.readableDate(date, 'Y/m/d');
+	dateSelect.options[2].textContent = format.readableDate(date, 'd/m/Y');
+	dateSelect.options[3].textContent = format.readableDate(date, 'm/d/Y');
 
 	// Time formats
 	timeSelect.options[0].textContent = format.readableTime(date, 'h:mm a');
