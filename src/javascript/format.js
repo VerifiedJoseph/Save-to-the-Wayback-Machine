@@ -74,20 +74,20 @@ function Format() {
 		d = d.goto(settings.get('timeZone'));
 
 		
-		if (format === 'Y/m/d' || format === 'year/month/day') {
+		if (format === 'Y/m/d' || format === 'ymd') {
 			return d.format('ymd');
 		}
 		
-		if (format === 'd/m/Y' || format === 'day/month/year') {
+		if (format === 'd/m/Y' || format === 'dmy') {
 			return d.format('dmy');
 		}
 		
-		if (format === 'm/d/Y' || format === 'month/day/year') {
+		if (format === 'm/d/Y' || format === 'mdy') {
 			return d.format('mdy');
 		}
 
-		// default -  April 04, 2018
-		return d.format('month') + ' ' + d.format('date') + ', ' + d.format('year');
+		// default - April 04, 2018
+		return d.unixFmt('MMMM d, Y');
 
 	};
 
