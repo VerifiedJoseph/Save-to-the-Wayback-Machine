@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global Stats, Settings, Notify, validate, global, archive, browser, Audio, Debug, console */
+/*global Stats, Settings, Notify, validate, archive, browser, Debug, console */
 "use strict";
 
 var settings = new Settings(),
@@ -80,7 +80,7 @@ function wasArchived(response) {
 
 // Load settings on start.
 settings.load(function () {
-
+	
 	if (settings.isLoaded() === true) {
 
 		// Start Debug logging (if enabled by user)
@@ -91,7 +91,7 @@ settings.load(function () {
 		stats.load(settings.get('logNumberArchived'));
 
 		contextMenus();
-
+		
 	} else {
 
 		console.log('Failed to load settings, extension not started!');
@@ -100,11 +100,55 @@ settings.load(function () {
 
 });
 
+/** Convert date and time format to values used in version 5.3.0 or greater */
+function convertDateTimeFormats() {
+
+	var dateOld = ['F j, Y', 'Y/m/d', 'd/m/Y', 'm/d/Y'],
+		dateNew = ['MMMM d, Y', 'ymd', 'dmy', 'mdy'],
+		timeOld = ['g:i A', 'g:i:s A', 'H:i', 'H:i:s'],
+		timeNew = ['h:mm a, Y', 'h:mm:ss a', 'HH:mm', 'HH:mm:ss'],
+		dateFormat = settings.get('dateFormat'),
+		timeFormat = settings.get('timeFormat'),
+		update = {};
+
+	if (dateOld.includes(dateFormat) === true) {
+		
+		update = {
+			dateFormat: dateNew[dateOld.indexOf(dateFormat)]
+		};
+
+		settings.update(update, function (updated) {
+			
+			if (updated === true) {
+				debug.log('Updated date format from ' + dateFormat + ' to ' + update.dateFormat);
+			}
+			
+		});
+
+	}
+	
+	if (timeOld.includes(timeFormat) === true) {
+
+		update = {
+			'timeFormat': timeNew[timeOld.indexOf(timeFormat)]
+		};
+
+		settings.update(update, function (updated) {
+
+			if (updated === true) {
+				debug.log('Updated time format from ' + timeFormat + ' to ' + update.timeFormat);
+			}
+
+		});
+
+	}
+}
+
 // Listener for then the storage has changed
 browser.storage.onChanged.addListener(function () {
 
 	settings.load(function () {
-
+		
 		if (settings.isLoaded() === true) {
 
 			// Start Debug logging (if enabled by user)
@@ -135,6 +179,18 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
 			);
 			notify.sound();
 
+		}
+
+	});
+
+});
+
+browser.runtime.onInstalled.addListener(function (details) {
+
+	settings.load(function () {
+
+		if (details.reason === 'update') {
+			convertDateTimeFormats();
 		}
 
 	});
