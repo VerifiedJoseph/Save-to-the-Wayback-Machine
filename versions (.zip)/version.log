@@ -14,12 +14,13 @@
 	Changes:
 		Updated readableTime(),readableDate() and timeSince() to use Spacetime library.
 		Updated URL regex to improve handling of URLs with port numbers.
+		Updated URL regex to improve handling of URLs that contain brackets.
 		Removed function notifyUser() 
 		Removed function notifyUserSound()
 		Remove 'timeZoneConvert' setting.
 	
 	Fixes:
-		none
+		Fixed double encoding of URLs. URLs returned by browser.tabs.query are already encoded.
 		
 5.2.2 -- 29/01/2019
 	Additions:
