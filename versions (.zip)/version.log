@@ -1,3 +1,26 @@
+5.3.0 -- ??/05/2019
+	Additions:
+		Added file notify.js
+		Added file timezones.js 
+		Added Spacetime library dependency
+		Added function Notify.sound()
+		Added function Notify.note()
+		Added function Request.post()
+		Added function getResponse()
+		Added function parseHeaders()
+		Added function convertDateTimeFormats()
+		Added 'timeZone' setting.
+
+	Changes:
+		Updated readableTime(),readableDate() and timeSince() to use Spacetime library.
+		Updated URL regex to improve handling of URLs with port numbers.
+		Removed function notifyUser() 
+		Removed function notifyUserSound()
+		Remove 'timeZoneConvert' setting.
+	
+	Fixes:
+		none
+		
 5.2.2 -- 29/01/2019
 	Additions:
 		none
