@@ -106,7 +106,7 @@ function convertDateTimeFormats() {
 	var dateOld = ['F j, Y', 'Y/m/d', 'd/m/Y', 'm/d/Y'],
 		dateNew = ['MMMM d, Y', 'ymd', 'dmy', 'mdy'],
 		timeOld = ['g:i A', 'g:i:s A', 'H:i', 'H:i:s'],
-		timeNew = ['h:mm a, Y', 'h:mm:ss a', 'HH:mm', 'HH:mm:ss'],
+		timeNew = ['h:mm a', 'h:mm:ss a', 'HH:mm', 'HH:mm:ss'],
 		dateFormat = settings.get('dateFormat'),
 		timeFormat = settings.get('timeFormat'),
 		update = {};
