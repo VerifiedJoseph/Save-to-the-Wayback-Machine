@@ -140,9 +140,9 @@ function Format() {
 		var before = spacetime(isoString),
 			now = spacetime();
 
-		if (settings.get('timeZoneConvert') === true) {
-			before = before.goto(Intl.DateTimeFormat().resolvedOptions().timeZone);
-		}
+		// Set timezone
+		before = before.goto(settings.get('timeZone'));
+		now = now.goto(settings.get('timeZone'));
 
 		var diif = now.since(before).diff;
 
