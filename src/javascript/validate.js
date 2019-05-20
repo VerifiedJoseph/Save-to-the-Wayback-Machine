@@ -27,7 +27,7 @@ function validate(url, callback) {
 
 		// Get hostname with regex
 		hostname = url.match(urlRegex);
-		
+
 		// Check blacklist for hostname 
 		if (global.hostNameBlacklist.includes(hostname[1])) {
 

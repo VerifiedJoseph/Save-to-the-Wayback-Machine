@@ -6,10 +6,10 @@
 function Request() {
 
 	var xhr = new XMLHttpRequest();
-	
+
 	/** @var {string} method */
 	var method = 'GET';
-	
+
 	/** @var {object} response */
 	var response = {
 		headers: {},
@@ -26,7 +26,7 @@ function Request() {
 	 */
 	this.get = function get(url, callback) {
 		method = 'GET';
-			
+
 		xhr.open(method, url, true);
 		xhr.setRequestHeader('x-requested-by', global.requestedBy);
 
@@ -35,7 +35,7 @@ function Request() {
 		xhr.onload = function () { // On request load
 
 			getResponse(url);
-			
+
 			/**
 			 * @callback open~callback
 			 * @param {object} response
@@ -57,7 +57,7 @@ function Request() {
 
 		xhr.send(); // Send the request
 	};
-	
+
 	/**
 	 * Make a HTTP POST request with XMLHttpRequest()
 	 * @param {string} url
@@ -75,9 +75,9 @@ function Request() {
 		debug.log('POST Request: ' + url);
 
 		xhr.onload = function () {
-			
+
 			getResponse(url);
-			
+
 			/**
 			 * @callback open~callback
 			 * @param {object} response
@@ -89,61 +89,62 @@ function Request() {
 			debug.log('Request failed (connection error)');
 
 			getResponse(url);
-			
+
 			/**
 			 * @callback open~callback
 			 * @param {object} response
 			 */
 			callback(response);
 		};
-		
+
 		// Send request
 		xhr.send(payload);
 	};
-	
+
 	/**
 	 * Parse response headers
 	 * @param {string} rawHeaders
 	 * @return {array} headers
 	 */
 	function parseHeaders(rawHeaders) {
-		var headers = [], rawHeadersArray;
-		
+		var headers = [],
+			rawHeadersArray;
+
 		if (rawHeaders) {
-		
+
 			// Split and trim the raw headers string at newlines
 			rawHeadersArray = rawHeaders.trim().split(/[\r\n]+/);
-		
+
 			// Loop raw headers array and create object key/value pairs.
 			rawHeadersArray.forEach(function (line) {
-			
+
 				var parts = line.split(': '),
 					header = parts[0],
 					value = parts[1];
 
 				headers[header] = value;
 			});
-			
+
 		}
-		
+
 		return headers;
-		
+
 	}
-	
+
 	/**
 	 * Get response details
 	 * @param {string} url
 	 */
 	function getResponse(url) {
-		
+
 		response.status = xhr.status;
 		response.method = method;
 		response.data = xhr.response;
 		response.urls['request'] = url;
 		response.urls['response'] = xhr.responseURL;
-	
+
 		response.headers = parseHeaders(xhr.getAllResponseHeaders());
-		
+
 	}
-	
+
 }
