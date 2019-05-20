@@ -1,3 +1,13 @@
+5.3.1 -- 20/05/2019
+	Additions:
+		none
+
+	Changes:
+		none
+	
+	Fixes:
+		Fixed invalid time format in convertDateTimeFormats()
+		
 5.3.0 -- 20/05/2019
 	Additions:
 		Added file notify.js
