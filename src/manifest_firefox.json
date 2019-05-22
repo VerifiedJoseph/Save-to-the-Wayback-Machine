@@ -1,7 +1,7 @@
 {
 	"applications": {
 		"gecko": {
-			"strict_min_version": "53.0"
+			"strict_min_version": "57.0"
 		}
 	},
 	"name": "__MSG_extensionName__",
