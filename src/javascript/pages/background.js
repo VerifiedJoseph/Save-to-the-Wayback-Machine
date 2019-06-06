@@ -6,7 +6,54 @@ var settings = new Settings(),
 	debug = new Debug(),
 	notify = new Notify(),
 	stats = new Stats(),
-	contextMenuSet = false;
+	contextMenuSet = {
+		'archivePage': false,
+		'archiveLink': false,
+		'archiveImage': false
+	};
+
+/**
+ * Create a context menu option
+ * @param {string} id
+ * @param {array} contexts
+ * @param {sting} title
+ */
+function contextMenuCreate(id, context, title) {
+
+	browser.contextMenus.create({
+		'title': title,
+		'contexts': [context],
+		'id': id
+	}, function () {
+		contextMenuSet[id] = true;
+
+		debug.log('Created context menu item: ' + id);
+
+		if (browser.extension.lastError) {
+			console.log('Error: ' + browser.extension.lastError.message);
+		}
+	});
+
+}
+
+/**
+ * Remove a context menu option
+ * @param {string} id
+ */
+function contextMenuRemove(id) {
+
+	browser.contextMenus.remove(id, function () {
+		contextMenuSet[id] = false;
+
+		debug.log('Removed context menu item: ' + id);
+
+		if (browser.extension.lastError) {
+			console.log('Error: ' + browser.extension.lastError.message);
+		}
+
+	});
+
+}
 
 /**
  *	Create or remove 'archive this page' context menu option
