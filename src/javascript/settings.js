@@ -24,8 +24,13 @@ function Settings() {
 			displayTimeSince: false, // Display time past since date (e.g: "1 hour ago")
 
 			// Context Menu
-			contextMenu: true, // Show 'Archive this' link in the context menu (right click menu).
-			contextMenuNote: true, // Display notification if a page cannot be archived via the context menu.
+			contextMenu: true, // Enable context menu options.
+			contextMenuArchive: { // Enable each context menu options.
+				'page': true,
+				'link': true,
+				'image': true
+			},
+			contextMenuNote: true, // Display notification if a page, link or image cannot be archived via the context menu.
 
 			// Notifications
 			notePlayAlert: false, // Play an alert sound when a notification is displayed.
