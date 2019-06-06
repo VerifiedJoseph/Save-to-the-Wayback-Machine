@@ -42,8 +42,11 @@ function displaySettings(showDefaults) {
 	// Time since
 	document.getElementById('time_since_archive').checked = list.displayTimeSince;
 
-	// Context menu item (right click item)
+	// Context menu items
 	document.getElementById('context_menu').checked = list.contextMenu;
+	document.getElementById('context_menu_page').checked = list.contextMenuArchive.page;
+	document.getElementById('context_menu_link').checked = list.contextMenuArchive.link;
+	document.getElementById('context_menu_image').checked = list.contextMenuArchive.image;
 
 	// Notifications
 	document.getElementById('context_note').checked = list.contextMenuNote;
@@ -176,6 +179,11 @@ function saveSettings() {
 		displayTimeSince: document.getElementById('time_since_archive').checked,
 
 		contextMenu: document.getElementById('context_menu').checked,
+		contextMenuArchive: {
+			'page': document.getElementById('context_menu_page').checked,
+			'link': document.getElementById('context_menu_link').checked,
+			'image': document.getElementById('context_menu_image').checked
+		},
 		contextMenuNote: document.getElementById('context_note').checked,
 
 		notePlayAlert: document.getElementById('note_sound').checked,
