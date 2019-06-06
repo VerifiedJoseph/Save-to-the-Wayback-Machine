@@ -63,7 +63,7 @@ function displaySettings(showDefaults) {
 	// Log debug messages
 	document.getElementById('debug_log').checked = list.logDebugInfo;
 
-	// Disable the context nenu notification option if 'contextMenu' is false. 
+	// Disable the context nenu options if 'contextMenu' is false. 
 	if (list.contextMenu === false) {
 
 		ui.disableInput('context_menu_page');
