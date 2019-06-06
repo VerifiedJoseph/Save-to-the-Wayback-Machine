@@ -66,6 +66,9 @@ function displaySettings(showDefaults) {
 	// Disable the context nenu notification option if 'contextMenu' is false. 
 	if (list.contextMenu === false) {
 
+		ui.disableInput('context_menu_page');
+		ui.disableInput('context_menu_link');
+		ui.disableInput('context_menu_image');
 		ui.disableInput('context_note');
 
 	}
@@ -291,10 +294,16 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
+			ui.enableInput('context_menu_page');
+			ui.enableInput('context_menu_link');
+			ui.enableInput('context_menu_image');
 			ui.enableInput('context_note');
 
 		} else {
 
+			ui.disableInput('context_menu_page');
+			ui.disableInput('context_menu_link');
+			ui.disableInput('context_menu_image');
 			ui.disableInput('context_note');
 
 		}
