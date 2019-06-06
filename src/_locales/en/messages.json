@@ -15,8 +15,13 @@
 	},
 
 	"MenuItemArchiveLink": {
-		"message": "Archive this Link",
+		"message": "Archive Link",
 		"description": "Title of context menu item that saves a link to the Wayback Machine."
+	},
+	
+	"MenuItemArchiveImage": {
+		"message": "Archive Image",
+		"description": "Title of context menu item that saves a image to the Wayback Machine."
 	},
 
 	"notificationArchiveFailed": {

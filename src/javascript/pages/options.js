@@ -42,8 +42,11 @@ function displaySettings(showDefaults) {
 	// Time since
 	document.getElementById('time_since_archive').checked = list.displayTimeSince;
 
-	// Context menu item (right click item)
+	// Context menu items
 	document.getElementById('context_menu').checked = list.contextMenu;
+	document.getElementById('context_menu_page').checked = list.contextMenuArchive.page;
+	document.getElementById('context_menu_link').checked = list.contextMenuArchive.link;
+	document.getElementById('context_menu_image').checked = list.contextMenuArchive.image;
 
 	// Notifications
 	document.getElementById('context_note').checked = list.contextMenuNote;
@@ -60,9 +63,12 @@ function displaySettings(showDefaults) {
 	// Log debug messages
 	document.getElementById('debug_log').checked = list.logDebugInfo;
 
-	// Disable the context nenu notification option if 'contextMenu' is false. 
+	// Disable the context nenu options if 'contextMenu' is false. 
 	if (list.contextMenu === false) {
 
+		ui.disableInput('context_menu_page');
+		ui.disableInput('context_menu_link');
+		ui.disableInput('context_menu_image');
 		ui.disableInput('context_note');
 
 	}
@@ -176,6 +182,11 @@ function saveSettings() {
 		displayTimeSince: document.getElementById('time_since_archive').checked,
 
 		contextMenu: document.getElementById('context_menu').checked,
+		contextMenuArchive: {
+			'page': document.getElementById('context_menu_page').checked,
+			'link': document.getElementById('context_menu_link').checked,
+			'image': document.getElementById('context_menu_image').checked
+		},
 		contextMenuNote: document.getElementById('context_note').checked,
 
 		notePlayAlert: document.getElementById('note_sound').checked,
@@ -283,10 +294,16 @@ body.addEventListener('click', function (event) {
 
 		if (input.checked) {
 
+			ui.enableInput('context_menu_page');
+			ui.enableInput('context_menu_link');
+			ui.enableInput('context_menu_image');
 			ui.enableInput('context_note');
 
 		} else {
 
+			ui.disableInput('context_menu_page');
+			ui.disableInput('context_menu_link');
+			ui.disableInput('context_menu_image');
 			ui.disableInput('context_note');
 
 		}
