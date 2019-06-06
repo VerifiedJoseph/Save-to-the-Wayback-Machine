@@ -60,37 +60,59 @@ function contextMenuRemove(id) {
  **/
 function contextMenus() {
 
-	// Create option
-	if (contextMenuSet === false && settings.get('contextMenu') === true) {
+	if (settings.get('contextMenu') === true) {
 
-		browser.contextMenus.create({
-			"title": browser.i18n.getMessage('MenuItemArchivePage'),
-			"contexts": ["page"],
-			"id": "archivePage"
-		}, function () {
+		// Pages
+		if (contextMenuSet.archivePage === false && settings.get('contextMenuArchive').page === true) {
 
-			contextMenuSet = true;
+			contextMenuCreate(
+				'archivePage',
+				'page',
+				browser.i18n.getMessage('MenuItemArchivePage')
+			);
 
-			if (browser.extension.lastError) {
-				console.log("Error: " + browser.extension.lastError.message);
-			}
+		} else if (contextMenuSet.archivePage === true && settings.get('contextMenuArchive').page === false) {
 
-		});
+			contextMenuRemove('archivePage');
 
-		// Remove option
-	} else if (contextMenuSet === true && settings.get('contextMenu') === false) {
+		}
 
-		browser.contextMenus.removeAll(function () {
-			contextMenuSet = false;
+		// Links
+		if (contextMenuSet.archiveLink === false && settings.get('contextMenuArchive').link === true) {
 
-			if (browser.extension.lastError) {
-				console.log("Error: " + browser.extension.lastError.message);
-			}
+			contextMenuCreate(
+				'archiveLink',
+				'link',
+				browser.i18n.getMessage('MenuItemArchiveLink')
+			);
 
-		});
+		} else if (contextMenuSet.archiveLink === true && settings.get('contextMenuArchive').link === false) {
+
+			contextMenuRemove('archiveLink');
+
+		}
+
+		// Images
+		if (contextMenuSet.archiveImage === false && settings.get('contextMenuArchive').image === true) {
+
+			contextMenuCreate(
+				'archiveImage',
+				'image',
+				browser.i18n.getMessage('MenuItemArchiveImage')
+			);
+
+		} else if (contextMenuSet.archiveImage === true && settings.get('contextMenuArchive').image === false) {
+
+			contextMenuRemove('archiveImage');
+
+		}
+	} else { // Context menu options disabled, remove all options.
+
+		contextMenuRemove('archivePage');
+		contextMenuRemove('archiveLink');
+		contextMenuRemove('archiveImage');
 
 	}
-
 }
 
 /**
@@ -210,14 +232,24 @@ browser.storage.onChanged.addListener(function () {
 });
 
 // Listener for context menu link
-browser.contextMenus.onClicked.addListener(function (info, tab) {
+browser.contextMenus.onClicked.addListener(function (info) {
+
+	var url = info.pageUrl;
+
+	if (info.menuItemId === 'archiveLink') {
+		url = info.linkUrl;
+	}
+
+	if (info.menuItemId === 'archiveImage') {
+		url = info.srcUrl;
+	}
 
 	settings.load(function () {
 
-		validate(tab.url, function (status) {
+		validate(url, function (status) {
 
 			if (status === true) {
-				archive(tab.url, wasArchived); // Save the page
+				archive(url, wasArchived); // Save the page
 
 			} else { // Failed, show notification
 
