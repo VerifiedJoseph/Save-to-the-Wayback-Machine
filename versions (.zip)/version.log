@@ -1,3 +1,15 @@
+5.3.2 -- 07/06/2019
+	Additions:
+		Added support for archiving links and images via the context menu
+		Added functions contextMenuCreate() & contextMenuRemove() to background.js
+		Added default setting object 'contextMenuArchive' to setting.js
+
+	Changes:
+		none
+	
+	Fixes:
+		none
+		
 5.3.1 -- 20/05/2019
 	Additions:
 		none
