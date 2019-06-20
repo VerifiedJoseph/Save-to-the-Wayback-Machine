@@ -1,3 +1,13 @@
+5.3.3 -- 20/06/2019
+	Additions:
+		none
+
+	Changes:
+		Updated URL regex to improve handling of URLs with short hostnames.
+		Updated URL regex to improve handling of URLs containing exclamation marks, commas and semicolons.
+	Fixes:
+		none
+		
 5.3.2 -- 07/06/2019
 	Additions:
 		Added support for archiving links and images via the context menu
