@@ -196,3 +196,62 @@ All notable changes to this project will be documented in this file.
 
 ## [5.0.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/5.0.4) - 2017-05-25
 * Fixed a bug that stopped UTC time stamps from being converted to the user's local timezone.
+
+## 5.0.3 - 2017-05-15
+### Additions:
+* none
+
+### Changes:
+* none
+	
+Fixes:
+* Fixed incorrect function name in archive.js, that stopped the script from working.
+
+### 5.0.2 - 2017-05-15
+### Additions:
+* none
+
+### Changes:
+* none
+
+### Fixes:
+* Fixed undefined URL bug in archive.js
+
+## 5.0.1 - 2017-05-01
+### Additions:
+* none
+
+### Changes:
+* none
+
+### Fixes:
+* Fixed undefined separator bug in dataFormat.js and popup.js
+
+## 5.0.0 - 2017-05-01
+### Additions:
+* Added file settings.js to javascript folder
+* Added file ui.js to javascript folder
+* Added file vaildate.js to javascript folder
+* Added file global.js to javascript folder
+* Added file requset.js to javascript folder
+* Added file sendMessage.js to javascript folder
+* Added file stats.js to javascript folder
+* Added file dataFormat.js to javascript folder
+* Added function start() to background.js
+* Added function this.isLoaded() to settings.js
+* Added function this.get() to settings.js
+* Added function SendMessage() to send-message.js
+* Added function apiData() to popup.js
+* Added function this.attribute() to ui.js
+* Added function this.attributeRemove() to ui.js 
+* Added parameters method and url to function open() in request.js
+* Added <!DOCTYPE html> line to options.html and popup.html
+
+### Changes:
+* Removed function consoleLog() from background.js and popup.js
+* Removed protocol BlackList for Each loop from vaildate.js as the url regex checks the portocol and only passes URL that use http or https
+* Removed Debug log error messages option from options.html and options.js
+* Moved popup.js and options.js file to javascript pages folder
+
+### Fixes:
+* none
