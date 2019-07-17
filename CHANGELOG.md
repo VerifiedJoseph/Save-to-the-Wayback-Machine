@@ -425,3 +425,83 @@ Fixes:
 * Removed default user option 'noteAutoClose' from background.js and options.js
 ### Fixes:
 * none
+
+## 3.5.0 - 2016-04-15
+### Additions:
+* Added version_name to manifest.json
+* Added function display() to popup.js
+* Added function resetOptions() to options.js
+* Added event listeners for html elements #reset, #yes and #no to options.js
+### Changes:
+* Renamed function restoreOptions() to displayOptions() in options.js
+* Improved code comments in popup.js and background.js
+## Fixes:
+* Fixed bug with URL regular expression in background.js that stopped websites with the new gTLDs like .photography or .ninja from being archived.
+
+## 3.0.0 - 2016-04-09
+### Additions:
+* none
+### Changes:
+* Removed jQuery library dependency from popup.js.
+### Fixes:
+* none
+
+## 2.3.0 - 2016-04-06
+### Additions:
+* Added permission 'https://archive.org/wayback/available?url=*' to manifest.json for API calls
+* Added event listener for context_menu options checkbox to options.js
+### Changes:
+* Replaced permission 'tabs' with 'activeTab' in manifest.json
+* Removed permissions 'https://*' and 'http://*' from manifest.json
+* Improved code comments in background.js, popup.js and options.js
+### Fixes:
+* none
+
+## 2.2.0 - 2016-03-25
+### Additions:
+* Added pages archived number reset button to popup.html and code to popup.js
+### Changes:
+* none
+### Fixes:
+* none
+
+## 2.1.1 - 2016-03-23
+### Additions:
+* none
+### Changes:
+* none
+### Fixes:
+* Save URL bug fixed in popup.js
+
+## 2.1.0 -- 2016-03-23
+### Additions:
+* Added stats view to popup.html and code to popup.js
+### Changes:
+* Minor changes to background.js and popup.js
+### Fixes:
+* none
+
+## 2.0.0 - 2016-03-23
+### Additions:
+* Added background script
+* Added options page
+* Added contextMenu link
+* Added notifications
+### Changes:
+* none
+### Fixes:
+* none
+
+## 1.3.0 - 2016-03-22
+### Additions:
+* none
+### Changes:
+* Minor change popup css paddding.
+### Fixes:
+* none
+
+## 1.2.0 - 2016-03-21
+Changes not logged
+
+## 1.0.0 - 2016-03-18
+Initial release
