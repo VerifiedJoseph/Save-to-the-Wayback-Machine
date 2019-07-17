@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 5.3.3 - 2019-06-20
+## [5.3.3](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.3) - 2019-06-20
 ### Additions:
 * none
 
@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * none
 
-## 5.3.2 - 2019-06-07
+## [5.3.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.2) - 2019-06-07
 ### Additions:
 * Added support for archiving links and images via the context menu. ([#88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/88), [#88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/89))
 
@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * none
 
-## 5.3.1 - 2019-05-20
+## [5.3.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.1) - 2019-05-20
 ### Additions:
 * none
 
@@ -33,7 +33,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed invalid time format in convertDateTimeFormats() ([3253bf5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/3253bf50ff9cf5ad1700b4be455bd66855c154b4))
 
-## 5.3.0 - 2019-05-20
+## [5.3.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.0) - 2019-05-20
 ### Additions:
 * Added Spacetime library dependency ([#73](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/73)) ([#80](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/80))
 * Added file notify.js ([#74](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/74))
@@ -49,7 +49,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed double encoding of URLs. URLs returned by browser.tabs.query are already encoded. ([#83](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/83))
 
-## 5.2.2 - 2019-01-29
+## [5.2.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.2.2) - 2019-01-29
 ### Additions:
 * none
 
@@ -64,7 +64,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed confirm panel overlapping page header in options.html ([8eef72e](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/8eef72e5f8bc7db53e77fa150b8c646ab729ba38))
 
-## 5.2.1 - 2018-10-07
+## [5.2.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.2.1) - 2018-10-07
 ### Additions:
 * none
 
@@ -74,7 +74,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed broken CSS padding in base.css ([ade8c8d](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ade8c8dd2c7115adc9969f9799270f486822896f))
 
-## 5.2.0 - 2018-10-07
+## [5.2.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.2.0) - 2018-10-07
 ### Additions:
 * Added function UI.display() ([09fa071](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/09fa07139817d3f69ef76bd32d46b5b410468c66))
 * Added function UI.isDisplayed() ([1c4c89e](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/1c4c89eccd99e422ae73f6b1ccfce553110f634f))
@@ -101,7 +101,7 @@ All notable changes to this project will be documented in this file.
 * Fixed overlapping buttons when display scaling is greater than 100% ([#39](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/39))
 * Fixed incorrect function name in Debug.enable() ([db9e167](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/db9e16741cb41351ccb5d8d07b9031a9aaff66af))
 
-## 5.1.5 - 2018-09-17
+## [5.1.5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.5) - 2018-09-17
 ### Additions:
 * Added empty id string to browser.notifications.create() in background.js ([9c7e1f0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/9c7e1f091fd3bc2f35f272d19bd5255cc7a1ad43))
 
@@ -116,7 +116,7 @@ All notable changes to this project will be documented in this file.
 * Fixed time ago failing to display when converting UTC to local time. ([#13](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/13))
 * Fixed incorrect code comment in options.js ([ac9ec88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ac9ec88b65a1ac078e5dc57c2ba13811bed2d592))
 
-## 5.1.4 - 2018-04-06
+## [5.1.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.4) - 2018-04-06
 ### Additions:
 * Added basic internationalisation support
 * Added functions readableDate() and readableTime() to format.js
@@ -130,7 +130,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * none
 
-## 5.1.3 - 2017-11-02
+## [5.1.3](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.3) - 2017-11-02
 ### Additions:
 * none
 
@@ -141,7 +141,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed incorrect time zone conversion in format.js
 
-## 5.1.2 - 2017-10-03
+## [5.1.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.2) - 2017-10-03
 ### Additions:
 * none
 
@@ -152,7 +152,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed timeSince() function not converting datetime to local time zone in format.js
 
-## 5.1.1 - 2017-07-17
+## [5.1.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.1) - 2017-07-17
 ### Additions:
 * none
 
@@ -164,7 +164,7 @@ All notable changes to this project will be documented in this file.
 * Fixed incorrectly name variable in format.js.
 * Fixed incorrect time displaying on options page.
 
-## 5.1.0 - 2017-07-17
+## [5.1.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.1.0) - 2017-07-17
 ### Additions:
 * Added file debug.js to javascript folder
 * Added title() function to ui.js
@@ -194,5 +194,5 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * none
 
-## 5.0.4 - 2017-05-25
+## [5.0.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/5.0.4) - 2017-05-25
 * Fixed a bug that stopped UTC time stamps from being converted to the user's local timezone.
