@@ -165,9 +165,9 @@ function isValid(status) {
 
 		// Fetch Wayback API data
 		var request = new Request();
-		request.get(global.urls.api + url, apiData);
+		request.get(global.urls.api + encodeURIComponent(url), apiData);
 
-	} else { // URL is not valid.			
+	} else { // URL is not valid.
 
 		ui.content('overlay-title', '');
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
