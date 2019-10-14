@@ -1,12 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.3.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.4) - 2019-10-14
+### Additions:
+* none
+
+### Changes:
+* Encode URL parameter when making Wayback Availability API requests. ([#99](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/99), [#100](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/100))
+
 ## [5.3.3](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.3) - 2019-06-20
 ### Additions:
 * none
 
 ### Changes:
-* Updated Spacetime  timezone library to [version 5.9.0](https://github.com/spencermountain/spacetime/releases/tag/5.9.0).
+* Updated Spacetime timezone library to [version 5.9.0](https://github.com/spencermountain/spacetime/releases/tag/5.9.0).
 * Updated URL regex to improve handling of URLs with short hostnames. ([#91](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/91))
 * Updated URL regex to improve handling of URLs containing exclamation marks, commas and semicolons. ([#91](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/91), [95033ea](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/95033ea3c28c5a108108e3500bc27cb9029615ca))
 
