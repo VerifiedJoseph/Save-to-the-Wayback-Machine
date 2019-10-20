@@ -37,6 +37,66 @@ function tab(pageUrl) {
 }
 
 /**
+ * Format and display data returned by Wayback Availability API
+ * @param {object} response
+ */
+function snapshotData(snapshot) {
+	
+	if (snapshot.error === false) {
+
+		if (snapshot.available === true) {
+			ui.display('message', false);
+			ui.display('archive-version', true);
+			ui.display('archive-history', true);
+
+			// Change timeStamp in to a format that is supported by Date()
+			timeStamp = format.timeStampToDate(snapshot.timestamp);
+
+			if (settings.get('displayFullDate') === true) { // Display Full date and time 
+
+				ui.content('date', format.readableDate(timeStamp));
+				ui.content('time', format.readableTime(timeStamp));
+				ui.display('time-date', true);
+
+			} else { // Display time since (e.g: "1 hour ago")
+
+				ui.content('since', format.timeSince(timeStamp, settings.get('timeZoneConvert')));
+				ui.display('time-since', true);
+
+			}
+
+			// Event listener for archive history button
+			document.getElementById('archive-history').addEventListener('click', function () {
+				tab(global.urls.calendar + url); // Create tab
+			});
+
+			// Event listener for archive version button
+			document.getElementById('archive-version').addEventListener('click', function () {
+				
+				tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
+			});
+		}
+		
+		if (snapshot.available === false) {
+			debug.log('No snapshot returned for ' + url);
+
+			ui.content('message', 'Page has not been archived.');
+			ui.display('archive-version', false);
+			ui.display('archive-history', false);
+		}
+	}
+	
+	if (snapshot.error === true) {
+		debug.log('API Data not fetched for ' + url);
+
+		ui.content('message', browser.i18n.getMessage('ApiRequestFailed'));
+		ui.display('archive-version', false);
+		ui.display('archive-history', false);
+	}
+
+}
+
+/**
  * Format and display data returned by the wayback availability API
  * @param {object} response
  */
