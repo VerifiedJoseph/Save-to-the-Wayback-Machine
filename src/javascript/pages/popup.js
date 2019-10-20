@@ -1,5 +1,4 @@
 /*jslint node: true */
-/*global browser, UI, Request, Settings, Stats, Debug, global, archive, validate, Format, document, window */
 "use strict";
 
 var ui = new UI(),
@@ -223,9 +222,8 @@ function isValid(status) {
 
 		});
 
-		// Fetch Wayback API data
-		var request = new Request();
-		request.get(global.urls.api + encodeURIComponent(url), apiData);
+		var snapshot = new Snapshot();
+		snapshot.get(url, snapshotData);
 
 	} else { // URL is not valid.
 
