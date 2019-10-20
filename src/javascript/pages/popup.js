@@ -1,4 +1,5 @@
 /*jslint node: true */
+/*global browser, UI, Snapshot, Settings, Stats, Debug, global, archive, validate, Format, document, window */
 "use strict";
 
 var ui = new UI(),
