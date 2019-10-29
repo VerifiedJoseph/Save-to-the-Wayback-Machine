@@ -42,7 +42,7 @@ function tab(pageUrl) {
 function snapshotData(snapshot) {
 
 	if (snapshot.error === false) {
- 
+
 		if (snapshot.available === true) {
 			ui.display('message', false);
 			ui.display('archive-version', true);
@@ -71,11 +71,11 @@ function snapshotData(snapshot) {
 
 			// Event listener for archive version button
 			document.getElementById('archive-version').addEventListener('click', function () {
-				
+
 				tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
 			});
 		}
-		
+
 		if (snapshot.available === false) {
 			debug.log('No snapshot returned for ' + url);
 
@@ -84,7 +84,7 @@ function snapshotData(snapshot) {
 			ui.display('archive-history', false);
 		}
 	}
-	
+
 	if (snapshot.error === true) {
 		debug.log('API Data not fetched for ' + url);
 
