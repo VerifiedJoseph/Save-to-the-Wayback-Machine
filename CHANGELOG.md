@@ -294,7 +294,7 @@ Fixes:
 * Removed updateStats() function from background.js
 
 ### Fixes:
-* Fixed 'Try agian' Typo in popup.html. (#1)[https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/issues/1]
+* Fixed 'Try agian' Typo in popup.html. [#1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/issues/1)
 
 ## 4.3.2 - Not Released
 ### Additions:
