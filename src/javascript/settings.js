@@ -49,9 +49,7 @@ function Settings() {
 	 * @returns {boolean}
 	 */
 	this.isLoaded = function isLoaded() {
-
 		return self.loaded;
-
 	};
 
 	/**
@@ -61,14 +59,11 @@ function Settings() {
 	this.load = function load(callback) {
 
 		browser.storage.sync.get(defaults, function (data) {
-
 			self.loaded = true;
 			self.items = data;
 
 			callback();
-
 		});
-
 	};
 
 	/**
@@ -81,20 +76,16 @@ function Settings() {
 		var status = true;
 
 		if (typeof updatedItems !== 'undefined') {
-
 			browser.storage.sync.set(updatedItems, function () {
 				self.items = updatedItems;
 
 				if (browser.runtime.lastError) {
 					status = false;
 				}
-
 			});
-
 		}
 
 		callback(status);
-
 	};
 
 	/**
@@ -106,13 +97,10 @@ function Settings() {
 
 		// If item exists in object
 		if (self.items.hasOwnProperty(name)) {
-
 			return self.items[name];
 
 		} else { // Item not found
-
 			return null;
-
 		}
 
 	};
@@ -129,7 +117,6 @@ function Settings() {
 		};
 
 		return all;
-
 	};
 
 }

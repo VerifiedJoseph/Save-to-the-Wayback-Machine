@@ -14,9 +14,7 @@ function Debug() {
 		Enable the logging
 	*/
 	this.enable = function enable(status) {
-
 		isEnabled = status;
-
 	};
 
 	/**
@@ -26,11 +24,8 @@ function Debug() {
 	this.log = function log(text) {
 
 		if (isEnabled === true && text !== undefined) {
-
 			console.log(text);
-
 		}
-
 	};
 
 }

@@ -143,7 +143,6 @@ function wasArchived(response) {
 		});
 
 	}
-
 }
 
 

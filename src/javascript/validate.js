@@ -20,9 +20,7 @@ function validate(url, callback) {
 
 		// Validate URL format
 		if (urlRegex.test(url) === false) {
-
 			throw new Error('URL format is not valid: ' + url);
-
 		}
 
 		// Get hostname with regex
@@ -30,18 +28,14 @@ function validate(url, callback) {
 
 		// Check blacklist for hostname 
 		if (global.hostNameBlacklist.includes(hostname[1])) {
-
 			throw new Error('URL hostname blacklisted: ' + hostname[1]);
-
 		}
 
 		debug.log('URL is valid: ' + url);
 
 	} catch (exception) {
-
 		valid = false;
 		debug.log(exception.message);
-
 	}
 
 	/**
@@ -49,5 +43,4 @@ function validate(url, callback) {
 	 * @param {boolean} valid.
 	 */
 	callback(valid);
-
 }

@@ -128,7 +128,6 @@ function Request() {
 		}
 
 		return headers;
-
 	}
 
 	/**
@@ -144,7 +143,6 @@ function Request() {
 		response.urls['response'] = xhr.responseURL;
 
 		response.headers = parseHeaders(xhr.getAllResponseHeaders());
-
 	}
 
 }
