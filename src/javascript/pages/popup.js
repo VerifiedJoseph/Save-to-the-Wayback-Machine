@@ -53,7 +53,7 @@ function apiData(response) {
 			ui.display('archive-history', true);
 
 			// Change timeStamp in to a format that is supported by Date()
-			timeStamp = format.timeStampToDate(data.archived_snapshots.closest.timestamp);
+			timeStamp = format.convertToIso(data.archived_snapshots.closest.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
