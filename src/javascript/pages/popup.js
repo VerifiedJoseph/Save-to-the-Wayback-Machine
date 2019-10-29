@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global browser, UI, Request, Settings, Stats, Debug, global, archive, validate, Format, document, window */
+/*global browser, UI, Snapshot, Settings, Stats, Debug, global, archive, validate, Format, document, window */
 "use strict";
 
 var ui = new UI(),
@@ -36,24 +36,20 @@ function tab(pageUrl) {
 }
 
 /**
- * Format and display data returned by the wayback availability API
+ * Format and display data returned by Wayback Availability API
  * @param {object} response
  */
-function apiData(response) {
+function snapshotData(snapshot) {
 
-	if (response.status === 200) { // Check status code
-
-		var data = JSON.parse(response.data),
-			isoString;
-
-		if (data.archived_snapshots.hasOwnProperty('closest')) { // Did the API return a snapshot?
-
+	if (snapshot.error === false) {
+ 
+		if (snapshot.available === true) {
 			ui.display('message', false);
 			ui.display('archive-version', true);
 			ui.display('archive-history', true);
 
 			// Convert timestamp to ISO 8601 format
-			isoString = format.convertToIso(data.archived_snapshots.closest.timestamp);
+			var isoString = format.convertToIso(data.archived_snapshots.closest.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
@@ -75,27 +71,26 @@ function apiData(response) {
 
 			// Event listener for archive version button
 			document.getElementById('archive-version').addEventListener('click', function () {
-				tab(global.urls.base + '/web/' + data.archived_snapshots.closest.timestamp + '/' + data.url); // Create tab
+				
+				tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
 			});
-
-		} else { // A snapshot was not returned.
-
+		}
+		
+		if (snapshot.available === false) {
 			debug.log('No snapshot returned for ' + url);
 
 			ui.content('message', 'Page has not been archived.');
 			ui.display('archive-version', false);
 			ui.display('archive-history', false);
-
 		}
-
-	} else { // Error fetching data from API
-
+	}
+	
+	if (snapshot.error === true) {
 		debug.log('API Data not fetched for ' + url);
 
 		ui.content('message', browser.i18n.getMessage('ApiRequestFailed'));
 		ui.display('archive-version', false);
 		ui.display('archive-history', false);
-
 	}
 
 }
@@ -163,9 +158,8 @@ function isValid(status) {
 
 		});
 
-		// Fetch Wayback API data
-		var request = new Request();
-		request.get(global.urls.api + encodeURIComponent(url), apiData);
+		var snapshot = new Snapshot();
+		snapshot.get(url, snapshotData);
 
 	} else { // URL is not valid.
 
