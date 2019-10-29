@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.3.5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.5) - 2019-10-29
+### Additions:
+* Added file `snapshot.js`. ([`73af927`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/73af927), [#107](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/107))
+
+### Changes:
+* Lowered minimum Firefox version to 56. ([`6b04e10`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/6b04e10), [#106](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/106))
+* Removed function `apiData()` from `popup.js`. ([`73af927`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/73af927))
+* Renamed function `timeStampToDate()` to `convertToIso()` in `format.js`. ([`cf879f7`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/cf879f7), [#108](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/108))
+
 ## [5.3.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.4) - 2019-10-14
 ### Additions:
 * none
