@@ -49,7 +49,7 @@ function snapshotData(snapshot) {
 			ui.display('archive-history', true);
 
 			// Convert timestamp to ISO 8601 format
-			var isoString = format.convertToIso(data.archived_snapshots.closest.timestamp);
+			var isoString = format.convertToIso(snapshot.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
