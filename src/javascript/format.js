@@ -42,13 +42,13 @@ function Format() {
 	};
 
 	/**
-	 * Convert 14 digit IA timestamps (YYYYMMDDhhmmss) into ISO 8601 format (YYYYMMDDTHHMMSSZ).
-	 * @param {string} timeStamp API timestamp
+	 * Convert 14 digit Wayback Availability API timestamp (YYYYMMDDhhmmss) into ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
+	 * @param {string} timestamp API timestamp
 	 * @return {string}
 	 */
-	this.timeStampToDate = function timeStampToDate(timeStamp) {
+	this.convertToIso = function convertToIso(timestamp) {
 
-		return timeStamp.replace(
+		return timestamp.replace(
 			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
 			'$1-$2-$3T$4:$5:$6Z'
 		);

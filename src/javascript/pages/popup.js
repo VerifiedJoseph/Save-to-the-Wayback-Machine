@@ -7,7 +7,6 @@ var ui = new UI(),
 	debug = new Debug(),
 	stats = new Stats(),
 	format = new Format(),
-	timeStamp, // Time stamp from the Wayback availability API.
 	url; // URL of the current tab.
 
 /**
@@ -41,26 +40,26 @@ function tab(pageUrl) {
  * @param {object} response
  */
 function snapshotData(snapshot) {
-	
-	if (snapshot.error === false) {
 
+	if (snapshot.error === false) {
+ 
 		if (snapshot.available === true) {
 			ui.display('message', false);
 			ui.display('archive-version', true);
 			ui.display('archive-history', true);
 
-			// Change timeStamp in to a format that is supported by Date()
-			timeStamp = format.timeStampToDate(snapshot.timestamp);
+			// Convert timestamp to ISO 8601 format
+			var isoString = format.convertToIso(data.archived_snapshots.closest.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
-				ui.content('date', format.readableDate(timeStamp));
-				ui.content('time', format.readableTime(timeStamp));
+				ui.content('date', format.readableDate(isoString));
+				ui.content('time', format.readableTime(isoString));
 				ui.display('time-date', true);
 
 			} else { // Display time since (e.g: "1 hour ago")
 
-				ui.content('since', format.timeSince(timeStamp, settings.get('timeZoneConvert')));
+				ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
 				ui.display('time-since', true);
 
 			}
