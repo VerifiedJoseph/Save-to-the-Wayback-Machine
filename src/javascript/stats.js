@@ -40,15 +40,11 @@ function Stats() {
 
 		// Return stats if they are enabled
 		if (self.statsEnabled === true) {
-
 			return self.stats.pagesArchived;
 
 		} else {
-
 			return defaults.pagesArchived;
-
 		}
-
 	};
 
 	/*
@@ -67,9 +63,7 @@ function Stats() {
 				debug.log('stats updated');
 
 			});
-
 		}
-
 	};
 
 }

@@ -52,7 +52,6 @@ function archive(url, callback) {
 			} else { // No Content-Location header, use page URL.
 				status.captureUrl = '/web/' + url;
 			}
-
 		}
 
 		/**

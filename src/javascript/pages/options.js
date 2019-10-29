@@ -65,29 +65,24 @@ function displaySettings(showDefaults) {
 
 	// Disable the context nenu options if 'contextMenu' is false. 
 	if (list.contextMenu === false) {
-
 		ui.disableInput('context_menu_page');
 		ui.disableInput('context_menu_link');
 		ui.disableInput('context_menu_image');
 		ui.disableInput('context_note');
-
 	}
 
 	// Disable the sounds list and preview button if 'notePlayAlert' is false.
 	if (list.notePlayAlert === false) {
-
 		// Grey out the option text
 		ui.addClass('note-sound', 'disabled');
 
 		// Disable the sound select dropdown and preview button
 		ui.disableInput('note_sound_list');
 		ui.disableInput('preview_sound');
-
 	}
 
 	// Disable the date and time options if 'full_date_time' is false. 
 	if (list.displayFullDate === false) {
-
 		// Grey out the option text
 		ui.addClass('note-date', 'disabled');
 		ui.addClass('note-time', 'disabled');
@@ -95,7 +90,6 @@ function displaySettings(showDefaults) {
 		// Disable the select dropdowns
 		ui.disableInput('date_format');
 		ui.disableInput('time_format');
-
 	}
 
 }
@@ -155,11 +149,8 @@ function status(text) {
 	ui.content('status', text);
 
 	setTimeout(function () { // Set Timeout
-
 		ui.content('status', '');
-
 	}, 1750);
-
 }
 
 
@@ -200,13 +191,10 @@ function saveSettings() {
 	settings.update(settingsToSave, function (updated) {
 
 		if (updated === true) {
-
 			status('Options saved');
 
 		} else {
-
 			status('An error occurred, Try again');
-
 		}
 
 	});
@@ -224,16 +212,13 @@ function resetSettings() {
 	settings.update(defaults, function (reset) {
 
 		if (reset === true) {
-
 			status('Options reset');
 
 			// Display default user options
 			displaySettings(true);
 
 		} else {
-
 			status('An error occurred, try again');
-
 		}
 
 	});
@@ -250,10 +235,8 @@ function previewSound() {
 		preview;
 
 	if (typeof file !== 'undefined') {
-
 		preview = new Audio('../sounds/' + file);
 		preview.play();
-
 	}
 }
 
@@ -263,7 +246,6 @@ function previewSound() {
 settings.load(function () {
 
 	if (settings.isLoaded() === true) {
-
 		// Start Debug logging (if enabled by user)
 		debug.enable(settings.get('logDebugInfo'));
 		debug.log('Settings loaded');
@@ -276,7 +258,6 @@ settings.load(function () {
 		displayTimeZones();
 
 		displaySettings(false);
-
 	}
 
 });
@@ -293,81 +274,65 @@ body.addEventListener('click', function (event) {
 	if (input.id === 'context_menu') { // Right Click Menus
 
 		if (input.checked) {
-
 			ui.enableInput('context_menu_page');
 			ui.enableInput('context_menu_link');
 			ui.enableInput('context_menu_image');
 			ui.enableInput('context_note');
 
 		} else {
-
 			ui.disableInput('context_menu_page');
 			ui.disableInput('context_menu_link');
 			ui.disableInput('context_menu_image');
 			ui.disableInput('context_note');
-
 		}
 
 	} else if (input.id === 'note_sound') { // Notifications (Sound)
 
 		if (input.checked) {
-
 			ui.enableInput('note_sound_list');
 			ui.enableInput('preview_sound');
 			ui.removeClass('note-sound', 'disabled');
 
 		} else {
-
 			ui.disableInput('note_sound_list');
 			ui.disableInput('preview_sound');
 			ui.addClass('note-sound', 'disabled');
-
 		}
 
 	} else if (input.id === 'full_date_time') { // Display full date and time
 
 		if (input.checked) {
-
 			ui.enableInput('date_format');
 			ui.enableInput('time_format');
 			ui.removeClass('note-date', 'disabled');
 			ui.removeClass('note-time', 'disabled');
-
 		}
 
 	} else if (input.id === 'time_since_archive') { // Display time since last archive
 
 		if (input.checked) {
-
 			ui.addClass('note-date', 'disabled');
 			ui.addClass('note-time', 'disabled');
 
 			ui.disableInput('date_format');
 			ui.disableInput('time_format');
-
 		}
 
 		// Buttons
 	} else if (input.id === 'preview_sound') { // Preview notification sound 
-
 		previewSound();
 
 	} else if (input.id === 'save') { // Save user options
-
 		saveSettings();
 
 	} else if (input.id === 'reset') { // Reset user options			
-
 		ui.display('confirm', true); // Show confirm div
 
 	} else if (input.id === 'no') { // No, hide rest confirm div	
-
 		ui.display('confirm', false);
 
 	} else if (input.id === 'yes') { // Yes, reset user options confirmed
-
 		resetSettings();
-
 	}
 
 });

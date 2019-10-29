@@ -24,19 +24,14 @@ function UI() {
 			element = document.getElementById(id);
 
 			if (element !== null) { // Element found
-
 				status = true;
 
 			} else {
-
 				debug.log('Element not Found:' + id);
-
 			}
-
 		}
 
 		return status;
-
 	};
 
 	/**
@@ -47,9 +42,7 @@ function UI() {
 	this.content = function content(id, value) {
 
 		if (this.isElement(id) === true && value !== undefined) {
-
 			element.textContent = value;
-
 		}
 
 	};
@@ -64,17 +57,12 @@ function UI() {
 		if (this.isElement(id) === true) {
 
 			if (boolean === true) { // Remove .hide class and display element
-
 				this.removeClass(id, 'hide');
 
 			} else if (boolean === false) { // Add .hide class and hide element
-
 				this.addClass(id, 'hide');
-
 			}
-
 		}
-
 	};
 
 	/*
@@ -84,19 +72,14 @@ function UI() {
 	this.isDisplayed = function isDisplayed(id) {
 
 		if (this.isElement(id) === true) {
-
 			var display = window.getComputedStyle(element).display;
 
 			if (display !== 'none') {
-
 				return true;
-
 			}
-
 		}
 
 		return false;
-
 	};
 
 	/**
@@ -107,11 +90,8 @@ function UI() {
 	this.addClass = function addClass(id, value) {
 
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
-
 			element.classList.add(value);
-
 		}
-
 	};
 
 	/**
@@ -122,11 +102,8 @@ function UI() {
 	this.removeClass = function removeClass(id, value) {
 
 		if (this.isElement(id) === true && typeof value !== 'undefined') {
-
 			element.classList.remove(value);
-
 		}
-
 	};
 
 	/**
@@ -136,11 +113,8 @@ function UI() {
 	this.enableInput = function enableInput(id) {
 
 		if (this.isElement(id) === true) {
-
 			element.disabled = false;
-
 		}
-
 	};
 
 	/**
@@ -150,11 +124,8 @@ function UI() {
 	this.disableInput = function disableInput(id) {
 
 		if (this.isElement(id) === true) {
-
 			element.disabled = true;
-
 		}
-
 	};
 
 	/**
@@ -165,11 +136,8 @@ function UI() {
 	this.title = function title(id, value) {
 
 		if (this.isElement(element) === true && typeof value !== 'undefined') {
-
 			element.title = value;
-
 		}
-
 	};
 
 	/**
@@ -181,11 +149,8 @@ function UI() {
 	this.attribute = function attribute(id, attr, value) {
 
 		if (this.isElement(id) === true && typeof attr !== 'undefined' && typeof value !== 'undefined') {
-
 			element.setAttribute(attr, value);
-
 		}
-
 	};
 
 	/**
@@ -198,13 +163,9 @@ function UI() {
 		if (this.isElement(id) === true && typeof attr !== 'undefined') {
 
 			if (element.hasAttribute(attr)) {
-
 				element.removeAttribute(attr);
-
 			}
-
 		}
-
 	};
 
 }

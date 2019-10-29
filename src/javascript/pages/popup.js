@@ -192,9 +192,7 @@ function eventListeners() {
 
 			// Remove .overlay from #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
-
 				ui.removeClass('options-box', 'overlay');
-
 			}
 
 			// Hide option and stats buttons
@@ -215,9 +213,7 @@ function eventListeners() {
 
 			// Add .overlay to #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
-
 				ui.addClass('options-box', 'overlay');
-
 			}
 
 			// Hide statistics div and back butto
