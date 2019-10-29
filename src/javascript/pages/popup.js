@@ -52,8 +52,8 @@ function apiData(response) {
 			ui.display('archive-version', true);
 			ui.display('archive-history', true);
 
-			// Change timeStamp in to a format that is supported by Date()
 			timeStamp = format.convertToIso(data.archived_snapshots.closest.timestamp);
+			// Convert timestamp to ISO 8601 format
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
 
