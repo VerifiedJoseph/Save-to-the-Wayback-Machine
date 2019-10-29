@@ -46,9 +46,9 @@ function Format() {
 	 * @param {string} timeStamp API timestamp
 	 * @return {string}
 	 */
-	this.convertToIso = function convertToIso(timeStamp) {
+	this.convertToIso = function convertToIso(timestamp) {
 
-		return timeStamp.replace(
+		return timestamp.replace(
 			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
 			'$1-$2-$3T$4:$5:$6Z'
 		);
