@@ -6,10 +6,10 @@ Browser extension that lets you quickly save web pages to the Internet Archive's
 ## Dependencies
 - [Spacetime - JavaScript timezone library (version 5.9.0)](https://github.com/spencermountain/spacetime)
 
-## Install 
-[![Download from the Google Chrome Web Store](https://verifiedjoseph.com/images/install/153px/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
-[![Download from Opera add-ons](https://verifiedjoseph.com/images/install/153px/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
-[![Download from Firefox add-ons](https://verifiedjoseph.com/images/install/153px/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
+## Download
+[![Download from Firefox add-ons](assets/badges/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
+[![Download from the Google Chrome Web Store](assets/badges/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
+[![Download from Opera add-ons](assets/badges/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
 
 [Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
 
