@@ -17,6 +17,9 @@ h3 {
 
 .container.options {
 	padding: 15px 0px 0px 100px;
+}
+
+.container.options, .container.modal {
 	max-width: 650px;
 }
 
@@ -44,21 +47,11 @@ h3 {
 	font-size: 13px;
 }
 
-/* Reset Confirm Div */
-#confirm {
-	position: absolute;
-	top: 51px;
-	background-color: #FFFFFF;
-	opacity: 0.95;
-	width: 650px;
-	text-align: center;
-	height: 100%;
-	padding: 0px;
-}
-
-.confirm-center {
+/* Confirm modal */
+.confirm {
 	margin-top: 40%;
 	padding: 0px;
+	text-align: center;
 }
 
 /* Page Body */
