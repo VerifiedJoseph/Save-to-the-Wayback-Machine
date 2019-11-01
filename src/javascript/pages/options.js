@@ -343,12 +343,12 @@ settings.load(function () {
 
 });
 
-
 /*
 	Event listeners for buttons, checkboxes and select menus (user inputs)
 */
-body = document.querySelector("body");
-body.addEventListener('click', function (event) {
+body = document.querySelector('body');
+body.addEventListener('click', inputEventHandler);
+	
 	var input = event.target;
 
 	// Check Boxes
@@ -421,4 +421,4 @@ body.addEventListener('click', function (event) {
 		ui.display('options', true);
 	}
 
-});
+});*/
