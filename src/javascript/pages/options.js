@@ -206,9 +206,6 @@ function saveSettings() {
 */
 function resetSettings() {
 
-	// Hide reset confirm div 
-	ui.display('confirm', false);
-
 	settings.update(defaults, function (reset) {
 
 		if (reset === true) {
@@ -326,13 +323,18 @@ body.addEventListener('click', function (event) {
 		saveSettings();
 
 	} else if (input.id === 'reset') { // Reset user options			
-		ui.display('confirm', true); // Show confirm div
+		ui.display('confirm', true);
+		ui.display('options', false);
 
 	} else if (input.id === 'no') { // No, hide rest confirm div	
 		ui.display('confirm', false);
+		ui.display('options', true);
 
 	} else if (input.id === 'yes') { // Yes, reset user options confirmed
 		resetSettings();
+
+		ui.display('confirm', false);
+		ui.display('options', true);
 	}
 
 });
