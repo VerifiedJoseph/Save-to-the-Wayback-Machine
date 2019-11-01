@@ -238,6 +238,90 @@ function previewSound() {
 }
 
 /*
+	InputEvent handler callback
+*/
+function inputEventHandler(event) {
+	var input = event.target;
+
+	switch (input.id) {
+	case 'context_menu': // Right Click Menus
+
+		if (input.checked) {
+			ui.enableInput('context_menu_page');
+			ui.enableInput('context_menu_link');
+			ui.enableInput('context_menu_image');
+			ui.enableInput('context_note');
+		} else {
+			ui.disableInput('context_menu_page');
+			ui.disableInput('context_menu_link');
+			ui.disableInput('context_menu_image');
+			ui.disableInput('context_note');
+		}
+
+		break;
+	case 'note_sound': // Notifications (Sound)
+
+		if (input.checked) {
+			ui.enableInput('note_sound_list');
+			ui.enableInput('preview_sound');
+			ui.removeClass('note-sound', 'disabled');
+		} else {
+			ui.disableInput('note_sound_list');
+			ui.disableInput('preview_sound');
+			ui.addClass('note-sound', 'disabled');
+		}
+	
+		break;
+	case 'full_date_time': // Display full date and time
+
+		if (input.checked) {
+			ui.enableInput('date_format');
+			ui.enableInput('time_format');
+			ui.removeClass('note-date', 'disabled');
+			ui.removeClass('note-time', 'disabled');
+		}
+
+		break;
+	case 'time_since_archive': // Display time since last archive
+
+		if (input.checked) {
+			ui.addClass('note-date', 'disabled');
+			ui.addClass('note-time', 'disabled');
+
+			ui.disableInput('date_format');
+			ui.disableInput('time_format');
+		}
+
+		break;
+	case 'preview_sound': // Preview notification sound 
+		previewSound();
+
+		break;
+	case 'save': // Save user options
+		saveSettings();
+
+		break;
+	case 'reset': // Reset user options
+		ui.display('confirm', true);
+		ui.display('options', false);
+
+		break;
+	case 'yes': // Yes, reset user options confirmed
+		resetSettings();
+
+		ui.display('confirm', false);
+		ui.display('options', true);
+
+		break;
+	case 'no': // No, hide rest confirm div
+		ui.display('confirm', false);
+		ui.display('options', true);
+
+		break;
+	}
+}
+
+/*
 	Load settings and display them
 */
 settings.load(function () {
@@ -259,82 +343,8 @@ settings.load(function () {
 
 });
 
-
 /*
-	Event listeners for buttons, checkboxes and select menus (user inputs)
+	Add event listener for user inputs
 */
-body = document.querySelector("body");
-body.addEventListener('click', function (event) {
-	var input = event.target;
-
-	// Check Boxes
-	if (input.id === 'context_menu') { // Right Click Menus
-
-		if (input.checked) {
-			ui.enableInput('context_menu_page');
-			ui.enableInput('context_menu_link');
-			ui.enableInput('context_menu_image');
-			ui.enableInput('context_note');
-
-		} else {
-			ui.disableInput('context_menu_page');
-			ui.disableInput('context_menu_link');
-			ui.disableInput('context_menu_image');
-			ui.disableInput('context_note');
-		}
-
-	} else if (input.id === 'note_sound') { // Notifications (Sound)
-
-		if (input.checked) {
-			ui.enableInput('note_sound_list');
-			ui.enableInput('preview_sound');
-			ui.removeClass('note-sound', 'disabled');
-
-		} else {
-			ui.disableInput('note_sound_list');
-			ui.disableInput('preview_sound');
-			ui.addClass('note-sound', 'disabled');
-		}
-
-	} else if (input.id === 'full_date_time') { // Display full date and time
-
-		if (input.checked) {
-			ui.enableInput('date_format');
-			ui.enableInput('time_format');
-			ui.removeClass('note-date', 'disabled');
-			ui.removeClass('note-time', 'disabled');
-		}
-
-	} else if (input.id === 'time_since_archive') { // Display time since last archive
-
-		if (input.checked) {
-			ui.addClass('note-date', 'disabled');
-			ui.addClass('note-time', 'disabled');
-
-			ui.disableInput('date_format');
-			ui.disableInput('time_format');
-		}
-
-		// Buttons
-	} else if (input.id === 'preview_sound') { // Preview notification sound 
-		previewSound();
-
-	} else if (input.id === 'save') { // Save user options
-		saveSettings();
-
-	} else if (input.id === 'reset') { // Reset user options			
-		ui.display('confirm', true);
-		ui.display('options', false);
-
-	} else if (input.id === 'no') { // No, hide rest confirm div	
-		ui.display('confirm', false);
-		ui.display('options', true);
-
-	} else if (input.id === 'yes') { // Yes, reset user options confirmed
-		resetSettings();
-
-		ui.display('confirm', false);
-		ui.display('options', true);
-	}
-
-});
+body = document.querySelector('body');
+body.addEventListener('click', inputEventHandler);
