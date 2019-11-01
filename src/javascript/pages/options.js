@@ -344,7 +344,7 @@ settings.load(function () {
 });
 
 /*
-	Event listeners for buttons, checkboxes and select menus (user inputs)
+	Add event listener for user inputs
 */
 body = document.querySelector('body');
 body.addEventListener('click', inputEventHandler);
