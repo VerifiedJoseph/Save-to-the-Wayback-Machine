@@ -55,7 +55,7 @@
 	},
 
 	"ArchiveFailedDefault": {
-		"message": "An unkown error occurred. \r\n Try again later.",
+		"message": "An unknown error occurred. \r\n Try again later.",
 		"description": "Default archive failed error text"
 	},
 
