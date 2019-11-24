@@ -11,13 +11,13 @@ html {
 body {
 	line-height: 1;
 	height: 177px;
-	width: 158px;
+	width: 160px;
 }
 
 .wrapper {
 	margin: 0 auto;
 	background: white;
-	width: 158px;
+	width: inherit;
 	height: inherit;
 	position: relative;
 }
