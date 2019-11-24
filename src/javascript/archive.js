@@ -34,7 +34,7 @@ function archive(url, callback) {
 			} else if (runtimeError[0] === 'RobotAccessControlException') { // Blocked By robots.txt file.
 				status.error = browser.i18n.getMessage('ArchiveFailedBlocked');
 
-			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException') { // Wayback Machine failed to fetch page.
+			} else if (runtimeError[0] === 'LiveDocumentNotAvailableException' || runtimeError[0] === 'LiveWebCacheUnavailableException') { // Wayback Machine failed to fetch page.
 				status.error = browser.i18n.getMessage('ArchiveFailedNotFetched');
 			}
 
