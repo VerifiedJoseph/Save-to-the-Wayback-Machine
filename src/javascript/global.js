@@ -36,7 +36,5 @@ var global = {
 	Check api type (chrome (based. e.g: opera), Firefox or MS Edge)
 */
 if (typeof chrome !== 'undefined' && typeof browser === 'undefined') {
-
 	var browser = chrome;
-
 }
