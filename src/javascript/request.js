@@ -139,8 +139,8 @@ function Request() {
 		response.status = xhr.status;
 		response.method = method;
 		response.data = xhr.response;
-		response.urls['request'] = url;
-		response.urls['response'] = xhr.responseURL;
+		response.urls.request = url;
+		response.urls.response = xhr.responseURL;
 
 		response.headers = parseHeaders(xhr.getAllResponseHeaders());
 	}
