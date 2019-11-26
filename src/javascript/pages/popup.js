@@ -71,7 +71,6 @@ function snapshotData(snapshot) {
 
 			// Event listener for archive version button
 			document.getElementById('archive-version').addEventListener('click', function () {
-
 				tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
 			});
 		}

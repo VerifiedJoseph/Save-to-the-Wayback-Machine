@@ -38,7 +38,6 @@ function Format() {
 		}
 
 		return n;
-
 	};
 
 	/**
@@ -73,7 +72,6 @@ function Format() {
 		// Set timezone
 		d = d.goto(settings.get('timeZone'));
 
-
 		if (format === 'Y/m/d' || format === 'ymd') {
 			return d.format('ymd');
 		}
@@ -88,7 +86,6 @@ function Format() {
 
 		// default - April 04, 2018
 		return d.unixFmt('MMMM d, Y');
-
 	};
 
 	/**
@@ -127,7 +124,6 @@ function Format() {
 
 		// default - 12 Hour clock
 		return d.unixFmt('HH:mm a');
-
 	};
 
 	/**
@@ -161,7 +157,6 @@ function Format() {
 			}
 
 			return '1 year ago';
-
 		}
 
 		if (diif.months > 1) {
@@ -207,7 +202,6 @@ function Format() {
 		}
 
 		return diif.seconds + " seconds ago";
-
 	};
 
 }
