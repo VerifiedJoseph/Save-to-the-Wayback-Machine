@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.3.6](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.6) - 2019-12-10
+### Additions:
+* Added error handling for Wayback Machine error `LiveWebCacheUnavailableException` ([`c5b5ad6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c5b5ad6), [#121](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/121))
+
+### Changes:
+* Minor update to improve user experience in option.html ([`c2894e2`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c2894e2), [#118](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/118))
+* Replaced if statement with a switch for event listener callback in options.js ([`d6284a6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/d6284a6), [#120](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/120))
+* Increased width of popup window by 2px in popup.css ([`0473836`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/0473836), [#123](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/123))
+* Increased width of small buttons by 1px in base.css ([`54a68bc`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/54a68bc), [#124](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/124))
+* Use dot notation in function getResponse() in request.js ([`6b8ead8`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/6b8ead8), [#126](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/126))
+
+### Fixes:
+* Fixed typo in _locales/en/messages.json ([`0609125`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/0609125), [#122](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/122))
+* Fixed select drop-down and buttons not aligning in options.html ([`ed640bf`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ed640bf), [#117](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/117))
+
 ## [5.3.5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.5) - 2019-10-29
 ### Additions:
 * Added file `snapshot.js`. ([`73af927`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/73af927), [#107](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/107))
