@@ -6,11 +6,11 @@ All notable changes to this project will be documented in this file.
 * Added error handling for Wayback Machine error `LiveWebCacheUnavailableException` ([`c5b5ad6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c5b5ad6), [#121](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/121))
 
 ### Changes:
-* Minor update to improve user experience in option.html ([`c2894e2`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c2894e2), [#118](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/118))
-* Replaced if statement with a switch for event listener callback in options.js ([`d6284a6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/d6284a6), [#120](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/120))
-* Increased width of popup window by 2px in popup.css ([`0473836`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/0473836), [#123](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/123))
-* Increased width of small buttons by 1px in base.css ([`54a68bc`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/54a68bc), [#124](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/124))
-* Use dot notation in function getResponse() in request.js ([`6b8ead8`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/6b8ead8), [#126](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/126))
+* Minor update to improve user experience in `option.html` ([`c2894e2`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c2894e2), [#118](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/118))
+* Replaced `if` statement with a `switch` for event listener callback in `options.js` ([`d6284a6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/d6284a6), [#120](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/120))
+* Increased width of popup window by 2px in `popup.css` ([`0473836`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/0473836), [#123](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/123))
+* Increased width of small buttons by 1px in `base.css` ([`54a68bc`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/54a68bc), [#124](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/124))
+* Use dot notation in function `getResponse()` in `request.js` ([`6b8ead8`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/6b8ead8), [#126](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/126))
 
 ### Fixes:
 * Fixed typo in _locales/en/messages.json ([`0609125`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/0609125), [#122](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/122))
@@ -46,7 +46,7 @@ All notable changes to this project will be documented in this file.
 
 ## [5.3.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.2) - 2019-06-07
 ### Additions:
-* Added support for archiving links and images via the context menu. ([#88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/88), [#88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/89))
+* Added support for archiving links and images via the context menu. ([#88](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/88), [#89](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/89))
 
 ### Changes:
 * none
@@ -62,7 +62,7 @@ All notable changes to this project will be documented in this file.
 * none
 
 ### Fixes:
-* Fixed invalid time format in convertDateTimeFormats() ([3253bf5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/3253bf50ff9cf5ad1700b4be455bd66855c154b4))
+* Fixed invalid time format in `convertDateTimeFormats()` ([3253bf5](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/3253bf50ff9cf5ad1700b4be455bd66855c154b4))
 
 ## [5.3.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.0) - 2019-05-20
 ### Additions:
@@ -116,7 +116,7 @@ All notable changes to this project will be documented in this file.
 * Added file base.css ([f70de5e](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/f70de5e17d687af4616b4dd280b9234408eae7e9))
 
 ### Changes:
-* Updated screenshots (#41)
+* Updated screenshots ([#41](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/41))
 * Formatted JavaScript, CSS and HTML with js-beautify ([#47](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/47), [#48](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/48), [#51](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/51))
 * Statistics button in popup.html is now hidden when statistics are disabled. ([#17](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/17))
 * Options button width is changed to match pop-up window width when statistics button is hidden ([#53](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/53))
