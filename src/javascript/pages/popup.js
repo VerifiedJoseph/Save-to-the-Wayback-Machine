@@ -268,10 +268,9 @@ browser.tabs.query({
 }, function (tabs) {
 	var tab = tabs[0];
 
-	/*
-		Since chrome 79 (Dec 2019), the property 'pendingUrl' is returned by the tabs.query API when a tab is loading.
-		Firefox (71) does not currently support this property.
-	*/
+	
+	// Since chrome 79 (Dec 2019), the property 'pendingUrl' is returned by the tabs.query API when a tab is loading.
+	// Firefox (71) does not currently support this property.
 	if (tab.status === 'loading' && tab.hasOwnProperty('pendingUrl')) {
 		url = tabs[0].pendingUrl;
 	} else {
