@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.3.7](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.7) - 2019-12-18
+### Changes:
+* Updated `browser.tabs.query` callback in `popup.js` to use the property `pendingUrl`. ([`a64cf1e`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/a64cf1e), [#129](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/129))
+
 ## [5.3.6](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.6) - 2019-12-10
 ### Additions:
 * Added error handling for Wayback Machine error `LiveWebCacheUnavailableException` ([`c5b5ad6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c5b5ad6), [#121](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/121))
