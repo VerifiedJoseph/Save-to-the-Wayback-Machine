@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.3.8](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.8) - 2019-12-24
+### Additions:
+* Added HTTP status code `410` to array `httpStatusCodes` in `global.js` ([`b9af187`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/b9af187), [#132](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/132))
+### Changes:
+* Updated URL regex to allow any character in paths in `global.js` ([`817f2ff`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/817f2ff), [#133](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/133))
+* Removed path capture from URL regex in `global.js` ([`817f2ff`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/817f2ff), [#133](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/133))
+* Increased width of popup buttons (`button.popup`) by 2px in `popup.css` ([`59afbb1`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/59afbb1), [#131](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/131))
+
 ## [5.3.7](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.3.7) - 2019-12-18
 ### Changes:
 * Updated `browser.tabs.query` callback in `popup.js` to use the property `pendingUrl`. ([`a64cf1e`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/a64cf1e), [#129](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/129))
