@@ -3,6 +3,20 @@
 
 Browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine. [More info here](https://verifiedjoseph.com/projects/save-to-the-wayback-machine).
 
+### Features
+* Detects if a page can or can not be archived.
+* Save pages, images and links via the right click (context) menu.
+* See the last time a page was archived.
+* Keep track of the number of pages that you have archived.
+
+### Permissions
+The extension requires the following five permissions:
+* [Active Tab](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activeTab_permission) - Access details about the browser's current tab (URL, title and status).
+* [Storage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage) - Load and save user options and statistics.
+* [Notifications](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/notifications) - Create and display notifications.
+* [Context Menus](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus) - Create right click menu options.
+* Data from [archive.org](https://www.archive.org/) & [web.archive.org](https://archive.org/web/) - Send and receive data from the Wayback Machine. 
+
 ## Dependencies
 - [Spacetime - JavaScript timezone library (version 5.9.0)](https://github.com/spencermountain/spacetime)
 
