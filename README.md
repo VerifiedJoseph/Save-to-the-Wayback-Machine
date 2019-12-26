@@ -1,5 +1,5 @@
 # Save to the Wayback Machine
-![Screenshot](screenshot.png)
+![Screenshot](assets/screenshots/readme-screenshot.png)
 
 Browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine. [More info here](https://verifiedjoseph.com/projects/save-to-the-wayback-machine).
 
