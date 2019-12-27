@@ -23,7 +23,8 @@ The extension requires the following five permissions:
 ## Download
 [![Download from Firefox add-ons](assets/badges/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
 [![Download from the Google Chrome Web Store](assets/badges/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
-[![Download from Opera add-ons](assets/badges/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/?display=en)
+[![Download from Microsoft Edge Addons](assets/badges/ms-edge-chromium.png)](https://microsoftedge.microsoft.com/addons/detail/iooklpgaeiailiicahcjomphppicpgoo)
+[![Download from Opera add-ons](assets/badges/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/)
 
 [Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
 
