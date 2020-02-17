@@ -30,6 +30,11 @@ function Settings() {
 				'link': true,
 				'image': true
 			},
+			contextMenuViewArchived: { // View archived content context menu options
+				'page': true,
+				'link': true,
+				'image': true
+			},
 			contextMenuNote: true, // Display notification if a page, link or image cannot be archived via the context menu.
 
 			// Notifications
