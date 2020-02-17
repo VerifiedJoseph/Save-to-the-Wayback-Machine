@@ -24,6 +24,21 @@
 		"description": "Title of context menu item that saves a image to the Wayback Machine."
 	},
 
+	"MenuItemViewArchivedPage": {
+		"message": "View Archived Page",
+		"description": "Title of context menu item that opens an archived version of a page."
+	},
+
+	"MenuItemViewArchivedImage": {
+		"message": "View Archived Image",
+		"description": "Title of context menu item that opens an archived version of an image."
+	},
+
+	"MenuItemViewArchivedLink": {
+		"message": "View Archived Link",
+		"description": "Title of context menu item that opens an archived version of a link."
+	},
+
 	"notificationArchiveFailed": {
 		"message": "Page Not Archived",
 		"description": "Title of notification that tells the user that the page was not archived."
