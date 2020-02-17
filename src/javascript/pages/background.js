@@ -264,23 +264,46 @@ browser.storage.onChanged.addListener(function () {
 
 // Listener for context menu link
 browser.contextMenus.onClicked.addListener(function (info) {
+	var archivePage = false,
+		url;
+	
+	if (info.hasOwnProperty('pageUrl')) {
+		if (info.menuItemId === 'archivePage') {
+			archivePage = true;
+		}
 
-	var url = info.pageUrl;
+		url = info.pageUrl;
+	}
+	
+	if (info.hasOwnProperty('linkUrl')) {
+		if (info.menuItemId === 'archiveLink') {
+			archivePage = true;
+		}
 
-	if (info.menuItemId === 'archiveLink') {
 		url = info.linkUrl;
 	}
+	
+	if (info.hasOwnProperty('srcUrl')) {
+		if (info.menuItemId === 'archiveImage') {
+			archivePage = true;
+		}
 
-	if (info.menuItemId === 'archiveImage') {
 		url = info.srcUrl;
 	}
 
 	settings.load(function () {
 
 		validate(url, function (status) {
-
 			if (status === true) {
-				archive(url, wasArchived); // Save the page
+				if (archivePage === true) { // Archive page 
+					archive(url, wasArchived);
+				}
+
+				if (archivePage === false) { // View archived page
+					browser.tabs.create({
+						url: global.urls.base + '/web/2/' + url
+					});
+				}
 
 			} else { // Failed, show notification
 
@@ -292,7 +315,6 @@ browser.contextMenus.onClicked.addListener(function (info) {
 			}
 		});
 	});
-
 });
 
 browser.runtime.onInstalled.addListener(function (details) {
