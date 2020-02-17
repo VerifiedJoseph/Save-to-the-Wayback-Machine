@@ -47,6 +47,9 @@ function displaySettings(showDefaults) {
 	document.getElementById('context_menu_page').checked = list.contextMenuArchive.page;
 	document.getElementById('context_menu_link').checked = list.contextMenuArchive.link;
 	document.getElementById('context_menu_image').checked = list.contextMenuArchive.image;
+	document.getElementById('context_menu_view_page').checked = list.contextMenuViewArchived.page;
+	document.getElementById('context_menu_view_link').checked = list.contextMenuViewArchived.link;
+	document.getElementById('context_menu_view_image').checked = list.contextMenuViewArchived.image;
 
 	// Notifications
 	document.getElementById('context_note').checked = list.contextMenuNote;
@@ -68,6 +71,10 @@ function displaySettings(showDefaults) {
 		ui.disableInput('context_menu_page');
 		ui.disableInput('context_menu_link');
 		ui.disableInput('context_menu_image');
+		
+		ui.disableInput('context_menu_view_page');
+		ui.disableInput('context_menu_view_link');
+		ui.disableInput('context_menu_view_image');
 		ui.disableInput('context_note');
 	}
 
@@ -178,6 +185,11 @@ function saveSettings() {
 			'link': document.getElementById('context_menu_link').checked,
 			'image': document.getElementById('context_menu_image').checked
 		},
+		contextMenuViewArchived: {
+			'page': document.getElementById('context_menu_view_page').checked,
+			'link': document.getElementById('context_menu_view_link').checked,
+			'image': document.getElementById('context_menu_view_image').checked
+		},
 		contextMenuNote: document.getElementById('context_note').checked,
 
 		notePlayAlert: document.getElementById('note_sound').checked,
@@ -250,11 +262,17 @@ function inputEventHandler(event) {
 			ui.enableInput('context_menu_page');
 			ui.enableInput('context_menu_link');
 			ui.enableInput('context_menu_image');
+			ui.enableInput('context_menu_view_page');
+			ui.enableInput('context_menu_view_link');
+			ui.enableInput('context_menu_view_image');
 			ui.enableInput('context_note');
 		} else {
 			ui.disableInput('context_menu_page');
 			ui.disableInput('context_menu_link');
 			ui.disableInput('context_menu_image');
+			ui.disableInput('context_menu_view_page');
+			ui.disableInput('context_menu_view_link');
+			ui.disableInput('context_menu_view_image');
 			ui.disableInput('context_note');
 		}
 
