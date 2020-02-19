@@ -1,12 +1,13 @@
 # Save to the Wayback Machine
 ![Screenshot](assets/screenshots/readme-screenshot.png)
 
-Browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine.
+Browser extension for quickly saving web pages to the Internet Archive's [web.archive.org](Wayback Machine).
 
 ### Features
 * Detects if a page can or can not be archived.
-* Save pages, images and links via the right click (context) menu.
 * See the last time a page was archived.
+* Save pages, images and links via the right click menu.
+* Open archived versions of pages, images and links via the right click menu.
 * Keep track of the number of pages that you have archived.
 
 ### Permissions
