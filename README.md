@@ -28,6 +28,10 @@ The extension requires the following five permissions:
 
 [Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
 
+## Changelog
+
+All notable changes to this project are documented in [CHANGELOG](CHANGELOG.md).
+
 ## License
 
 Code in this repository is licensed under the GNU General Public License Version 3. Details can be found in the [LICENSE](LICENSE) file. 
