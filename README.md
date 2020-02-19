@@ -1,12 +1,13 @@
 # Save to the Wayback Machine
 ![Screenshot](assets/screenshots/readme-screenshot.png)
 
-Browser extension that lets you quickly save web pages to the Internet Archive's Wayback Machine.
+Browser extension for quickly saving web pages to the Internet Archive's [Wayback Machine](https://web.archive.org).
 
 ### Features
 * Detects if a page can or can not be archived.
-* Save pages, images and links via the right click (context) menu.
 * See the last time a page was archived.
+* Save pages, images and links via the right click menu.
+* Open archived versions of pages, images and links via the right click menu.
 * Keep track of the number of pages that you have archived.
 
 ### Permissions
@@ -27,6 +28,10 @@ The extension requires the following five permissions:
 [![Download from Opera add-ons](assets/badges/opera.png)](https://addons.opera.com/en/extensions/details/save-to-the-wayback-machine/)
 
 [Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
+
+## Changelog
+
+All notable changes to this project are documented in [CHANGELOG](CHANGELOG.md).
 
 ## License
 
