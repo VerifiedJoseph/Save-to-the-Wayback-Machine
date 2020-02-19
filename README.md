@@ -1,7 +1,7 @@
 # Save to the Wayback Machine
 ![Screenshot](assets/screenshots/readme-screenshot.png)
 
-Browser extension for quickly saving web pages to the Internet Archive's [web.archive.org](Wayback Machine).
+Browser extension for quickly saving web pages to the Internet Archive's [Wayback Machine](https://web.archive.org).
 
 ### Features
 * Detects if a page can or can not be archived.
