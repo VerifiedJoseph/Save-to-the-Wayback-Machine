@@ -30,7 +30,7 @@ The extension requires the following five permissions:
 
 ## Changelog
 
-All notable changes to this project are documented in [CHANGELOG](CHANGELOG.md).
+All notable changes to this project are documented in the [CHANGELOG](CHANGELOG.md).
 
 ## License
 
