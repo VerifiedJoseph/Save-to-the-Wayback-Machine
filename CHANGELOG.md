@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.4.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.1) - 2020-03-07
+### Changes:
+* Remove extra circumflex character (`^`) from URL regex in `global.js` ([`9d6592`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/9d659258e315c4b9c57ba718d6b149c1a76695d3), [#150](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/150))
+
 ## [5.4.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.0) - 2020-02-18
 ### Additions:
 * Added context menu items for opening archived versions of pages, links and images. ([`2f9efe8`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/2f9efe8), [#144](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/144))
