@@ -9,7 +9,6 @@
  * @param {callable} callback
  */
 function validate(url, callback) {
-
 	var valid = true,
 		hostname,
 		urlRegex = new RegExp(global.urlRegex);

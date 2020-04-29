@@ -44,7 +44,6 @@ function UI() {
 		if (this.isElement(id) === true && value !== undefined) {
 			element.textContent = value;
 		}
-
 	};
 
 	/**
@@ -167,5 +166,4 @@ function UI() {
 			}
 		}
 	};
-
 }

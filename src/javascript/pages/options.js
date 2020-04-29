@@ -98,14 +98,12 @@ function displaySettings(showDefaults) {
 		ui.disableInput('date_format');
 		ui.disableInput('time_format');
 	}
-
 }
 
 /*
  * Display current date and time as date/time select options.
  */
 function displayDateTime() {
-
 	var date = new Date(),
 		dateSelect = document.getElementById('date_format'),
 		timeSelect = document.getElementById('time_format');
@@ -121,11 +119,9 @@ function displayDateTime() {
 	timeSelect.options[1].textContent = format.readableTime(date, 'h:mm:ss a');
 	timeSelect.options[2].textContent = format.readableTime(date, 'HH:mm');
 	timeSelect.options[3].textContent = format.readableTime(date, 'HH:mm:ss');
-
 }
 
 function displayTimeZones() {
-
 	var select = document.getElementById('timezone'),
 		opt;
 
@@ -144,7 +140,6 @@ function displayTimeZones() {
 
 		select.appendChild(opt);
 	});
-
 }
 
 /**
@@ -152,7 +147,6 @@ function displayTimeZones() {
  * @param {string} text
  */
 function status(text) {
-
 	ui.content('status', text);
 
 	setTimeout(function () { // Set Timeout
@@ -166,7 +160,6 @@ function status(text) {
 	Save updated user settings
 */
 function saveSettings() {
-
 	var settingsToSave = {
 		logNumberArchived: document.getElementById('log_number').checked,
 
@@ -210,7 +203,6 @@ function saveSettings() {
 		}
 
 	});
-
 }
 
 /*
@@ -231,14 +223,12 @@ function resetSettings() {
 		}
 
 	});
-
 }
 
 /*
 	Preview selected alert sound
 */
 function previewSound() {
-
 	var sound = document.getElementById('note_sound_list').value,
 		file = global.alertSounds[sound],
 		preview;
@@ -358,7 +348,6 @@ settings.load(function () {
 
 		displaySettings(false);
 	}
-
 });
 
 /*

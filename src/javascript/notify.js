@@ -43,5 +43,4 @@ function Notify() {
 			debug.log('Played notification sound (#' + settings.get('noteAlertSound') + ') ');
 		}
 	};
-
 }

@@ -11,7 +11,6 @@ function Snapshot() {
 	 * @param {callback} callback
 	 */
 	this.get = function get(url, callback) {
-
 		var request = new Request();
 		request.get(global.urls.api + encodeURIComponent(url), function (response) {
 
@@ -37,5 +36,4 @@ function Snapshot() {
 			callback(snapshot);
 		});
 	};
-
 }

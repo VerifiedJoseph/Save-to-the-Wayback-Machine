@@ -27,5 +27,4 @@ function Debug() {
 			console.log(text);
 		}
 	};
-
 }

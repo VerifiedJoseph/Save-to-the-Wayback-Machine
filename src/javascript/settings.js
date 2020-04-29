@@ -107,7 +107,6 @@ function Settings() {
 		} else { // Item not found
 			return null;
 		}
-
 	};
 
 	/**

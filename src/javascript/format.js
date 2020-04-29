@@ -12,7 +12,6 @@ function Format() {
 	 * @return {string} n
 	 */
 	this.number = function number(n, format) {
-
 		var regex = /(\d+)(\d{3})/,
 			separator;
 
@@ -46,12 +45,10 @@ function Format() {
 	 * @return {string}
 	 */
 	this.convertToIso = function convertToIso(timestamp) {
-
 		return timestamp.replace(
 			/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/,
 			'$1-$2-$3T$4:$5:$6Z'
 		);
-
 	};
 
 	/**
@@ -61,7 +58,6 @@ function Format() {
 	 * @return {string}
 	 */
 	this.readableDate = function readableDate(isoString, customFormat) {
-
 		var d = spacetime(isoString),
 			format = settings.get('dateFormat');
 
@@ -95,7 +91,6 @@ function Format() {
 	 * @return {string}
 	 */
 	this.readableTime = function readableTime(isoString, customFormat) {
-
 		var d = spacetime(isoString),
 			format = settings.get('timeFormat');
 
@@ -132,7 +127,6 @@ function Format() {
 	 * @return {string}
 	 */
 	this.timeSince = function timeSince(isoString) {
-
 		var before = spacetime(isoString),
 			now = spacetime();
 
@@ -203,5 +197,4 @@ function Format() {
 
 		return diif.seconds + " seconds ago";
 	};
-
 }

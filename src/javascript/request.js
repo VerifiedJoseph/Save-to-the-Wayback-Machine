@@ -4,7 +4,6 @@
 "use strict";
 
 function Request() {
-
 	var xhr = new XMLHttpRequest();
 
 	/** @var {string} method */
@@ -75,7 +74,6 @@ function Request() {
 		debug.log('POST Request: ' + url);
 
 		xhr.onload = function () {
-
 			getResponse(url);
 
 			/**
@@ -144,5 +142,4 @@ function Request() {
 
 		response.headers = parseHeaders(xhr.getAllResponseHeaders());
 	}
-
 }

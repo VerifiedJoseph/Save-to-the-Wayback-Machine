@@ -22,7 +22,6 @@ var settings = new Settings(),
  * @param {sting} title
  */
 function contextMenuCreate(id, context, title) {
-
 	browser.contextMenus.create({
 		'title': title,
 		'contexts': [context],
@@ -36,7 +35,6 @@ function contextMenuCreate(id, context, title) {
 			console.log('Error: ' + browser.extension.lastError.message);
 		}
 	});
-
 }
 
 /**
@@ -44,7 +42,6 @@ function contextMenuCreate(id, context, title) {
  * @param {string} id
  */
 function contextMenuRemove(id) {
-
 	browser.contextMenus.remove(id, function () {
 		contextMenuSet[id] = false;
 
@@ -55,7 +52,6 @@ function contextMenuRemove(id) {
 		}
 
 	});
-
 }
 
 /**
@@ -173,7 +169,6 @@ function wasArchived(response) {
 		browser.tabs.create({
 			url: 'https://web.archive.org' + response.captureUrl
 		});
-
 	}
 }
 
@@ -193,16 +188,12 @@ settings.load(function () {
 		contextMenus();
 
 	} else {
-
 		console.log('Failed to load settings, extension not started!');
-
 	}
-
 });
 
 /** Convert date and time format to values used in version 5.3.0 or greater */
 function convertDateTimeFormats() {
-
 	var dateOld = ['F j, Y', 'Y/m/d', 'd/m/Y', 'm/d/Y'],
 		dateNew = ['MMMM d, Y', 'ymd', 'dmy', 'mdy'],
 		timeOld = ['g:i A', 'g:i:s A', 'H:i', 'H:i:s'],
@@ -212,7 +203,6 @@ function convertDateTimeFormats() {
 		update = {};
 
 	if (dateOld.includes(dateFormat) === true) {
-
 		update = {
 			dateFormat: dateNew[dateOld.indexOf(dateFormat)]
 		};
@@ -222,13 +212,10 @@ function convertDateTimeFormats() {
 			if (updated === true) {
 				debug.log('Updated date format from ' + dateFormat + ' to ' + update.dateFormat);
 			}
-
 		});
-
 	}
 
 	if (timeOld.includes(timeFormat) === true) {
-
 		update = {
 			'timeFormat': timeNew[timeOld.indexOf(timeFormat)]
 		};
@@ -238,9 +225,7 @@ function convertDateTimeFormats() {
 			if (updated === true) {
 				debug.log('Updated time format from ' + timeFormat + ' to ' + update.timeFormat);
 			}
-
 		});
-
 	}
 }
 
@@ -250,16 +235,13 @@ browser.storage.onChanged.addListener(function () {
 	settings.load(function () {
 
 		if (settings.isLoaded() === true) {
-
 			// Start Debug logging (if enabled by user)
 			debug.enable(settings.get('logDebugInfo'));
 			debug.log('settings updated and loaded');
 
 			contextMenus();
 		}
-
 	});
-
 });
 
 // Listener for context menu link
@@ -292,7 +274,6 @@ browser.contextMenus.onClicked.addListener(function (info) {
 	}
 
 	settings.load(function () {
-
 		validate(url, function (status) {
 			if (status === true) {
 				if (archivePage === true) { // Archive page 
@@ -326,5 +307,4 @@ browser.runtime.onInstalled.addListener(function (details) {
 		}
 
 	});
-
 });

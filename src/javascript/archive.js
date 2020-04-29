@@ -9,7 +9,6 @@
  * @param {callback} callback
  */
 function archive(url, callback) {
-
 	var request = new Request();
 	request.get(global.urls.save + url, function (response) {
 
@@ -59,7 +58,5 @@ function archive(url, callback) {
 		 * @param {object} status Status of archived page.
 		 */
 		callback(status);
-
 	});
-
 }

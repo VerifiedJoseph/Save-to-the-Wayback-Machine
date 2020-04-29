@@ -32,7 +32,6 @@ function tab(pageUrl) {
 
 	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
 	window.close();
-
 }
 
 /**
@@ -91,7 +90,6 @@ function snapshotData(snapshot) {
 		ui.display('archive-version', false);
 		ui.display('archive-history', false);
 	}
-
 }
 
 /**
@@ -131,7 +129,6 @@ function wasArchived(response) {
 		ui.display('overlay-button', true);
 
 	}
-
 }
 
 
@@ -171,7 +168,6 @@ function isValid(status) {
 		ui.addClass('options-box', 'overlay');
 
 	}
-
 }
 
 /*
@@ -230,7 +226,6 @@ function eventListeners() {
 		ui.addClass('options', 'popup');
 
 	}
-
 }
 
 /*
@@ -256,7 +251,6 @@ function start() {
 	} else {
 		console.log('Failed to load settings!');
 	}
-
 }
 
 /*
@@ -268,7 +262,6 @@ browser.tabs.query({
 }, function (tabs) {
 	var tab = tabs[0];
 
-	
 	// Since chrome 79 (Dec 2019), the property 'pendingUrl' is returned by the tabs.query API when a tab is loading.
 	// Firefox (71) does not currently support this property.
 	if (tab.status === 'loading' && tab.hasOwnProperty('pendingUrl')) {
@@ -279,19 +272,16 @@ browser.tabs.query({
 
 	// Load setting and run the start function
 	settings.load(start);
-
 });
 
 /*
 	Event listener for opening options page
 */
 document.getElementById('options').addEventListener('click', function () {
-
 	browser.tabs.create({
 		url: browser.runtime.getURL('html/options.html')
 	});
 
 	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
 	window.close();
-
 });
