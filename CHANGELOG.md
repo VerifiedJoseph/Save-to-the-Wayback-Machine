@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.4.3](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.3) - 2020-07-31
+### Changes:
+* Updated Spacetime timezone library to version [6.6.2](https://github.com/spencermountain/spacetime/releases/tag/6.6.2).
+
 ## [5.4.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.2) - 2020-04-30
 ### Changes:
 * Updated wording in `popup.html` ([`ab2b1fa`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ab2b1fa93f4f3dd5ecc65c54bcf51181c3c2073f), [`d05374a`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/d05374a8643d18f16968c37b87fc0ddfbe697f10), [#156](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/156), [#157](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/157))
