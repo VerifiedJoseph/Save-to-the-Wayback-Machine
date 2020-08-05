@@ -15,7 +15,6 @@ function UI() {
 	 * @return {boolean} status
 	 */
 	this.isElement = function isElement(id) {
-
 		var status = false;
 		element = null;
 

@@ -36,7 +36,7 @@ function Request() {
 			getResponse(url);
 
 			/**
-			 * @callback open~callback
+			 * @callback get~callback
 			 * @param {object} response
 			 */
 			callback(response);
@@ -89,7 +89,7 @@ function Request() {
 			getResponse(url);
 
 			/**
-			 * @callback open~callback
+			 * @callback post~callback
 			 * @param {object} response
 			 */
 			callback(response);
@@ -133,7 +133,6 @@ function Request() {
 	 * @param {string} url
 	 */
 	function getResponse(url) {
-
 		response.status = xhr.status;
 		response.method = method;
 		response.data = xhr.response;

@@ -114,7 +114,6 @@ function Settings() {
 	 * @return {object} all
 	 */
 	this.getAll = function getAll() {
-
 		var all = {
 			options: self.items,
 			defaultOptions: defaults

@@ -16,7 +16,6 @@ function validate(url, callback) {
 	debug.log('Vaildating URL: ' + url);
 
 	try {
-
 		// Validate URL format
 		if (urlRegex.test(url) === false) {
 			throw new Error('URL format is not valid: ' + url);

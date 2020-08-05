@@ -16,18 +16,15 @@ var ui = new UI(),
 function tab(pageUrl) {
 
 	if (settings.get('openInCurrent') === true) { // Open URL in the current tab.
-
 		browser.tabs.update({
 			url: pageUrl,
 			active: true
 		});
 
 	} else { // Open URL in a new tab.
-
 		browser.tabs.create({
 			url: pageUrl
 		});
-
 	}
 
 	// Close the popup. Firefox, MS Edge, and Vivaldi fail to do this automatically.
@@ -51,16 +48,13 @@ function snapshotData(snapshot) {
 			var isoString = format.convertToIso(snapshot.timestamp);
 
 			if (settings.get('displayFullDate') === true) { // Display Full date and time 
-
 				ui.content('date', format.readableDate(isoString));
 				ui.content('time', format.readableTime(isoString));
 				ui.display('time-date', true);
 
 			} else { // Display time since (e.g: "1 hour ago")
-
 				ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
 				ui.display('time-since', true);
-
 			}
 
 			// Event listener for archive history button
@@ -127,7 +121,6 @@ function wasArchived(response) {
 
 		// Show view button.
 		ui.display('overlay-button', true);
-
 	}
 }
 
@@ -142,7 +135,6 @@ function isValid(status) {
 
 		// Event listener for archive now button
 		document.getElementById('archive-now').addEventListener('click', function () {
-
 			ui.display('overlay', true);
 			ui.display('loading-animation', true);
 
@@ -166,7 +158,6 @@ function isValid(status) {
 
 		// Add .overlay to #options-box
 		ui.addClass('options-box', 'overlay');
-
 	}
 }
 
@@ -196,7 +187,6 @@ function eventListeners() {
 
 			// Display stats
 			ui.content('total-number', format.number(stats.get(), settings.get('numberFormat')));
-
 		});
 
 		// Closing stats view (back)
@@ -214,7 +204,6 @@ function eventListeners() {
 			// Hide statistics div and back butto
 			ui.display('statistics', false);
 			ui.display('back', false);
-
 		});
 
 	} else { // Stats disabled. Hide button.
@@ -224,7 +213,6 @@ function eventListeners() {
 
 		// Change width of options button to 150px
 		ui.addClass('options', 'popup');
-
 	}
 }
 

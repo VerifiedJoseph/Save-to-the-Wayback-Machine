@@ -133,7 +133,6 @@ function contextMenus() {
 			contextMenuRemove('viewArchivedImage');
 		}
 	} else { // Context menu options disabled, remove all options.
-
 		contextMenuRemove('archivePage');
 		contextMenuRemove('archiveLink');
 		contextMenuRemove('archiveImage');
@@ -287,7 +286,6 @@ browser.contextMenus.onClicked.addListener(function (info) {
 				}
 
 			} else { // Failed, show notification
-
 				notify.note(
 					browser.i18n.getMessage('notificationCanNotArchive'),
 					browser.i18n.getMessage('notificationBodyCanNotArchive')
@@ -305,6 +303,5 @@ browser.runtime.onInstalled.addListener(function (details) {
 		if (details.reason === 'update') {
 			convertDateTimeFormats();
 		}
-
 	});
 });
