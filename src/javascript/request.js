@@ -72,6 +72,7 @@ function Request() {
 		xhr.setRequestHeader('content-type', contentType);
 
 		debug.log('POST Request: ' + url);
+		debug.log('POST payload: ' + payload);
 
 		xhr.onload = function () {
 			getResponse(url);
