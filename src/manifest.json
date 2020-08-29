@@ -20,8 +20,9 @@
 		"storage",
 		"contextMenus",
 		"activeTab",
-		"https://archive.org/wayback/available?url=*",
-		"https://web.archive.org/*"
+		"https://archive.org/*",
+		"https://web.archive.org/*",
+		"https://chrome-api.archive.org/wayback/available"
 	],
 	"browser_action": {
 		"default_icon": {
