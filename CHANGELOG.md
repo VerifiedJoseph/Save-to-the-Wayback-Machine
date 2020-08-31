@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.4.4](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.4) - 2020-08-31
+### Changes:
+* Use HTTP POST method when making requests to Wayback Availability API. ([`933752`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/933752ba273a3a71777a664a84112e779daa274e), [#161](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/161))
+* Updated Spacetime timezone library to version [6.6.3](https://github.com/spencermountain/spacetime/releases/tag/6.6.3).
+
 ## [5.4.3](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.3) - 2020-07-31
 ### Changes:
 * Updated Spacetime timezone library to version [6.6.2](https://github.com/spencermountain/spacetime/releases/tag/6.6.2).
