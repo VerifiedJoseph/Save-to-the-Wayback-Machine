@@ -10,7 +10,7 @@ var global = {
 		base: 'https://web.archive.org',
 		save: 'https://web.archive.org/save/',
 		calendar: 'https://web.archive.org/web/*/',
-		api: 'https://chrome-api.archive.org/wayback/available'
+		api: 'https://archive.org/wayback/available?url='
 	},
 
 	// URL and IPv4 validation with hostname capture
