@@ -26,7 +26,7 @@ The extension requires the following five permissions:
 [Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
 
 ## Dependencies
-- [Spacetime - JavaScript timezone library (version 6.8.0)](https://github.com/spencermountain/spacetime)
+- [Spacetime - JavaScript timezone library (version 6.9.0)](https://github.com/spencermountain/spacetime)
 
 ## Changelog
 
