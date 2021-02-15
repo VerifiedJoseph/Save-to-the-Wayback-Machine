@@ -23,7 +23,7 @@ The extension requires the following five permissions:
 [![Download from the Google Chrome Web Store](assets/badges/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
 [![Download from Microsoft Edge Addons](assets/badges/ms-edge-chromium.png)](https://microsoftedge.microsoft.com/addons/detail/iooklpgaeiailiicahcjomphppicpgoo)
 
-[Privacy Policy](https://verifiedjoseph.com/extension-privacy-policy)
+[Privacy Policy](PRIVACY.md)
 
 ## Dependencies
 - [Spacetime - JavaScript timezone library (version 6.10.0)](https://github.com/spencermountain/spacetime)
