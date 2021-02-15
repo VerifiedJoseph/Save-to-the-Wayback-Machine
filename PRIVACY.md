@@ -7,7 +7,7 @@ The browser extension does not collect, use or disclose personal information wit
 
 ## Web Browsing Information
 
-The browser extension must use some web browsing information to function. The information collected and used is limited to the uniform resource locators (URLs) provided by the user and is only used when actioned by the user. The browser extension does not keep a record of URLs used.
+The browser extension using some web browsing information to function. The information collected and used is limited to the uniform resource locators (URLs) provided by the user and is only used when actioned by the user. The browser extension does not keep a record of URLs used.
 
 ## Browser Permissions
 
@@ -24,7 +24,7 @@ Name | Description
 
 ## Communicating with the Wayback Machine.
 
-The browser extension must communicate with the Internet Archive's Wayback Machine to facilitate URL archiving. The browser extension only communicates with the Wayback Machine when actioned by the user.
+The browser extension communicates with the Internet Archive's Wayback Machine to facilitate URL archiving. The browser extension only communicates with the Wayback Machine when actioned by the user.
 
 The browser extension makes HTTP requests to `https://web.archive.org/save` and `https://archive.org/wayback/available`. The URL, IP address and user agent string of the user is sent to the Wayback Machine as part of these HTTP requests. 
 
