@@ -15,7 +15,7 @@ The browser extension needs six browser permission to function. These permission
 
 Name | Description
 ------ | ------
-[Active Tab](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activeTab_permission) | Access details about the browser's current tab (URL, title and status).
+[Active Tab](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activeTab_permission) | Access details about the current browser tab (URL, title and status).
 [Storage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage) | Store and retrieve data from disk (user options and statistics).
 [Notifications](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/notifications) | Create and display notifications.
 [Context Menus](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus) | Create and remove context menus options.
