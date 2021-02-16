@@ -7,7 +7,7 @@ The browser extension does not collect, use or disclose personal information wit
 
 ## Web Browsing Information
 
-The browser extension using some web browsing information to function. The information collected and used is limited to the uniform resource locators (URLs) provided by the user and is only used when actioned by the user. The browser extension does not keep a record of URLs used.
+The browser extension uses some web browsing information to function. The information used is limited to uniform resource locators (URLs) provided by the user. The URLs are used by the browser extension when archiving URLs. The browser extension does not keep a record of the URLs.
 
 ## Browser Permissions
 
