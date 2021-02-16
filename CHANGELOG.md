@@ -5,8 +5,8 @@ All notable changes to this project will be documented in this file.
 ### Changes:
 * Updated Spacetime timezone library to version [6.12.5](https://github.com/spencermountain/spacetime/releases/tag/6.12.5).
 * Updated privacy policy link in `options.html` to use [policy](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/blob/master/PRIVACY.md) hosted in the github repository. ([`2c08af`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/2c08af1c22953aaefba6bef6ad5702200bc20eac))
-* Updated CSS `font-family` to '`helvetica, arial, sans-serif`'. ([#176](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176), [`1fe10ac`](hhttps://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/1fe10ac52099cecffa997aa72c370e2bdda6c44d))
-* Removed redundant CSS rules. ([#176](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176), [`1fe10ac`](hhttps://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/1fe10ac52099cecffa997aa72c370e2bdda6c44d))
+* Updated CSS `font-family` to '`helvetica, arial, sans-serif`'. ([#176](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176), [`1fe10ac`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/1fe10ac52099cecffa997aa72c370e2bdda6c44d))
+* Removed redundant CSS rules. ([#176](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176), [`1fe10ac`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/1fe10ac52099cecffa997aa72c370e2bdda6c44d))
 
 ## [5.4.9](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.9) - 2020-11-15
 ### Changes:
