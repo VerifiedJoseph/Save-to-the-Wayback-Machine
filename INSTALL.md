@@ -3,7 +3,7 @@ It is possible to install and use the Save to the Wayback Machine browser extens
 
 ### Opera
 
-As of February 22, 2020, the browser extension can longer be downloaded from Opera's add-on store. To install the browser extension in Opera you must [install an extension](https://addons.opera.com/en/extensions/details/install-chrome-extensions/) which allows you to use the [Chrome Web Store](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk).
+As of February 22, 2020, the browser extension can no longer be downloaded from Opera's add-on store. To install the browser extension in Opera you must [install an extension](https://addons.opera.com/en/extensions/details/install-chrome-extensions/) which allows you to use the [Chrome Web Store](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk).
 
 ### Brave & Vivaldi
 
