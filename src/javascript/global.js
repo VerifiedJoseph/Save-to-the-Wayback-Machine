@@ -19,7 +19,8 @@ var global = {
 	// HTTP status codes
 	httpStatusCodes: [200, 201, 202, 203, 301, 302, 303, 307, 308, 400, 401, 403, 404, 405, 406, 408, 409, 410, 411, 412, 413, 414, 415, 418, 429, 431, 451],
 
-	hostNameBlacklist: [
+	// List of hostnames to not archive
+	hostnameDenylist: [
 		'archive.org',
 		'web.archive.org',
 		'127.0.0.1',

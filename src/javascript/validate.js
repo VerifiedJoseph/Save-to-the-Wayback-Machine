@@ -24,9 +24,9 @@ function validate(url, callback) {
 		// Get hostname with regex
 		hostname = url.match(urlRegex);
 
-		// Check blacklist for hostname 
-		if (global.hostNameBlacklist.includes(hostname[1])) {
-			throw new Error('URL hostname blacklisted: ' + hostname[1]);
+		// Check deny list for hostname 
+		if (global.hostnameDenylist.includes(hostname[1])) {
+			throw new Error('URL hostname in deny list, blocking archive.');
 		}
 
 		debug.log('URL is valid: ' + url);
