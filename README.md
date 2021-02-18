@@ -15,7 +15,7 @@ Browser extension for quickly saving web pages to the Internet Archive's [Waybac
 [![Download from the Google Chrome Web Store](assets/badges/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
 [![Download from Microsoft Edge Addons](assets/badges/ms-edge-chromium.png)](https://microsoftedge.microsoft.com/addons/detail/iooklpgaeiailiicahcjomphppicpgoo)
 
-[Privacy Policy](PRIVACY.md) - [Browser Permissions](PRIVACY.md#browser-permissions)
+[Privacy Policy](PRIVACY.md) - [Browser Permissions](PRIVACY.md#browser-permissions) - [Installing in other browsers](INSTALL.md)
 
 ## Dependencies
 - [Spacetime - JavaScript timezone library (version 6.12.5)](https://github.com/spencermountain/spacetime)
