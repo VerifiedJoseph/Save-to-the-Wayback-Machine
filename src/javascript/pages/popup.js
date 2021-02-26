@@ -36,51 +36,45 @@ function tab(pageUrl) {
  * @param {object} response
  */
 function snapshotData(snapshot) {
-
-	if (snapshot.error === false) {
-
-		if (snapshot.available === true) {
-			ui.display('message', false);
-			ui.display('archive-version', true);
-			ui.display('archive-history', true);
-
-			// Convert timestamp to ISO 8601 format
-			var isoString = format.convertToIso(snapshot.timestamp);
-
-			if (settings.get('displayFullDate') === true) { // Display Full date and time 
-				ui.content('date', format.readableDate(isoString));
-				ui.content('time', format.readableTime(isoString));
-				ui.display('time-date', true);
-
-			} else { // Display time since (e.g: "1 hour ago")
-				ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
-				ui.display('time-since', true);
-			}
-
-			// Event listener for archive history button
-			document.getElementById('archive-history').addEventListener('click', function () {
-				tab(global.urls.calendar + url); // Create tab
-			});
-
-			// Event listener for archive version button
-			document.getElementById('archive-version').addEventListener('click', function () {
-				tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
-			});
+	try {
+		if (snapshot.error === true) {
+			debug.log('API Data not fetched for ' + url);
+			throw new Error(browser.i18n.getMessage('ApiRequestFailed'));
 		}
 
 		if (snapshot.available === false) {
 			debug.log('No snapshot returned for ' + url);
-
-			ui.content('message', 'Page has not been archived.');
-			ui.display('archive-version', false);
-			ui.display('archive-history', false);
+			throw new Error(browser.i18n.getMessage('ApiPageNotArchived'));
 		}
-	}
 
-	if (snapshot.error === true) {
-		debug.log('API Data not fetched for ' + url);
+		ui.display('message', false);
+		ui.display('archive-version', true);
+		ui.display('archive-history', true);
 
-		ui.content('message', browser.i18n.getMessage('ApiRequestFailed'));
+		// Convert timestamp to ISO 8601 format
+		var isoString = format.convertToIso(snapshot.timestamp);
+
+		if (settings.get('displayFullDate') === true) { // Display Full date and time 
+			ui.content('date', format.readableDate(isoString));
+			ui.content('time', format.readableTime(isoString));
+			ui.display('time-date', true);
+
+		} else { // Display time since (e.g: "1 hour ago")
+			ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
+			ui.display('time-since', true);
+		}
+
+		// Event listener for archive history button
+		document.getElementById('archive-history').addEventListener('click', function () {
+			tab(global.urls.calendar + url); // Create tab
+		});
+
+		// Event listener for archive version button
+		document.getElementById('archive-version').addEventListener('click', function () {
+			tab(global.urls.base + '/web/' + snapshot.timestamp + '/' + url); // Create tab
+		});
+	} catch (exception) {
+		ui.content('message', exception.message);
 		ui.display('archive-version', false);
 		ui.display('archive-history', false);
 	}
