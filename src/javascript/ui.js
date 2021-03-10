@@ -132,8 +132,7 @@ function UI() {
 	 * @param {boolean} value
 	 */
 	this.title = function title(id, value) {
-
-		if (this.isElement(element) === true && typeof value !== 'undefined') {
+		if (this.isElement(id) === true && typeof value !== 'undefined') {
 			element.title = value;
 		}
 	};
