@@ -61,6 +61,7 @@ function snapshotData(snapshot) {
 
 		} else { // Display time since (e.g: "1 hour ago")
 			ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
+			ui.title('since', format.readableDate(isoString) + ' ' + format.readableTime(isoString));
 			ui.display('time-since', true);
 		}
 
