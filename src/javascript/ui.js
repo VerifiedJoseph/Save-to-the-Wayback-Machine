@@ -18,8 +18,7 @@ function UI() {
 		var status = false;
 		element = null;
 
-		if (id !== 'undefined' || id !== null) {
-
+		if (typeof id !== 'undefined') {
 			element = document.getElementById(id);
 
 			if (element !== null) { // Element found
@@ -40,7 +39,7 @@ function UI() {
 	 */
 	this.content = function content(id, value) {
 
-		if (this.isElement(id) === true && value !== undefined) {
+		if (this.isElement(id) === true && typeof value !== 'undefined') {
 			element.textContent = value;
 		}
 	};
