@@ -310,20 +310,20 @@ function inputEventHandler(event) {
 
 		break;
 	case 'reset': // Reset user options
-		ui.display('confirm', true);
-		ui.display('options', false);
+		ui.display('confirm');
+		ui.hide('options');
 
 		break;
 	case 'yes': // Yes, reset user options confirmed
 		resetSettings();
 
-		ui.display('confirm', false);
-		ui.display('options', true);
+		ui.hide('confirm');
+		ui.display('options');
 
 		break;
 	case 'no': // No, hide rest confirm div
-		ui.display('confirm', false);
-		ui.display('options', true);
+		ui.hide('confirm');
+		ui.display('options');
 
 		break;
 	}

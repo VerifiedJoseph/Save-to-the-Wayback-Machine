@@ -47,9 +47,9 @@ function snapshotData(snapshot) {
 			throw new Error(browser.i18n.getMessage('ApiPageNotArchived'));
 		}
 
-		ui.display('message', false);
-		ui.display('archive-version', true);
-		ui.display('archive-history', true);
+		ui.hide('message');
+		ui.display('archive-version');
+		ui.display('archive-history');
 
 		// Convert timestamp to ISO 8601 format
 		var isoString = format.convertToIso(snapshot.timestamp);
@@ -57,12 +57,12 @@ function snapshotData(snapshot) {
 		if (settings.get('displayFullDate') === true) { // Display Full date and time 
 			ui.content('date', format.readableDate(isoString));
 			ui.content('time', format.readableTime(isoString));
-			ui.display('time-date', true);
+			ui.display('time-date');
 
 		} else { // Display time since (e.g: "1 hour ago")
 			ui.content('since', format.timeSince(isoString, settings.get('timeZoneConvert')));
 			ui.title('since', format.readableDate(isoString) + ' ' + format.readableTime(isoString));
-			ui.display('time-since', true);
+			ui.display('time-since');
 		}
 
 		// Event listener for archive history button
@@ -76,8 +76,8 @@ function snapshotData(snapshot) {
 		});
 	} catch (exception) {
 		ui.content('message', exception.message);
-		ui.display('archive-version', false);
-		ui.display('archive-history', false);
+		ui.hide('archive-version');
+		ui.display('archive-history');
 	}
 }
 
@@ -88,7 +88,7 @@ function snapshotData(snapshot) {
 function wasArchived(response) {
 
 	// Hide loading animation
-	ui.display('loading-animation', false);
+	ui.hide('loading-animation');
 
 	if (response.archived === false) { // Page was not archived
 
@@ -115,7 +115,7 @@ function wasArchived(response) {
 		});
 
 		// Show view button.
-		ui.display('overlay-button', true);
+		ui.display('overlay-button');
 	}
 }
 
@@ -130,8 +130,8 @@ function isValid(status) {
 
 		// Event listener for archive now button
 		document.getElementById('archive-now').addEventListener('click', function () {
-			ui.display('overlay', true);
-			ui.display('loading-animation', true);
+			ui.display('overlay');
+			ui.display('loading-animation');
 
 			// Add .overlay to #options-box
 			ui.addClass('options-box', 'overlay');
@@ -149,7 +149,7 @@ function isValid(status) {
 		ui.content('overlay-title', '');
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
 
-		ui.display('overlay', true);
+		ui.display('overlay');
 
 		// Add .overlay to #options-box
 		ui.addClass('options-box', 'overlay');
@@ -168,8 +168,8 @@ function eventListeners() {
 		document.getElementById('stats').addEventListener('click', function () {
 
 			// Show statistics div and back button
-			ui.display('statistics', true);
-			ui.display('back', true);
+			ui.display('statistics');
+			ui.display('back');
 
 			// Remove .overlay from #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
@@ -177,8 +177,8 @@ function eventListeners() {
 			}
 
 			// Hide option and stats buttons
-			ui.display('options', false);
-			ui.display('stats', false);
+			ui.hide('options');
+			ui.hide('stats');
 
 			// Display stats
 			ui.content('total-number', format.number(stats.get(), settings.get('numberFormat')));
@@ -188,8 +188,8 @@ function eventListeners() {
 		document.getElementById('back').addEventListener('click', function () {
 
 			// Show option and stats buttons
-			ui.display('options', true);
-			ui.display('stats', true);
+			ui.display('options');
+			ui.display('stats');
 
 			// Add .overlay to #options-box if #overlay is displayed
 			if (ui.isDisplayed('overlay') === true) {
@@ -197,14 +197,14 @@ function eventListeners() {
 			}
 
 			// Hide statistics div and back butto
-			ui.display('statistics', false);
-			ui.display('back', false);
+			ui.hide('statistics');
+			ui.hide('back');
 		});
 
 	} else { // Stats disabled. Hide button.
 
 		// Change display status of stats button
-		ui.display('stats', false);
+		ui.hide('stats');
 
 		// Change width of options button to 150px
 		ui.addClass('options', 'popup');

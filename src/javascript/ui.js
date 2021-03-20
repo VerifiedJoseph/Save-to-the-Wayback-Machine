@@ -45,22 +45,27 @@ function UI() {
 	};
 
 	/**
-	 * Change the display status of an element via the CSS class .hide
+	 * Display an element by remove the CSS class .hide
 	 * @param {string} id Element id
 	 * @param {boolean} boolean
 	 */
-	this.display = function display(id, boolean) {
+	this.display = function display(id) {
 
 		if (this.isElement(id) === true) {
-
-			if (boolean === true) { // Remove .hide class and display element
-				this.removeClass(id, 'hide');
-
-			} else if (boolean === false) { // Add .hide class and hide element
-				this.addClass(id, 'hide');
-			}
+			this.removeClass(id, 'hide');
 		}
 	};
+
+	/**
+	 * Hide an element by adding the CSS class .hide
+	 * @param {string} id Element id
+	 */
+	this.hide = function hide(id) {
+
+		if (this.isElement(id) === true) {
+			this.addClass(id, 'hide');
+		}
+	}
 
 	/*
 	 * Is the element displayed
