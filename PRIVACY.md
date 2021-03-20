@@ -11,7 +11,7 @@ The browser extension uses some web browsing information to function. The inform
 
 ## Browser Permissions
 
-The browser extension needs six browser permission to function. These permission are granted when the browser extension is installed by the user.
+The browser extension needs six browser permissions to function. These permissions are granted when the browser extension is installed by the user.
 
 Name | Description
 ------ | ------
