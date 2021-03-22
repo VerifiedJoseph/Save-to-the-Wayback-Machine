@@ -96,7 +96,7 @@ function wasArchived(response) {
 		debug.log('Page Not Archived \n URL :' + response.url + '\n Status code: ' + response.code + '\n Reason: ' + response.error);
 
 		// Overlay Title
-		ui.content('overlay-title', 'Page Not Archived');
+		ui.content('overlay-title', browser.i18n.getMessage('PageNotArchived'));
 
 		// Overlay Error/Note
 		ui.content('overlay-reason', response.error);
@@ -107,7 +107,7 @@ function wasArchived(response) {
 		stats.update();
 
 		// Title
-		ui.content('overlay-title', 'Page Archived');
+		ui.content('overlay-title', browser.i18n.getMessage('PageArchived'));
 
 		// Add event listener for view button.
 		document.getElementById('overlay-button').addEventListener('click', function () {
