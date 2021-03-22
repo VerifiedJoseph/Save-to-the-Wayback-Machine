@@ -88,9 +88,4 @@
 		"message": "Page has not been archived",
 		"description": "Text telling the user that a page has not been archived by the Wayback Machine."
 	},
-
-	"StatisticsDisabled": {
-		"message": "Statistics are disabled",
-		"description": "Button title telling the user that statistics are disabled."
-	}
 }
