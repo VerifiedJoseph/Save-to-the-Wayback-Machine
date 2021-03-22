@@ -74,6 +74,16 @@
 		"description": "Default archive failed error text"
 	},
 
+	"PageArchived": {
+		"message": "Page Archived",
+		"description": "Text telling the user that a page has been archived"
+	},
+
+	"PageNotArchived": {
+		"message": "Page Not Archived",
+		"description": "Text telling the user that a page has been not archived"
+	},
+
 	"UrlValidationFailed": {
 		"message": "This page can not be archived!",
 		"description": "Text telling the user that the page was not archived as its URL failed validation."
@@ -87,5 +97,5 @@
 	"ApiPageNotArchived": {
 		"message": "Page has not been archived",
 		"description": "Text telling the user that a page has not been archived by the Wayback Machine."
-	},
+	}
 }
