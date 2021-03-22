@@ -148,9 +148,10 @@ function displayTimeZones() {
  */
 function status(text) {
 	ui.content('status', text);
+	ui.display('status');
 
 	setTimeout(function () { // Set Timeout
-		ui.content('status', '');
+		ui.hide('status');
 	}, 1750);
 }
 
