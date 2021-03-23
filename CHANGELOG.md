@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [5.4.11](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.9) - 2021-03-23
+## [5.4.11](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.11) - 2021-03-23
 ### Additions:
 * Added function `hide()` to `ui.js`. ([`36f73fd`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/36f73fd794ea31d3698c398b396b9e4fed5441ea))
 * Added english locale strings `PageArchived` and `PageNotArchived`. ([`b836a24`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/b836a24eda3385761d057e0378c050b6a27529c8), [`22c4684`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/22c46842a4b085d0f0e7911e7502f862cb3b67c1))
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 ### Fixes:
 * Fixed incorrect variable used in function `title()` in `ui.js`. ([`ca79dc3`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ca79dc3acfa62758e142b1c85f55ebdb37265d8b))
 
-## [5.4.10](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.9) - 2021-02-16
+## [5.4.10](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.10) - 2021-02-16
 ### Changes:
 * Updated Spacetime timezone library to version [6.12.5](https://github.com/spencermountain/spacetime/releases/tag/6.12.5).
 * Updated privacy policy link in `options.html` to use [policy](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/blob/master/PRIVACY.md) hosted in the github repository. ([`2c08af`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/2c08af1c22953aaefba6bef6ad5702200bc20eac))
