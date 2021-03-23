@@ -77,7 +77,7 @@ function snapshotData(snapshot) {
 	} catch (exception) {
 		ui.content('message', exception.message);
 		ui.hide('archive-version');
-		ui.display('archive-history');
+		ui.hide('archive-history');
 	}
 }
 
