@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.4.11](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.9) - 2021-03-23
+### Additions:
+* Added function `hide()` to `ui.js`. ([`36f73fd`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/36f73fd794ea31d3698c398b396b9e4fed5441ea))
+* Added english locale strings `PageArchived` and `PageNotArchived`. ([`b836a24`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/b836a24eda3385761d057e0378c050b6a27529c8), [`22c4684`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/22c46842a4b085d0f0e7911e7502f862cb3b67c1))
+* Added english locale string `ApiPageNotArchived`. ([`a287044`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/a2870441c291fc0ec07db5cf4a5d9049e111bd19))
+
+### Changes:
+* Updated Spacetime timezone library to version [6.14.0](https://github.com/spencermountain/spacetime/releases/tag/6.14.0).
+* Updated `popup.js` to set date & time in title attribute of HTML element `#since` when displaying time since in `popup.html`. ([`b21e27e`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/b21e27eab208f558d1c044b74a3c8629973b8d8a))
+* Updated functions in `ui.js` to use 'typeof' when checking for undefined variables. ([`d96f183`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/d96f183bfaf99f7be6eed57e62ead60060ef39d0))
+* Updated function `snapshotData()` to use a try...catch block in `popup.js` ([`03ef622`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/03ef622917fc1aa68a48c5662bc451f511392a80))
+* Renamed array `hostNameBlacklist` to `hostnameDenylist` in `global.js` ([`9ef1603`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/9ef1603471be7e475fc419acf9dfa9a90a2347ca))
+* Removed unused english locale string `StatisticsDisabled` ([`53f3e45`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/53f3e45c1f97b366b55a5f878f724999d09e13b3))
+
+### Fixes:
+* Fixed incorrect variable used in function `title()` in `ui.js`. ([`ca79dc3`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ca79dc3acfa62758e142b1c85f55ebdb37265d8b))
+
 ## [5.4.10](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.9) - 2021-02-16
 ### Changes:
 * Updated Spacetime timezone library to version [6.12.5](https://github.com/spencermountain/spacetime/releases/tag/6.12.5).
