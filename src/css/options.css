@@ -160,30 +160,36 @@ select:disabled ~ span:after {
 	margin-left: -1px;
 }
 
-.checkbox input[type="checkbox"], .radio input[type="radio"] {
+.checkbox input[type="checkbox"],
+.radio input[type="radio"] {
 	opacity: 0;
 }
 
-.checkbox label, .radio label {
+.checkbox label,
+.radio label {
 	cursor: pointer;
 	position: relative;
 	display: inline-block;
 }
 
-.checkbox label::before,.checkbox label::after,
-.radio label::before, .radio label::after {
+.checkbox label::before,
+.checkbox label::after,
+.radio label::before,
+.radio label::after {
 	position: absolute;
 	content: "";
 	display: inline-block;
 }
 
-.checkbox input[type="checkbox"]:focus ~ label::before, .radio input[type="radio"]:focus ~ label::before {
+.checkbox input[type="checkbox"]:focus ~ label::before,
+.radio input[type="radio"]:focus ~ label::before {
 	color: black;
 	outline: 1px solid;
 	border: 1px solid #ccc;
 }
 
-.checkbox label::before, .radio label::before {
+.checkbox label::before,
+.radio label::before {
 	width: 20px;
 	height: 20px;
 	border: 1px solid #ccc;
@@ -203,29 +209,33 @@ select:disabled ~ span:after {
 
 .radio label::after {
 	width: 12px;
-    height: 12px;
-    border: 3px solid;
+	height: 12px;
+	border: 3px solid;
 	left: -20px;
-    top: 7px;
-    background-color: #000;
+	top: 7px;
+	background-color: #000;
 }
 
-.checkbox .text, .radio .text {
+.checkbox .text,
+.radio .text {
 	padding-top: 3px;
 	display: inline-block;
 	padding-left: 1px;
 	margin-top: 1px;
 }
 
-.checkbox input[type="checkbox"] + label::after, .radio input[type="radio"] + label::after {
+.checkbox input[type="checkbox"] + label::after,
+.radio input[type="radio"] + label::after {
 	content: none;
 }
 
-.checkbox input[type="checkbox"]:checked + label::after, .radio input[type="radio"]:checked + label::after {
+.checkbox input[type="checkbox"]:checked + label::after,
+.radio input[type="radio"]:checked + label::after {
 	content: "";
 }
 
-.checkbox input[type="checkbox"]:disabled + label, .radio input[type="radio"]:disabled + label {
+.checkbox input[type="checkbox"]:disabled + label,
+.radio input[type="radio"]:disabled + label {
 	color: #999999;
 	cursor: not-allowed;
 }
