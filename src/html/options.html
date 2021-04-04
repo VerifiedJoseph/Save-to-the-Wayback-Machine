@@ -39,12 +39,20 @@
 					</div>
 				</label>
 			</div>
-			<div class="option bottom">
+			<!--<div class="option bottom">
 				<label class="checkbox">
-					<input type="checkbox" id="log_number" />
+					<input type="checkbox" id="log_number">
 					<span></span>
 					<p class="text">Log number of pages archived</p>
 				</label>
+			</div>-->
+			<div class="option bottom">
+				<div class="checkbox">
+					<input type="checkbox" id="log_number">
+					<label for="log_number">
+						<span class="text">Log number of pages archived</span>
+					</label>
+				</div>
 			</div>
 		</div>
 
@@ -60,15 +68,21 @@
 					</div>
 				</label>
 			</div>
-
 			<div class="option">
+				<div class="radio">
+					<input type="radio" id="full_date_time" name="date_display" value="1" />
+					<label for="full_date_time">
+						<span class="text">Display full date and time</span>
+					</label>
+				</div>
+			</div>
+			<!--<div class="option">
 				<label class="radio">
 					<input type="radio" id="full_date_time" name="date_display" value="1" />
 					<span></span>
 					<p class="text">Display full date and time.</p>
 				</label>
-			</div>
-
+			</div>-->
 			<div class="option child">
 				<label>
 					<span id="note-date">Date format:</span>
@@ -99,82 +113,151 @@
 			</div>
 
 			<div class="option bottom">
-				<label class="radio">
+				<div class="radio">
+					<input type="radio" id="time_since_archive" name="date_display" value="1" />
+					<label for="time_since_archive">
+						<p class="text">Display time since last archive. e.g: "1 hour ago"</p>
+					</label>
+				</div>
+				<!--<label class="radio">
 					<input type="radio" id="time_since_archive" name="date_display" value="1" />
 					<span></span>
 					<p class="text">Display time since last archive. e.g: "1 hour ago"</p>
-				</label>
+				</label>-->
 			</div>
 		</div>
 
 		<h3>Right Click Menu</h3>
 		<div class="section">
 			<div class="option">
-				<label class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu">
+					<label for="context_menu">
+						<span class="text">Enable right click menu options.</span>
+					</label>
+				</div>
+
+				<!--<label class="checkbox">
 					<input type="checkbox" id="context_menu" />
 					<span></span>
 					<p class="text">Enable right click menu options.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for archiving pages." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_page">
+					<label title="Adds a right click menu option for archiving pages." for="context_menu_page">
+						<span class="text">Enable 'Archive Page' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for archiving pages." class="checkbox">
 					<input type="checkbox" id="context_menu_page" />
 					<span></span>
 					<p class="text">Enable 'Archive Page' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for archiving links." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_link">
+					<label title="Adds a right click menu option for archiving pages." for="context_menu_link">
+						<span class="text">Enable 'Archive Link' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for archiving links." class="checkbox">
 					<input type="checkbox" id="context_menu_link" />
 					<span></span>
 					<p class="text">Enable 'Archive Link' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for archiving images." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_image">
+					<label title="Adds a right click menu option for archiving images." for="context_menu_image">
+						<span class="text">Enable 'Archive Image' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for archiving images." class="checkbox">
 					<input type="checkbox" id="context_menu_image" />
 					<span></span>
 					<p class="text">Enable 'Archive Image' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for viewing archived versions of a page." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_view_page">
+					<label title="Adds a right click menu option for viewing archived versions of a page." for="context_menu_view_page">
+						<span class="text">Enable 'View Archived Page' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for viewing archived versions of a page." class="checkbox">
 					<input type="checkbox" id="context_menu_view_page" />
 					<span></span>
 					<p class="text">Enable 'View Archived Page' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for viewing archived versions of a link." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_view_link">
+					<label title="Adds a right click menu option for viewing archived versions of a link." for="context_menu_view_link">
+						<span class="text">Enable 'View Archived Link' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for viewing archived versions of a link." class="checkbox">
 					<input type="checkbox" id="context_menu_view_link" />
 					<span></span>
 					<p class="text">Enable 'View Archived Link' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child">
-				<label title="Adds a right click menu option for viewing archived versions of an image." class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_menu_view_image">
+					<label title="Adds a right click menu option for viewing archived versions of an image." for="context_menu_view_image">
+						<span class="text">Enable 'View Archived Image' option.</span>
+					</label>
+				</div>
+
+				<!--<label title="Adds a right click menu option for viewing archived versions of an image." class="checkbox">
 					<input type="checkbox" id="context_menu_view_image" />
 					<span></span>
 					<p class="text">Enable 'View Archived Image' option.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option bottom">
-				<label class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="context_note">
+					<label for="context_note">
+						<p class="text">Show a notification if a page, link or image cannot be archived.</p>
+					</label>
+				</div>
+
+				<!--<label class="checkbox">
 					<input type="checkbox" id="context_note" />
 					<span></span>
 					<p class="text">Show a notification if a page, link or image cannot be archived.</p>
-				</label>
+				</label>-->
 			</div>
 		</div>
 
 		<h3>Notifications</h3>
 		<div class="section">
 			<div class="option">
-				<label class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="note_sound">
+					<label for="note_sound">
+						<p class="text">Play an alert sound when a notification is displayed.</p>
+					</label>
+				</div>
+
+				<!--<label class="checkbox">
 					<input type="checkbox" id="note_sound" />
 					<span></span>
 					<p class="text">Play an alert sound when a notification is displayed.</p>
-				</label>
+				</label>-->
 			</div>
 			<div class="option child bottom">
 				<label>
@@ -196,22 +279,36 @@
 		<h3>Tab Behavior</h3>
 		<div class="section">
 			<div class="option">
-				<label class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="archive_links">
+					<label for="archive_links">
+						<p class="text">Open archive.org links in the active tab instead of in a new tab.</p>
+					</label>
+				</div>
+
+				<!--<label class="checkbox">
 					<input type="checkbox" id="archive_links" />
 					<span></span>
 					<p class="text">Open archive.org links in the active tab instead of in a new tab.</p>
-				</label>
+				</label>-->
 			</div>
 		</div>
 
 		<h3>Debug</h3>
 		<div class="section">
 			<div class="option">
-				<label class="checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="debug_log">
+					<label for="debug_log">
+						<p class="text">Log debug messages in the browser's developer console.</p>
+					</label>
+				</div>
+
+				<!--<label class="checkbox">
 					<input type="checkbox" id="debug_log" />
 					<span></span>
 					<p class="text">Log debug messages in the browser's developer console.</p>
-				</label>
+				</label>-->
 			</div>
 		</div>
 
