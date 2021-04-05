@@ -65,23 +65,21 @@ body {
 	padding-top: 0px;
 }
 
-#options-box.overlay {
-	background-color: #50453D;
-	opacity: 0.9;
-}
-
 /* Overlay */
 #overlay {
 	position: absolute;
 	width: 100%;
-	background-color: #50453D;
-	opacity: 0.9;
 	text-align: center;
 	color: white;
 	height: 154px;
 	font-weight: 700;
 	padding: 12px;
 	top: -4px;
+}
+
+#overlay,
+#options-box.overlay {
+	background-color: rgba(80, 69, 61, 0.9);
 }
 
 #overlay > .title {
