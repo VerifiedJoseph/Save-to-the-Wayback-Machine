@@ -182,7 +182,7 @@ select:disabled ~ span:after {
 }
 
 .checkbox input[type="checkbox"]:focus ~ label::before,
-.radio input[type="radio"]:focus ~ label::before {
+.radio input[type="radio"]:focus ~ label::before, select:focus {
 	color: black;
 	outline: 1px solid;
 	border: 1px solid #ccc;
