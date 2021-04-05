@@ -81,16 +81,10 @@ button.inline {
 }
 
 /* Inputs */
-label.checkbox input[type="checkbox"],
-label.radio input[type="radio"] {
-	display: none;
-}
-
 input:disabled + div {
 	color: #999999;
 }
 
-label > button:disabled ~ div,
 .disabled {
 	color: #999999;
 	cursor: not-allowed;
