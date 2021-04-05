@@ -133,6 +133,11 @@ function isValid(status) {
 			ui.display('overlay');
 			ui.display('loading-animation');
 
+			// Disable archive and view buttons
+			ui.disableInput('archive-now');
+			ui.disableInput('archive-version');
+			ui.disableInput('archive-history');
+
 			// Add .overlay to #options-box
 			ui.addClass('options-box', 'overlay');
 
@@ -145,6 +150,9 @@ function isValid(status) {
 		snapshot.get(url, snapshotData);
 
 	} else { // URL is not valid.
+		
+		// Disable archive button
+		ui.disableInput('archive-now');
 
 		ui.content('overlay-title', '');
 		ui.content('overlay-reason', browser.i18n.getMessage('UrlValidationFailed'));
