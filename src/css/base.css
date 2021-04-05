@@ -58,6 +58,12 @@ button:disabled {
 	cursor: not-allowed;
 }
 
+button:focus {
+	color: black;
+	outline: 1px solid;
+	border: 1px solid #ccc;
+}
+
 button.small {
 	width: 74px;
 }
