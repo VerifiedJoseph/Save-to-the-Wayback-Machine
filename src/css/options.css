@@ -33,15 +33,6 @@ h3 {
 	padding: 8px;
 }
 
-.header > .image {
-	height: 40px;
-}
-
-.header > .image > img {
-	width: 40px;
-	height: 40px;
-}
-
 /* Status Text */
 #status {
 	padding: 2px 8px;
