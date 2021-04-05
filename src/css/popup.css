@@ -1,6 +1,6 @@
 body {
 	line-height: 1;
-	height: 177px;
+	height: 100%;
 	width: 160px;
 }
 
@@ -14,10 +14,8 @@ body {
 
 /* Archive & statistics Divs */
 #archive {
-	margin: 4px;
-	margin-bottom: 0px;
-	padding-bottom: 4px;
 	height: 150px;
+	padding: 4px;
 }
 
 .details {
@@ -48,11 +46,11 @@ body {
 #statistics {
 	background-color: #FFF;
 	position: absolute;
-	top: -4px;
+	top: 0px;
 	padding: 10px;
 	width: 100%;
 	margin: 0;
-	height: 154px;
+	height: 150px;
 }
 
 .number {
@@ -62,7 +60,6 @@ body {
 
 #options-box {
 	padding: 4px;
-	padding-top: 0px;
 }
 
 /* Overlay */
