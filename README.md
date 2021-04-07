@@ -18,7 +18,7 @@ Browser extension for quickly saving web pages to the Internet Archive's [Waybac
 [Privacy Policy](PRIVACY.md) - [Browser Permissions](PRIVACY.md#browser-permissions) - [Installing in other browsers](INSTALL.md)
 
 ## Dependencies
-- [Spacetime - JavaScript timezone library (version 6.14.0)](https://github.com/spencermountain/spacetime)
+- [Spacetime - JavaScript timezone library (version 6.15.0)](https://github.com/spencermountain/spacetime)
 
 ## Changelog
 
