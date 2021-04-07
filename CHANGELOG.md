@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.5.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.5.0) - 2021-04-07
+### Additions:
+* Added keyboard accessible checkboxes and radio buttons. ([#179](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176))
+* Added CSS `focus` rule to `select` drop-downs and buttons ([`644e118`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/644e1180785ec5f53a4bff51c85dbf55c5e2f2e7), [`862812f`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/862812f05bf60b276f7dd01483de12d02b0d1649))
+
+### Changes:
+* Updated Spacetime timezone library to version [6.15.0](https://github.com/spencermountain/spacetime/releases/tag/6.15.0).
+* Buttons for archiving and viewing archived pages in `popup.html` are now disabled when not needed. ([`7855c3e`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/7855c3e388f573de63faeb0d0202dc41c7b011ff))
+* Only lower opacity of `#overlay` background not its contents in `popup.css`. ([`6907465`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/6907465386a5de75afeddf33c3898fd531b1fd81))
+* Minor changes to CSS rules in `popup.css`. ([`2f82a19`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/2f82a1904d697ff60891ec5c0deb5b501ec3bb8b))
+* Remove unused and redundant CSS rules from `options.css` ([`ab064b1`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/ab064b1dafaf1ad1367b4e8024a55b51861b01e9), [`c8399a3`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/c8399a39c1736e2a531abede23d9cc41def677bc))
+
 ## [5.4.11](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.4.11) - 2021-03-23
 ### Additions:
 * Added function `hide()` to `ui.js`. ([`36f73fd`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/36f73fd794ea31d3698c398b396b9e4fed5441ea))
