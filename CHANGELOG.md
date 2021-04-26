@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [5.5.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.5.0) - 2021-04-07
 ### Additions:
-* Added keyboard accessible checkboxes and radio buttons. ([#179](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/176))
+* Added keyboard accessible checkboxes and radio buttons. ([#179](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/179))
 * Added CSS `focus` rule to `select` drop-downs and buttons ([`644e118`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/644e1180785ec5f53a4bff51c85dbf55c5e2f2e7), [`862812f`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/862812f05bf60b276f7dd01483de12d02b0d1649))
 
 ### Changes:
