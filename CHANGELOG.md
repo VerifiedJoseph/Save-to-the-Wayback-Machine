@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.5.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.5.1) - 2021-05-27
+### Changes:
+* Updated Spacetime timezone library to version [6.16.1](https://github.com/spencermountain/spacetime/releases/tag/6.16.1).
+
 ## [5.5.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.5.0) - 2021-04-07
 ### Additions:
 * Added keyboard accessible checkboxes and radio buttons. ([#179](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/179))
