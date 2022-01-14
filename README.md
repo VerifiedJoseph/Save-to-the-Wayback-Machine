@@ -11,7 +11,7 @@ Browser extension for quickly saving web pages to the Internet Archive's [Waybac
 * Keep track of the number of pages that you have archived.
 
 ## Download
-[![Download from Firefox add-ons](assets/badges/firefox.png)](https://addons.mozilla.org/en-GB/firefox/addon/save-to-the-wayback-machine/)
+[![Download from Firefox add-ons](assets/badges/firefox.png)](https://addons.mozilla.org/firefox/addon/save-to-the-wayback-machine/)
 [![Download from the Google Chrome Web Store](assets/badges/chrome.png)](https://chrome.google.com/webstore/detail/save-to-the-wayback-machi/eebpioaailbjojmdbmlpomfgijnlcemk)
 [![Download from Microsoft Edge Addons](assets/badges/ms-edge-chromium.png)](https://microsoftedge.microsoft.com/addons/detail/iooklpgaeiailiicahcjomphppicpgoo)
 
