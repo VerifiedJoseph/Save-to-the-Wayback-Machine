@@ -16,15 +16,7 @@ importScripts(
 var settings = new Settings(),
 	debug = new Debug(),
 	notify = new Notify(),
-	stats = new Stats(),
-	contextMenuSet = {
-		'archivePage': false,
-		'archiveLink': false,
-		'archiveImage': false,
-		'viewArchivedPage': false,
-		'viewArchivedLink': false,
-		'viewArchivedImage': false
-	};
+	stats = new Stats();
 
 /**
  * Create a context menu option
@@ -73,74 +65,74 @@ function contextMenus() {
 	if (settings.get('contextMenu') === true) {
 
 		// Pages
-		if (contextMenuSet.archivePage === false && settings.get('contextMenuArchive').page === true) {
+		if (settings.get('contextMenuArchive').page === true) {
 			contextMenuCreate(
 				'archivePage',
 				'page',
 				browser.i18n.getMessage('MenuItemArchivePage')
 			);
 
-		} else if (contextMenuSet.archivePage === true && settings.get('contextMenuArchive').page === false) {
+		} else if (settings.get('contextMenuArchive').page === false) {
 			contextMenuRemove('archivePage');
 		}
 
 		// Links
-		if (contextMenuSet.archiveLink === false && settings.get('contextMenuArchive').link === true) {
+		if (settings.get('contextMenuArchive').link === true) {
 			contextMenuCreate(
 				'archiveLink',
 				'link',
 				browser.i18n.getMessage('MenuItemArchiveLink')
 			);
 
-		} else if (contextMenuSet.archiveLink === true && settings.get('contextMenuArchive').link === false) {
+		} else if (settings.get('contextMenuArchive').link === false) {
 			contextMenuRemove('archiveLink');
 		}
 
 		// Images
-		if (contextMenuSet.archiveImage === false && settings.get('contextMenuArchive').image === true) {
+		if (settings.get('contextMenuArchive').image === true) {
 			contextMenuCreate(
 				'archiveImage',
 				'image',
 				browser.i18n.getMessage('MenuItemArchiveImage')
 			);
 
-		} else if (contextMenuSet.archiveImage === true && settings.get('contextMenuArchive').image === false) {
+		} else if (settings.get('contextMenuArchive').image === false) {
 			contextMenuRemove('archiveImage');
 		}
 		
 		// View archived page
-		if (contextMenuSet.viewArchivedPage === false && settings.get('contextMenuViewArchived').page === true) {
+		if (settings.get('contextMenuViewArchived').page === true) {
 			contextMenuCreate(
 				'viewArchivedPage',
 				'page',
 				browser.i18n.getMessage('MenuItemViewArchivedPage')
 			);
 
-		} else if (contextMenuSet.viewArchivedPage === true && settings.get('contextMenuViewArchived').page === false) {
+		} else if (settings.get('contextMenuViewArchived').page === false) {
 			contextMenuRemove('viewArchivedPage');
 		}
 		
 		// View archived link
-		if (contextMenuSet.viewArchivedLink === false && settings.get('contextMenuViewArchived').link === true) {
+		if (settings.get('contextMenuViewArchived').link === true) {
 			contextMenuCreate(
 				'viewArchivedLink',
 				'link',
 				browser.i18n.getMessage('MenuItemViewArchivedLink')
 			);
 
-		} else if (contextMenuSet.viewArchivedLink === true && settings.get('contextMenuViewArchived').link === false) {
+		} else if (settings.get('contextMenuViewArchived').link === false) {
 			contextMenuRemove('viewArchivedLink');
 		}
 		
 		// View archived image
-		if (contextMenuSet.viewArchivedImage === false && settings.get('contextMenuViewArchived').image === true) {
+		if (settings.get('contextMenuViewArchived').image === true) {
 			contextMenuCreate(
 				'viewArchivedImage',
 				'image',
 				browser.i18n.getMessage('MenuItemViewArchivedImage')
 			);
 
-		} else if (contextMenuSet.viewArchivedImage === true && settings.get('contextMenuViewArchived').image === false) {
+		} else if (settings.get('contextMenuViewArchived').image === false) {
 			contextMenuRemove('viewArchivedImage');
 		}
 	} else { // Context menu options disabled, remove all options.
