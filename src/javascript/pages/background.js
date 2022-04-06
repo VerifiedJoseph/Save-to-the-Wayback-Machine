@@ -2,6 +2,17 @@
 /*global Stats, Settings, Notify, validate, archive, browser, Debug, global, console */
 "use strict";
 
+importScripts(
+	'/javascript/global.js',
+	'/javascript/settings.js',
+	'/javascript/debug.js',
+	'/javascript/stats.js',
+	'/javascript/request.js',
+	'/javascript/validate.js',
+	'/javascript/archive.js',
+	'/javascript/notify.js',
+);
+
 var settings = new Settings(),
 	debug = new Debug(),
 	notify = new Notify(),

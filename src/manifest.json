@@ -36,8 +36,7 @@
 		"default_title": "__MSG_extensionName__"
 	},
 	"background": {
-		"persistent": false,
-		"page": "html/background.html"
+		"service_worker": "javascript/pages/background.js"
 	},
 	"options_page": "html/options.html",
 	"options_ui": {
