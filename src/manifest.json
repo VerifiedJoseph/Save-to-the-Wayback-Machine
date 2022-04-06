@@ -3,9 +3,9 @@
 	"description": "__MSG_extensionDescription__",
 	"author": "VerifiedJoseph",
 	"default_locale": "en",
-	"version": "5.5.2",
-	"version_name": "5.5.2",
-	"manifest_version": 2,
+	"version": "6.0.0",
+	"version_name": "6.0.0",
+	"manifest_version": 3,
 	"icons": {
 		"16": "images/icons/16.png",
 		"19": "images/icons/19.png",
@@ -19,11 +19,13 @@
 		"notifications",
 		"storage",
 		"contextMenus",
-		"activeTab",
+		"activeTab"
+	],
+	"host_permissions": [
 		"https://archive.org/wayback/available?url=*",
 		"https://web.archive.org/*"
 	],
-	"browser_action": {
+	"action": {
 		"default_icon": {
 			"16": "images/icons/16.png",
 			"19": "images/icons/19.png",
@@ -40,7 +42,6 @@
 	"options_page": "html/options.html",
 	"options_ui": {
 		"page": "html/options.html",
-		"open_in_tab": true,
-		"chrome_style": false
+		"open_in_tab": true
 	}
 }
