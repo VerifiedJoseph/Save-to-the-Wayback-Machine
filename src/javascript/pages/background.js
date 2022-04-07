@@ -171,11 +171,17 @@ function wasArchived(response) {
 	}
 }
 
+function setPopup() {
+	browser.browserAction.setPopup({popup: 'html/popup.html'});
+}
 
 // Load settings on start.
 settings.load(function () {
 
 	if (settings.isLoaded() === true) {
+		if (settings.get('eolRead') === true) {
+			setPopup();
+		}
 
 		// Start Debug logging (if enabled by user)
 		debug.enable(settings.get('logDebugInfo'));
@@ -234,6 +240,10 @@ browser.storage.onChanged.addListener(function () {
 	settings.load(function () {
 
 		if (settings.isLoaded() === true) {
+			if (settings.get('eolRead') === true) {
+				setPopup();
+			}
+
 			// Start Debug logging (if enabled by user)
 			debug.enable(settings.get('logDebugInfo'));
 			debug.log('settings updated and loaded');
@@ -305,3 +315,14 @@ browser.runtime.onInstalled.addListener(function (details) {
 		}
 	});
 });
+
+// Opens message page on toolbar click if EOL not yet acknowledged.
+chrome.browserAction.onClicked.addListener((tab) => {
+	settings.load(function () {
+		if (settings.get('eolRead') === false) {
+			browser.tabs.create({
+				url: browser.runtime.getURL('html/message.html')
+			});
+		}
+	});
+  })
