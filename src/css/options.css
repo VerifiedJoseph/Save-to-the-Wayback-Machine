@@ -224,3 +224,16 @@ select:disabled ~ span:after {
 	color: #999999;
 	cursor: not-allowed;
 }
+
+
+div.section > p.message {
+	margin-bottom: 0px;
+}
+
+h4.m {
+	margin: 15px 0 10px 0;
+}
+
+div.section.button {
+	margin: 30px 0px;
+}
