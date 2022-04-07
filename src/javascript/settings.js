@@ -45,8 +45,9 @@ function Settings() {
 			openInCurrent: false, // Open archive.org links in the current tab.
 
 			// Debug
-			logDebugInfo: false // Log debug messages in the developer console.
+			logDebugInfo: false, // Log debug messages in the developer console.
 
+			eolRead: false // End-user has seen and acknowledged the end-of-life message
 		};
 
 	/**
