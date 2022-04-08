@@ -8,8 +8,8 @@
 	"description": "__MSG_extensionDescription__",
 	"author": "VerifiedJoseph",
 	"default_locale": "en",
-	"version": "5.5.2",
-	"version_name": "5.5.2",
+	"version": "5.6.0",
+	"version_name": "5.6.0",
 	"manifest_version": 2,
 	"icons": {
 		"16": "images/icons/16.png",
