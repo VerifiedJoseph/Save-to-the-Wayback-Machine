@@ -172,7 +172,7 @@ function wasArchived(response) {
 }
 
 function setPopup() {
-	browser.browserAction.setPopup({popup: 'html/popup.html'});
+	browser.browserAction.setPopup({popup: browser.runtime.getURL('html/popup.html')});
 }
 
 // Load settings on start.
