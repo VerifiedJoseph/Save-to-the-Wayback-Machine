@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.6.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.6.0) - 2022-04-08
+### Additions:
+* Added end-of-life message & page. ([#185](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/185))
+
 ## [5.5.2](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.5.2) - 2021-07-30
 ### Changes:
 * Updated Spacetime timezone library to version [6.16.2](https://github.com/spencermountain/spacetime/releases/tag/6.16.2).
