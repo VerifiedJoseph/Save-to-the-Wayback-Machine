@@ -35,7 +35,6 @@
 			"32": "images/icons/32.png",
 			"64": "images/icons/64.png"
 		},
-		"default_popup": "html/popup.html",
 		"default_title": "__MSG_extensionName__"
 	},
 	"background": {
