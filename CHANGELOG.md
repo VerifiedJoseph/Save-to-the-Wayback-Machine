@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.6.1](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.6.1) - 2022-04-08
+### Fixes:
+* Fixed popup URL in `background.js`. ([`46af3c6`](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/commit/46af3c675cc67efa75455168ef216461502c6e7a))
+
 ## [5.6.0](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/releases/tag/v5.6.0) - 2022-04-08
 ### Additions:
 * Added end-of-life message & page. ([#185](https://github.com/VerifiedJoseph/Save-to-the-Wayback-Machine/pull/185))
